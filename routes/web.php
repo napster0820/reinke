@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('registro', function(){
+    return view('register');
+});
+Route::get('datos', function(){
+    return view('input_data_dashboard');
+});
