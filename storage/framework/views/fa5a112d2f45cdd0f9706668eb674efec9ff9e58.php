@@ -3,7 +3,8 @@
 <?php $__env->startSection('content'); ?>
     <br>
     <div class="dashboard container">
-       <form action="#">
+       <form action="#" method="POST">
+            <?php echo csrf_field(); ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">

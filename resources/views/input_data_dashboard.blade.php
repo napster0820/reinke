@@ -5,7 +5,8 @@
 @section('content')
     <br>
     <div class="dashboard container">
-       <form action="#">
+       <form action="#" method="POST">
+            @csrf
             <div class="row">
                 <div class="col-12">
                     <div class="card">

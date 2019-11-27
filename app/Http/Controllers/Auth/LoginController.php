@@ -3,21 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
     /**
@@ -36,4 +27,26 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function index()
+    {
+        return view('auth.login');
+    }
+
+    public function authenticate(Request $request)
+    {
+        $validadtedData = $request->validate([
+            'email'=> ['required','email','max:100'],
+            'password'=> ['required','max:100']
+        ]);
+
+        $credentials = $request->only('email','password');
+
+        if(Auth::attempt($credentials)){
+            echo 'Si estoy en la base';
+        }else{
+            echo 'no es estoy en la base';
+        }
+    }
+
 }

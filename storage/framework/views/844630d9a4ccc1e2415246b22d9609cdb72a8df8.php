@@ -9,29 +9,30 @@
             <div class="col-4">
                 <div class="wapper-register">
                     <h2>Registro</h2>
-                    <form action="#">
+                    <form action="#" method="POST">
+                        <?php echo csrf_field(); ?>
                         <div class="form-group">
                             <label for="name">Nombre:</label>
-                            <input type="name" class="form-control" id="name" placeholder="Nombre" name="name">
+                            <input type="name" class="form-control" id="name" placeholder="Nombre" name="name" required maxlength="100">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                            <label for="email">Correo:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Correo" name="email" required maxlength="100">
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Password" name="pswd">
+                            <label for="pwd">Contraseña:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Contraseña" name="pswd" required maxlength="255">
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Confirmar password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Confirmar password" name="pswd">
+                            <label for="pwd">Confirmar contraseña:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Confirmar contraseña" name="pswd" required maxlength="255">
                         </div>
                         <div class="form-group form-check">
                             <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="remember"> Acepto las politicas
+                                <input class="form-check-input" type="checkbox" name="privacidad"> Acepto las politicas
                             </label>
                         </div>
-                            <a href="<?php echo e(url('/')); ?>" class="btn btn-primary btn-block">Registrar</a>
+                            <button class="btn btn-primary btn-block" type="submit">Registrar</button>
                     </form>
                 </div>
              </div>   

@@ -10,13 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => ['web']], function(){
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('registro', function(){
-    return view('register');
-});
-Route::get('datos', function(){
-    return view('input_data_dashboard');
+    //Init route's
+    Route::get('/', 'Auth\LoginController@index')->name('login');
+    Route::post('auth', 'Auth\LoginController@authenticate');
+
+    Route::get('registro', function(){
+        return view('register');
+    });
+    
+    //Here protetected route's
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('datos', function(){
+            return view('input_data_dashboard');
+        });
+    });
 });

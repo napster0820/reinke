@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name', 100);
             $table->string('email',100)->unique();
             $table->string('password');
-            $table->smallInteger('tried', 5);
+            $table->integer('tried', false, true, 5);
             $table->boolean('password_lock');
             $table->rememberToken();
             $table->timestamps();
