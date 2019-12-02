@@ -43,9 +43,9 @@ class LoginController extends Controller
         $credentials = $request->only('email','password');
 
         if(Auth::attempt($credentials)){
-            echo 'Si estoy en la base';
+            return redirect()->intended('datos');
         }else{
-            echo 'no es estoy en la base';
+           return redirect('/')->with('errorAccess', 'Usuario o contraseña incorrectos');
         }
     }
 

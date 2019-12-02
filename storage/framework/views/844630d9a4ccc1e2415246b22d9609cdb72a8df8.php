@@ -4,39 +4,53 @@
     <div id="bg-register" class="container-fluid">
        <div class="row">
             <div class="col-8">
-                 <img class="img-fluid" src="images/new_bg_register_reinke.jpg" alt="">
+                 <img class="img-fluid" src="images/new_bg_register_reinke.jpg" alt="Fondo Reinke Registro">
             </div>
             <div class="col-4">
                 <div class="wapper-register">
+                    <?php if($errors->any()): ?>
+                        <div class="alert alert-danger">
+                            <ul>
+                                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><?php echo e($error); ?></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
                     <h2>Registro</h2>
-                    <form action="#" method="POST">
+                    <form action="<?php echo e(url('registro')); ?>" method="POST">
                         <?php echo csrf_field(); ?>
                         <div class="form-group">
                             <label for="name">Nombre:</label>
-                            <input type="name" class="form-control" id="name" placeholder="Nombre" name="name" required maxlength="100">
+                            <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" value="<?php echo e(old('name')); ?>" required maxlength="100">
                         </div>
                         <div class="form-group">
                             <label for="email">Correo:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Correo" name="email" required maxlength="100">
+                            <input type="email" class="form-control" id="email" placeholder="Correo" name="email" value="<?php echo e(old('email')); ?>" required maxlength="100">
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Contraseña:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Contraseña" name="pswd" required maxlength="255">
+                            <label for="password">Contraseña:</label>
+                            <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password" required maxlength="255">
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Confirmar contraseña:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Confirmar contraseña" name="pswd" required maxlength="255">
+                            <label for="password_confirmation ">Confirmar contraseña:</label>
+                            <input type="password" class="form-control" id="password_confirmation" placeholder="Confirmar contraseña" name="password_confirmation" required maxlength="255">
                         </div>
                         <div class="form-group form-check">
                             <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="privacidad"> Acepto las politicas
+                                <input id="btn_privacy" class="form-check-input" type="checkbox" value="<?php echo e(old('privacy')); ?>" name="privacy" required> Acepto las politicas
                             </label>
                         </div>
-                            <button class="btn btn-primary btn-block" type="submit">Registrar</button>
+                            <button id="btn_register" class="btn btn-primary btn-block" type="submit">Registrar</button>
                     </form>
                 </div>
              </div>   
        </div>
     </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scipts'); ?>
+    ##parent-placeholder-daa97b9c5577f0c1889807cb7d908bbdc813da71##
+    <script src="js/register_validate.js"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\reinke\resources\views/register.blade.php ENDPATH**/ ?>

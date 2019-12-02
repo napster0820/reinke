@@ -7,6 +7,7 @@
                 <div class="bg_account">
                 <form action="<?php echo e(url('auth')); ?>" method="POST">
                         <?php echo csrf_field(); ?>
+                        <?php echo $__env->make('alerts.message_login', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <h2 class="text-center">Iniciar sesión</h2>
                         <i class="fas fa-user-circle fa-7x"></i>
                         <input type="email" class="form-control form-control" placeholder="Correo" name="email" value="<?php echo e(old('correo')); ?>" maxlength="100" required autofocus>

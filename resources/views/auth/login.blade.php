@@ -9,6 +9,7 @@
                 <div class="bg_account">
                 <form action="{{ url('auth') }}" method="POST">
                         @csrf
+                        @include('alerts.message_login')
                         <h2 class="text-center">Iniciar sesión</h2>
                         <i class="fas fa-user-circle fa-7x"></i>
                         <input type="email" class="form-control form-control" placeholder="Correo" name="email" value="{{ old('correo') }}" maxlength="100" required autofocus>

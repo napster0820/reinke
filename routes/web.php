@@ -15,10 +15,8 @@ Route::group(['middleware' => ['web']], function(){
     //Init route's
     Route::get('/', 'Auth\LoginController@index')->name('login');
     Route::post('auth', 'Auth\LoginController@authenticate');
-
-    Route::get('registro', function(){
-        return view('register');
-    });
+    Route::get('registro', 'Auth\RegisterController@index');
+    Route::post('registro', 'Auth\RegisterController@create');
     
     //Here protetected route's
     Route::group(['middleware' => ['auth']], function () {
