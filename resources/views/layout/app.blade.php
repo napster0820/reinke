@@ -30,12 +30,29 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto ">
-           
+          <ul id="menu-principal" class="navbar-nav mr-auto ">
           </ul>
+          @if(Auth::check() === true)  
           <span class="navbar-text">
-          <a href="{{ url('registro') }}">Registrarse</a>
+            <a><strong>Bienvenido:</strong> {{ Auth::user()->name }}</a>
           </span>
+          <span class="navbar-text">
+            <a href="{{ url('datos') }}"><strong>Datos</strong></a>
+          </span>
+          <span class="navbar-text">
+              <a href="{{ url('dashboard') }}"><strong>Dashboard</strong></a>
+          </span>
+          <span class="navbar-text">
+            <a href="{{ url('historial') }}"><strong>Historial</strong></a>
+          </span>
+          <span class="navbar-text">
+          <a href="{{ url('salir') }}"><strong>Salir</strong></a>
+          </span>
+           @else
+            <span class="navbar-text">
+              <a href="{{ url('registro') }}">Registrarse</a>
+            </span>
+          @endif
         </div>
       </nav>
     

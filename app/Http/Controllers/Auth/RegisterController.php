@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/datos';
+    protected $redirectTo = '/';
 
     public function __construct()
     {
@@ -67,9 +67,14 @@ class RegisterController extends Controller
         $user->email = $request->email;
         $user->password= Hash::make($request->password);
         $user->tried = 0;
+        $user->password_lock = false;
 
-        $user->save();
+        $saveControl = $user->save();
 
-        return 'Todo salio bien ';
+        if($saveControl === true){
+            return redirect()->with('successRegister','Usuario registrado correctamente');
+        }else{
+            return redirect()->with('errorRegister', 'Problemas al registrar usuario');
+        }
     }
 }

@@ -30,12 +30,29 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto ">
-           
+          <ul id="menu-principal" class="navbar-nav mr-auto ">
           </ul>
+          <?php if(Auth::check() === true): ?>  
           <span class="navbar-text">
-          <a href="<?php echo e(url('registro')); ?>">Registrarse</a>
+            <a><strong>Bienvenido:</strong> <?php echo e(Auth::user()->name); ?></a>
           </span>
+          <span class="navbar-text">
+            <a href="<?php echo e(url('datos')); ?>"><strong>Datos</strong></a>
+          </span>
+          <span class="navbar-text">
+              <a href="<?php echo e(url('dashboard')); ?>"><strong>Dashboard</strong></a>
+          </span>
+          <span class="navbar-text">
+            <a href="<?php echo e(url('historial')); ?>"><strong>Historial</strong></a>
+          </span>
+          <span class="navbar-text">
+          <a href="<?php echo e(url('salir')); ?>"><strong>Salir</strong></a>
+          </span>
+           <?php else: ?>
+            <span class="navbar-text">
+              <a href="<?php echo e(url('registro')); ?>">Registrarse</a>
+            </span>
+          <?php endif; ?>
         </div>
       </nav>
     

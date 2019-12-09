@@ -1,5 +1,5 @@
 <?php if(Session::has('errorAccess')): ?>
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
         <?php echo e(Session::get('errorAccess')); ?>
 
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

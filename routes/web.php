@@ -22,6 +22,13 @@ Route::group(['middleware' => ['web']], function(){
     Route::group(['middleware' => ['auth']], function () {
         Route::get('datos', function(){
             return view('input_data_dashboard');
+        })->name('datos');
+        Route::get('dashboard', function (){
+            return view('dashboard');
         });
+        Route::get('historial', function(){
+            return view('history');
+        });
+        Route::get('salir','Auth\LoginController@logout');
     });
 });

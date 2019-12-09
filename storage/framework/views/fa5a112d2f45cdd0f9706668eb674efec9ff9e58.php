@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Registro'); ?>
+<?php $__env->startSection('title', 'Datos'); ?>
 
 <?php $__env->startSection('content'); ?>
     <br>
@@ -68,14 +68,16 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h5 class="card-title">Flujo financiado</h5>
-                                    <p class="card-text">Tablas Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla officiis laudantium ipsum, commodi quo, architecto a doloremque, fugiat perspiciatis quis veritatis blanditiis. At non dolores corporis, animi cumque neque a?</p>
+                                    <img class="img-fluid" src="images/financiado.png" alt="financiado">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-12">
                                     <h5 class="card-title">Flujo contado</h5>
-                                    <p class="card-text">Tablas Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla officiis laudantium ipsum, commodi quo, architecto a doloremque, fugiat perspiciatis quis veritatis blanditiis. At non dolores corporis, animi cumque neque a?</p>
+                                    <img class="img-fluid" src="images/contado.png" alt="contado">
+                                    <br>
+                                    <br>
                                     <a href="#" class="btn btn-primary float-right">Generar Dashboard</a>
                                 </div>
                             </div>

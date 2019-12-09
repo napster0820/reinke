@@ -16,7 +16,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'datos';
 
     /**
      * Create a new controller instance.
@@ -33,7 +33,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function authenticate(Request $request)
+    protected function authenticate(Request $request)
     {
         $validadtedData = $request->validate([
             'email'=> ['required','email','max:100'],
@@ -45,8 +45,13 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             return redirect()->intended('datos');
         }else{
-           return redirect('/')->with('errorAccess', 'Usuario o contraseña incorrectos');
+            return redirect('/')->with('errorAccess', 'Usuario o contraseña incorrectos');
         }
     }
 
+    protected function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
 }
