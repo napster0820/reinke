@@ -76,9 +76,9 @@
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div id="home" class="container tab-pane"><br>
+                            <div id="home" class="container tab-pane active"><br>
+                                <img class="img-fluid" src="images/linea_del_tiempo.png" alt="Liena del tiempo">
                                 
-                                <p class="text-center">Seleccione el tipo de gráfico para generar aquí la información que desea visualizar </p>
                             </div>
                             <div id="menu1" class="container tab-pane fade"><br>
                                 <img class="img-fluid" src="images/grafico_de_barras.png" alt="Barras">

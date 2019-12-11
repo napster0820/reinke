@@ -2,6 +2,11 @@
 
 @section('title', 'Datos')
 
+@section('cdn-css')
+    @parent 
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+@endsection
+
 @section('content')
     <br>
     <div class="dashboard container">
@@ -70,17 +75,142 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h5 class="card-title">Flujo financiado</h5>
-                                    <img class="img-fluid" src="images/financiado.png" alt="financiado">
+                                    <table id="example" class="display" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Periodo</th>
+                                                    <th>Capital sistema de riego</th>
+                                                    <th>Saldo insoluto</th>
+                                                    <th>Interés sistema de riego</th>
+                                                    <th>Inversíon cultivo</th>
+                                                    <th>Energía</th>
+                                                    <th>Mantenimiento</th>
+                                                    <th>Ingreso</th>
+                                                    <th>Liquidación</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>51%</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>61%</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>61%</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>n</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>61%</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Periodo</th>
+                                                    <th>Capital sistema de riego</th>
+                                                    <th>Saldo insoluto</th>
+                                                    <th>Interés sistema de riego</th>
+                                                    <th>Inversíon cultivo</th>
+                                                    <th>Energía</th>
+                                                    <th>Mantenimiento</th>
+                                                    <th>Ingreso</th>
+                                                    <th>Liquidación</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
                                 </div>
                             </div>
-                            <br>
+                            <hr>
                             <div class="row">
                                 <div class="col-12">
                                     <h5 class="card-title">Flujo contado</h5>
-                                    <img class="img-fluid" src="images/contado.png" alt="contado">
+                                    <table id="example2" class="display" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Periodo</th>
+                                                    <th>Sistema de riego</th>
+                                                    <th>Inversíon cultivo</th>
+                                                    <th>Energía</th>
+                                                    <th>Mantenimiento</th>
+                                                    <th>Ingreso</th>
+                                                    <th>Liquidación</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>1505</td>
+                                                    <td>$25,000</td>
+                                                    <td>$8000</td>
+                                                    <td>$12,000</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>                                                   
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>1505</td>
+                                                    <td>$25,000</td>
+                                                    <td>$8000</td>
+                                                    <td>$12,000</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>  
+                                                </tr>
+                                                <tr>
+                                                    <td>n</td>
+                                                    <td>1505</td>
+                                                    <td>$25,000</td>
+                                                    <td>$8000</td>
+                                                    <td>$12,000</td>
+                                                    <td>$320,800</td>
+                                                    <td>$320,800</td>  
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Periodo</th>
+                                                    <th>Sistema de riego</th>
+                                                    <th>Inversíon cultivo</th>
+                                                    <th>Energía</th>
+                                                    <th>Mantenimiento</th>
+                                                    <th>Ingreso</th>
+                                                    <th>Liquidación</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
                                     <br>
                                     <br>
-                                    <a href="#" class="btn btn-primary float-right">Generar Dashboard</a>
+                                    <a href="{{ url("dashboard") }}" class="btn btn-primary float-right">Generar Dashboard</a>
                                 </div>
                             </div>
                         </div>
@@ -89,4 +219,19 @@
             </div>
        </form>
     </div>
+@endsection
+
+@section('scipts')
+    @parent
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(document).ready(function() {
+                $('#example').DataTable();
+
+                $('#example2').DataTable();
+            });
+        });
+    </script>
 @endsection

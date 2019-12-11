@@ -25,7 +25,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"><img src="images/reinke_logo.png" alt="reinke_logo"></a>
+        <a class="navbar-brand" href="{{ url("datos") }}"><img src="images/reinke_logo.png" alt="reinke_logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,7 +34,7 @@
           </ul>
           @if(Auth::check() === true)  
           <span class="navbar-text">
-            <a><strong>Bienvenido:</strong> {{ Auth::user()->name }}</a>
+            <span class="welcome-user"><strong>Bienvenido:</strong> {{ Auth::user()->name }}</span>
           </span>
           <span class="navbar-text">
             <a href="{{ url('datos') }}"><strong>Datos</strong></a>
