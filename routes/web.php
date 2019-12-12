@@ -23,9 +23,7 @@ Route::group(['middleware' => ['web']], function(){
 
         Route::get('dashboard', 'DashboardController@index');
 
-        Route::get('historial', function(){
-            return view('history');
-        });
+        Route::get('history', 'DashboardController@buscar_historial');
 
         Route::get('salir','Auth\LoginController@logout');
 
