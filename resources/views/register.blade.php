@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group form-check">
                             <label class="form-check-label">
-                                <input id="btn_privacy" class="form-check-input" type="checkbox" value="{{ old('privacy') }}" name="privacy" required> Acepto a las <a href="{{ url("politica") }}") }}>políticas</a> de privacidad y uso del sistema.
+                                <input id="btn_privacy" class="form-check-input" type="checkbox" value="{{ old('privacy') }}" name="privacy" required> Acepto a las <a href="{{ url("politica") }}") }}>políticas de privacidad y uso</a> del sistema.
                             </label>
                         </div>
                             <button id="btn_register" class="btn btn-primary btn-block" type="submit">Registrar</button>
