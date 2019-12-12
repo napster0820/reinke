@@ -10,6 +10,9 @@ Route::group(['middleware' => ['web']], function(){
     Route::get('politica', function() {
         return view('politica');
     });
+    Route::get('ayuda', function() {
+        return view('ayuda');
+    });
     
     //Here protetected route's
     Route::group(['middleware' => ['auth']], function () {

@@ -46,6 +46,9 @@
             <a href="{{ url('historial') }}"><strong>Historial</strong></a>
           </span>
           <span class="navbar-text">
+            <a href="{{ url('ayuda') }}"><strong>Ayuda</strong></a>
+          </span>
+          <span class="navbar-text">
           <a href="{{ url('salir') }}"><strong>Salir</strong></a>
           </span>
            @else

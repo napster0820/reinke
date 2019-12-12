@@ -11,6 +11,6 @@ class DashboardController extends Controller
     }
 
     public function guardar_cliente($cliente) {
-
+    	null;
     }
 }
