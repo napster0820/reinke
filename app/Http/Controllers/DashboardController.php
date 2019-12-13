@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Artisan;
 use App;
 
 class DashboardController extends Controller
@@ -32,11 +33,23 @@ class DashboardController extends Controller
     	$clientUpdate = App\Client::findOrFail($id);
     	$clientUpdate->name = $request->name;
     	$clientUpdate->address = $request->address;
+    	$clientUpdate->touch();
 
-    	$sucess = $clientUpdate->save();
+    	$success = $clientUpdate->save();
 
-    	if ($sucess) {
+    	if ($success) {
     		return view('dashboard');
+    	};
+    }
+
+    public function delete($id) {
+    	$clientDelete = App\Client::findOrFail($id);
+    	$delete = $clientDelete->delete();
+
+    	if ($delete) {
+    		return redirect()->to('/historial')->with('mensaje', 'El cliente fue eliminado con exito.');
+    	} else {
+    		return back()->with('mensaje_err', 'Problemas al eliminar registro.');
     	};
     }
 }

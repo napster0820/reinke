@@ -22,8 +22,9 @@ Route::group(['middleware' => ['web']], function(){
         })->name('datos');
 
         //metodos distintos pueden tener la misma ruta
-        Route::get('datos/editar({id}', 'DashboardController@editar')->name('datos.editar');
-        Route::put('datos/editar({id}', 'DashboardController@update')->name('datos.update');
+        Route::get('datos/editar/{id}', 'DashboardController@editar')->name('datos.editar');
+        Route::put('datos/editar/{id}', 'DashboardController@update')->name('datos.update');
+        Route::delete('datos/delete/{id}', 'DashboardController@delete')->name('datos.delete');
 
         Route::get('dashboard', 'DashboardController@index');
 
