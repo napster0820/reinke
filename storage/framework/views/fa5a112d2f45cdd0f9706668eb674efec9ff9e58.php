@@ -219,8 +219,8 @@
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('scipts'); ?>
-    ##parent-placeholder-daa97b9c5577f0c1889807cb7d908bbdc813da71##
+<?php $__env->startSection('js'); ?>
+    ##parent-placeholder-93f8bb0eb2c659b85694486c41717eaf0fe23cd4##
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>

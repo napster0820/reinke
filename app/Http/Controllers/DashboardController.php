@@ -37,6 +37,6 @@ class DashboardController extends Controller
 
     	if ($sucess) {
     		return view('dashboard');
-    	};
+    	}
     }
 }

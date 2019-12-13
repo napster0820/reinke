@@ -2,11 +2,16 @@
 
 @section('title', 'Dashboard')
 
+@section('cdn-css')
+    @parent
+   
+@endsection
+
 @section('content')
     <br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-4">
+            <div class="col-3">
                 <h4>Tipo de flujo</h4>
                 <div class="card">
                     <div class="card-body">
@@ -61,26 +66,38 @@
                 </div>  
                 <br>        
             </div>
-            <div class="col-8">
+            <div class="col-9">
                 <h4>Tipo de gráfico</h4>
                 <div class="card">
                     <div class="card-body">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#home">Linea del tiempo</a>
+                            <a class="nav-link active" data-toggle="tab" href="#home"><img src="" alt=""><img class="nav-timeline" src="images/line_images/timeline.png" alt=""></a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#menu1">Gráfico de rentabilidad</a>
+                            <a class="nav-link" data-toggle="tab" href="#menu1"><img class="nav-timeline" src="images/line_images/barras.png" alt=""></a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#menu2">Gráfico inversión  </a>
+                            <a class="nav-link" data-toggle="tab" href="#menu2"><img class="nav-timeline" src="images/line_images/estadistica.png" alt=""></a>
                             </li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div id="home" class="container tab-pane active"><br>
-                                <img class="img-fluid" src="images/linea_del_tiempo.png" alt="Liena del tiempo">
-                                {{-- <p class="text-center">Seleccione el tipo de gráfico para generar aquí la información que desea visualizar </p> --}}
+                                <ul id="list-timeline" class="list-inline">
+                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/0.jpg" alt=""></li>
+                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/1.jpg" alt=""></li>
+                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/2.jpg" alt=""></li>
+                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/3.jpg" alt=""></li>
+                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/4.jpg" alt=""></li>
+                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/5.jpg" alt=""></li>
+                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/6.jpg" alt=""></li>
+                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/7.jpg" alt=""></li>
+                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/8.jpg" alt=""></li>
+                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/9.jpg" alt=""></li>
+                                </ul>
+                                <hr>
+                                <div id="content-general" class="content"></div>
                             </div>
                             <div id="menu1" class="container tab-pane fade"><br>
                                 <img class="img-fluid" src="images/grafico_de_barras.png" alt="Barras">
@@ -95,4 +112,12 @@
         </div>
     </div>
 @endsection
+
+@section('js')
+    @parent
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="js/main_dashboard.js"></script>
+@endsection
+
            

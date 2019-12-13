@@ -63,7 +63,7 @@
 	</div>
 @endsection
 
-@section('scipts')
+@section('js')
     @parent
     <!--script src="js/register_validate.js"></script-->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
