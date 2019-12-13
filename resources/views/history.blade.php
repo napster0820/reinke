@@ -26,7 +26,7 @@
 						                        <th>#</th>
 						                        <th>Cliente</th>
 						                        <th>Fecha creación</th>
-						                        <th>Fecha última generación</th>
+						                        <th>Fecha alteración</th>
 						                        <th>Acciones</th>
 						                    </tr>
 						                </thead>
@@ -48,8 +48,8 @@
 						                        <th>#</th>
 						                        <th>Cliente</th>
 						                        <th>Fecha creación</th>
-						                        <th>Fecha última generación</th>
-						                        <th></th>
+						                        <th>Fecha alteración</th>
+						                        <th>Acciones</th>
 						                    </tr>
 						                </tfoot>
 						            </table>

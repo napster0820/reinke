@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App;
 
 class DashboardController extends Controller
@@ -16,7 +17,8 @@ class DashboardController extends Controller
     //}
 
     public function buscar_historial() {
-    	$clients = App\Client::all();
+    	$user_id = Auth::id();
+    	$clients = App\User::find($user_id)->clients;
     	return view('history', compact('clients'));
     }
 
