@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE-9"> 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta content="yes" name="apple-mobile-web-app-capable" />
-	<meta name="Fidel Rivera, Alicia Luna, Ana Scariot" content="Reinke">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
+    <meta name="Fidel Rivera, Alicia Luna, Ana Scariot" content="Reinke">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
     <meta name="distribution" content="global">
     <!-- Styles -->
     @section('cdn-css')

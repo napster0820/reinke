@@ -16,17 +16,17 @@ class CreateFinanceFlowsTable extends Migration
         Schema::create('finance_flows', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('period',false, true, 5);
-            $table->double('vl_irrigation_sys', 8, 2);
-            $table->double('vl_investment', 8, 2);
-            $table->double('vl_energy', 8, 2);
-            $table->double('vl_maintenance', 8, 2);
-            $table->double('vl_entry', 8, 2);
-            $table->double('vl_liquidation', 8, 2);
-            $table->double('vl_period_flow', 8, 2);
-            $table->double('vl_accumulated', 8, 2);
-            $table->double('vl_balance', 8, 2);
-            $table->double('vl_int_irrigation_sys', 8, 2);
-            $table->double('vl_crop_interest', 8, 2);
+            $table->double('vl_irrigation_sys', 255, 2);
+            $table->double('vl_investment', 255, 2);
+            $table->double('vl_energy', 255, 2);
+            $table->double('vl_maintenance', 255, 2);
+            $table->double('vl_entry', 255, 2);
+            $table->double('vl_liquidation', 255, 2);
+            $table->double('vl_period_flow', 255, 2);
+            $table->double('vl_accumulated', 255, 2);
+            $table->double('vl_balance', 255, 2);
+            $table->double('vl_int_irrigation_sys', 255, 2);
+            $table->double('vl_crop_interest', 255, 2);
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients');
             $table->timestamps();

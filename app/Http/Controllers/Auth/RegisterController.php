@@ -72,9 +72,9 @@ class RegisterController extends Controller
         $saveControl = $user->save();
 
         if($saveControl === true){
-            return redirect()->with('successRegister','Usuario registrado correctamente');
+            return redirect('registro')->with('successRegister','Usuario registrado correctamente');
         }else{
-            return redirect()->with('errorRegister', 'Problemas al registrar usuario');
+            return redirect('registro')->with('errorRegister', 'Problemas al registrar usuario');
         }
     }
 }
