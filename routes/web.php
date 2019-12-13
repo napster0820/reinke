@@ -21,6 +21,10 @@ Route::group(['middleware' => ['web']], function(){
             return view('input_data_dashboard');
         })->name('datos');
 
+        //metodos distintos pueden tener la misma ruta
+        Route::get('datos/editar({id}', 'DashboardController@editar')->name('datos.editar');
+        Route::put('datos/editar({id}', 'DashboardController@update')->name('datos.update');
+
         Route::get('dashboard', 'DashboardController@index');
 
         Route::get('historial', 'DashboardController@buscar_historial')->name('historial');

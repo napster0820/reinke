@@ -10,7 +10,7 @@
 @section('content')
 	<div class = "history container">
 		<form action="#" method="post">
-			@csrf
+			@csrf <!--para proteger la página web, no permite que sean enviados formularios de otras-->
 			<br>
 			<div class="row">
                 <div class="col-12">
@@ -27,7 +27,7 @@
 						                        <th>Cliente</th>
 						                        <th>Fecha creación</th>
 						                        <th>Fecha última generación</th>
-						                        <th></th>
+						                        <th>Acciones</th>
 						                    </tr>
 						                </thead>
 						                <tbody>
@@ -38,8 +38,7 @@
 													<td>{{$client->created_at}}</td>
 													<td>{{$client->updated_at}}</td>
 													<td>
-														<a href="{{ url('dashboard') }}" ><i class="fas fa-eye"></i></a> | 
-														<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+														<a href="{{ url('dashboard') }}" ><i class="fas fa-eye"></i></a> | <a href="{{ route('datos.editar', $client->id) }}"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
 													</td>
 							                    </tr>
 						                    @endforeach
@@ -73,6 +72,6 @@
 	    $(document).ready(function() {
 	        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
 	        $('#dashboardList').DataTable();
-	    } );
+	    });
 	</script>
 @endsection

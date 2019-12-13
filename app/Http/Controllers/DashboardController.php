@@ -19,4 +19,22 @@ class DashboardController extends Controller
     	$clients = App\Client::all();
     	return view('history', compact('clients'));
     }
+
+    public function editar($id) {
+    	$client = App\Client::findOrFail($id);
+    	return view('edit_data_dashboard', compact('client'));
+    }
+    
+    public function update(Request $request, $id) {
+
+    	$clientUpdate = App\Client::findOrFail($id);
+    	$clientUpdate->name = $request->name;
+    	$clientUpdate->address = $request->address;
+
+    	$sucess = $clientUpdate->save();
+
+    	if ($sucess) {
+    		return view('dashboard');
+    	};
+    }
 }
