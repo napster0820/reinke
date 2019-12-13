@@ -12,15 +12,15 @@
                     <div class="card-body">
                        <div class="row">
                            <div class="col-6">
-                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Contado</label>
+                                 <div class="form-radio">
+                                    <input type="radio" name="tipo_flujo" class="form-radio-input" id="exampleRadio1" value="contado">
+                                    <label class="form-radio-label" for="exampleRadio2">Contado</label>
                                 </div>
                            </div>
                            <div class="col-6">
-                               <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                                    <label class="form-check-label" for="exampleCheck2">Financiado</label>
+                               <div class="form-radio">
+                                    <input type="radio" name="tipo_flujo" class="form-radio-input" id="exampleRadio2" value="financiado">
+                                    <label class="form-radio-label" for="exampleRadio2">Financiado</label>
                                 </div>
                            </div>
                        </div>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="card">
+                <!--div class="card">
                     <div class="card-header">
                         Flujo
                     </div>
@@ -48,7 +48,7 @@
                         <h4 class="card-title text-center">Contado</h4>
                     </div>
                 </div>
-                <br>
+                <br-->
                 <div class="card">
                     <div class="card-header">
                         Resumen de inversión  
