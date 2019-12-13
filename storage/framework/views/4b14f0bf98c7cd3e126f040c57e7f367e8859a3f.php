@@ -46,6 +46,9 @@
             <a href="<?php echo e(url('historial')); ?>"><strong>Historial</strong></a>
           </span>
           <span class="navbar-text">
+            <a href="<?php echo e(url('ayuda')); ?>"><strong>Ayuda</strong></a>
+          </span>
+          <span class="navbar-text">
           <a href="<?php echo e(url('salir')); ?>"><strong>Salir</strong></a>
           </span>
            <?php else: ?>
