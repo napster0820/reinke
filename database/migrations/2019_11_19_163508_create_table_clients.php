@@ -18,7 +18,7 @@ class CreateTableClients extends Migration
             $table->string('name', 100);
             $table->string('address', 100);
             $table->string('country_state', 100);
-            $table->string('email', 100)->unique();
+            $table->string('email', 100); //no puede ser, pq no caso de tener dos vendedores distintos para el mismo cliente, genera un error
             $table->integer('production');
             $table->string('culture', 45);
             $table->unsignedBigInteger('user_id');

@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 Route::group(['middleware' => ['web']], function(){
 
     //Init route's
@@ -17,18 +7,29 @@ Route::group(['middleware' => ['web']], function(){
     Route::post('auth', 'Auth\LoginController@authenticate');
     Route::get('registro', 'Auth\RegisterController@index');
     Route::post('registro', 'Auth\RegisterController@create');
+    Route::get('politica', function() {
+        return view('politica');
+    });
+    Route::get('ayuda', function() {
+        return view('ayuda');
+    });
     
     //Here protetected route's
     Route::group(['middleware' => ['auth']], function () {
+
         Route::get('datos', function(){
             return view('input_data_dashboard');
         })->name('datos');
-        Route::get('dashboard', function (){
-            return view('dashboard');
-        });
-        Route::get('historial', function(){
-            return view('history');
-        });
+
+        //metodos distintos pueden tener la misma ruta
+        Route::get('datos/editar({id}', 'DashboardController@editar')->name('datos.editar');
+        Route::put('datos/editar({id}', 'DashboardController@update')->name('datos.update');
+
+        Route::get('dashboard', 'DashboardController@index');
+
+        Route::get('historial', 'DashboardController@buscar_historial')->name('historial');
+
         Route::get('salir','Auth\LoginController@logout');
+
     });
 });
