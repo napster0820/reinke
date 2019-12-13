@@ -9,7 +9,6 @@
 
 @section('content')
 	<div class = "history container">
-		<form action="#" method="post">
 			@csrf <!--para proteger la página web, no permite que sean enviados formularios de otras-->
 			<br>
 			<div class="row">
@@ -17,6 +16,17 @@
                     <div class="card">
                         <h5 class="card-header">Historial de Dashboards generados</h5>
                         <!--p>El dashboard quedará disponbile durante 60 días después de su última visualización.</p-->
+                        @if (session('mensaje'))
+                        	<div class="alert alert-success">
+                        		{{ session(mensaje) }}
+                        	</div>
+                        @endif
+                        @if (session('mensaje_err'))
+                        	<div class="alert alert-error">
+                        		{{ session(mensaje_err) }}
+                        	</div>
+                        @endif
+
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
@@ -38,7 +48,13 @@
 													<td>{{$client->created_at}}</td>
 													<td>{{$client->updated_at}}</td>
 													<td>
-														<a href="{{ url('dashboard') }}" ><i class="fas fa-eye"></i></a> | <a href="{{ route('datos.editar', $client->id) }}"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+														<a href="{{ url('dashboard') }}" ><i class="fas fa-eye"></i></a> | 
+														<a href="{{ route('datos.editar', $client->id) }}"><i class="fas fa-edit"></i></a> | 
+														<form action="{{ route('datos.delete', $client->id) }}" method="POST" class="d-inline">
+															@method('DELETE')
+															@csrf 
+															<button type="submit"><i class="fas fa-user-times"></i></button>
+														</form>
 													</td>
 							                    </tr>
 						                    @endforeach
@@ -59,7 +75,6 @@
 					</div>
 				</div>
 			</div>
-		</form>
 	</div>
 @endsection
 
