@@ -7,7 +7,6 @@
 
 <?php $__env->startSection('content'); ?>
 	<div class = "history container">
-		<form action="#" method="post">
 			<?php echo csrf_field(); ?> <!--para proteger la página web, no permite que sean enviados formularios de otras-->
 			<br>
 			<div class="row">
@@ -15,6 +14,19 @@
                     <div class="card">
                         <h5 class="card-header">Historial de Dashboards generados</h5>
                         <!--p>El dashboard quedará disponbile durante 60 días después de su última visualización.</p-->
+                        <?php if(session('mensaje')): ?>
+                        	<div class="alert alert-success">
+                        		<?php echo e(session(mensaje)); ?>
+
+                        	</div>
+                        <?php endif; ?>
+                        <?php if(session('mensaje_err')): ?>
+                        	<div class="alert alert-error">
+                        		<?php echo e(session(mensaje_err)); ?>
+
+                        	</div>
+                        <?php endif; ?>
+
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
@@ -36,7 +48,13 @@
 													<td><?php echo e($client->created_at); ?></td>
 													<td><?php echo e($client->updated_at); ?></td>
 													<td>
-														<a href="<?php echo e(url('dashboard')); ?>" ><i class="fas fa-eye"></i></a> | <a href="<?php echo e(route('datos.editar', $client->id)); ?>"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+														<a href="<?php echo e(url('dashboard')); ?>" ><i class="fas fa-eye"></i></a> | 
+														<a href="<?php echo e(route('datos.editar', $client->id)); ?>"><i class="fas fa-edit"></i></a> | 
+														<form action="<?php echo e(route('datos.delete', $client->id)); ?>" method="POST" class="d-inline">
+															<?php echo method_field('DELETE'); ?>
+															<?php echo csrf_field(); ?> 
+															<button type="submit"><i class="fas fa-user-times"></i></button>
+														</form>
 													</td>
 							                    </tr>
 						                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -57,7 +75,6 @@
 					</div>
 				</div>
 			</div>
-		</form>
 	</div>
 <?php $__env->stopSection(); ?>
 

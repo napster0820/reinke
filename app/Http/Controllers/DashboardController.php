@@ -52,7 +52,7 @@ class DashboardController extends Controller
     	} else {
     		$mensaje = 'Problemas al eliminar registro.';
 			$seccion = 'mensaje_err';
-    	};
+    	}	
     	return back()->with($seccion, $mensaje);
     }
 }

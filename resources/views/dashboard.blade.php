@@ -70,6 +70,7 @@
                 <h4>Tipo de gráfico</h4>
                 <div class="card">
                     <div class="card-body">
+                        <!-- Navigation timeline -->
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#home"><img src="" alt=""><img class="nav-timeline" src="images/line_images/timeline.png" alt=""></a>
