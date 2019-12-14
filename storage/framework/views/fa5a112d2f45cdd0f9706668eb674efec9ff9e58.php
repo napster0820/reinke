@@ -254,14 +254,6 @@
     ##parent-placeholder-93f8bb0eb2c659b85694486c41717eaf0fe23cd4##
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $(document).ready(function() {
-                $('#example').DataTable();
-
-                $('#example2').DataTable();
-            });
-        });
-    </script>
+    <script src="js/input_main"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\reinke\resources\views/input_data_dashboard.blade.php ENDPATH**/ ?>

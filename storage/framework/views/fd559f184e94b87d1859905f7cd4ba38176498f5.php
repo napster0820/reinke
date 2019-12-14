@@ -82,7 +82,8 @@
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div id="home" class="container tab-pane active"><br>
+                            <div id="home" class="container tab-pane active">
+                                <br>
                                 <ul id="list-timeline" class="list-inline">
                                     <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/0.jpg" alt=""></li>
                                     <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/1.jpg" alt=""></li>
@@ -99,7 +100,7 @@
                                 <div id="content-general" class="content"></div>
                             </div>
                             <div id="menu1" class="container tab-pane fade"><br>
-                                <img class="img-fluid" src="images/grafico_de_barras.png" alt="Barras">
+                                <canvas id="myChart"></canvas>
                             </div>
                             <div id="menu2" class="container tab-pane fade"><br>
                                 <img class="img-fluid" src="images/grafico_de_gastos.png" alt="Barras">
@@ -114,8 +115,8 @@
 
 <?php $__env->startSection('js'); ?>
     ##parent-placeholder-93f8bb0eb2c659b85694486c41717eaf0fe23cd4##
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.min.js"></script>
     <script src="js/main_dashboard.js"></script>
 <?php $__env->stopSection(); ?>
 
