@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group form-check">
                             <label class="form-check-label">
-                                <input id="btn_privacy" class="form-check-input" type="checkbox" value="<?php echo e(old('privacy')); ?>" name="privacy" required> Acepto las politicas
+                                <input id="btn_privacy" class="form-check-input" type="checkbox" value="<?php echo e(old('privacy')); ?>" name="privacy" required> Acepto a las <a href="<?php echo e(url("politica")); ?>") }}>políticas de privacidad y uso</a> del sistema.
                             </label>
                         </div>
                             <button id="btn_register" class="btn btn-primary btn-block" type="submit">Registrar</button>

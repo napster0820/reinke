@@ -10,8 +10,9 @@
 @section('content')
     <br>
     <div class="dashboard container">
-       <form action="#" method="POST">
+       <form action="{{ url('datos') }}" method="POST">
             @csrf
+            @include('alerts.message_register_errors')
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -20,21 +21,21 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group row">
-                                        <label for="inputCiente" class="col-sm-3 col-form-label">Cliente:</label>
+                                        <label for="inputCliente" class="col-sm-3 col-form-label">Cliente:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputCiente" placeholder="Cliente">
+                                            <input type="text" class="form-control" id="inputCliente" placeholder="Cliente" name="name" value="name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección">
+                                            <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección" name="address" value="{{ old('address') }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputEstado" class="col-sm-3 col-form-label">Estado:</label>
                                         <div class="col-sm-9">
-                                            <select id="inputEstado" class="form-control">
+                                            <select id="inputEstado" class="form-control" name="country_state" value="{{old('country_state') }}">
                                                 <option value="0">Seleccione...</option>
                                                 <option value="1">Aguascalientes</option>
                                                 <option value="2">Baja California</option>
@@ -76,19 +77,19 @@
                                     <div class="form-group row">
                                         <label for="inputTon" class="col-sm-6 col-form-label">Producción estimada o (TonlHc):</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="inputTon" placeholder="(TonlHc)">
+                                            <input type="text" class="form-control" id="inputTon" placeholder="(TonlHc)" name="production" value="{{ old('production') }} }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputDireccion" class="col-sm-3 col-form-label">Cultivo:</label>
+                                        <label for="inputCultivo" class="col-sm-3 col-form-label">Cultivo:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputDireccion" placeholder="Cultivo">
+                                            <input type="text" class="form-control" id="inputCultivo" placeholder="Cultivo" name="culture" value="{{ old('culture') }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputEmail" class="col-sm-3 col-form-label">Email:</label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="{{ old('email') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <br>
+           <br>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -105,6 +106,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+
                                     <h5 class="card-title">Flujo financiado</h5>
                                     <table id="example" class="display" style="width:100%">
                                             <thead>
@@ -122,49 +124,32 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>51%</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
+                                                    <td><input type="text" id="row-1-period" name="period" value="1"></td>
+                                                    <td><input type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_investment" name="vl_investment" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_energy" name="vl_energy" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_maintenance" name="vl_maintenance" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_entry" name="vl_entry" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_liquidation" name="vl_liquidation" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_period_flow" name="vl_period_flow" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_accumulated" name="vl_accumulated" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_balance" name="vl_balance" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_int_irrigation_sys" name="vl_int_irrigation_sys" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value="61"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>2</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>61%</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>61%</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>n</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>61%</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                </tr>
+                                                   <td><input type="text" id="row-1-period" name="period" value="1"></td>
+                                                    <td><input type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_investment" name="vl_investment" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_energy" name="vl_energy" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_maintenance" name="vl_maintenance" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_entry" name="vl_entry" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_liquidation" name="vl_liquidation" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_period_flow" name="vl_period_flow" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_accumulated" name="vl_accumulated" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_balance" name="vl_balance" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_int_irrigation_sys" name="vl_int_irrigation_sys" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value="61"></td>
                                             </tbody>
                                             <tfoot>
                                                 <tr>
@@ -199,50 +184,22 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>1505</td>
-                                                    <td>$25,000</td>
-                                                    <td>$8000</td>
-                                                    <td>$12,000</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>                                                   
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>1505</td>
-                                                    <td>$25,000</td>
-                                                    <td>$8000</td>
-                                                    <td>$12,000</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>  
-                                                </tr>
-                                                <tr>
-                                                    <td>n</td>
-                                                    <td>1505</td>
-                                                    <td>$25,000</td>
-                                                    <td>$8000</td>
-                                                    <td>$12,000</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>  
-                                                </tr>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Periodo</th>
-                                                    <th>Sistema de riego</th>
-                                                    <th>Inversíon cultivo</th>
-                                                    <th>Energía</th>
-                                                    <th>Mantenimiento</th>
-                                                    <th>Ingreso</th>
-                                                    <th>Liquidación</th>
-                                                </tr>
+                                                <td><input type="text" id="row-1-period" name="period" value="2"></td>
+                                                    <td><input type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_investment" name="vl_investment" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_energy" name="vl_energy" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_maintenance" name="vl_maintenance" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_entry" name="vl_entry" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_liquidation" name="vl_liquidation" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_period_flow" name="vl_period_flow" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_accumulated" name="vl_accumulated" value="61"></td>
                                             </tfoot>
                                         </table>
                                     <br>
                                     <br>
-                                    <a href="{{ url("dashboard") }}" class="btn btn-primary float-right">Generar Dashboard</a>
-                                </div>
+                                    <button id="btn_generarDash" class="btn btn-primary float-right" type="submit">Generar Dashboard</button>
+                                   <!-- <a href="{{ url("dashboard") }}" class="btn btn-primary float-right">Generar Dashboard</a>
+                                </div>--->
                             </div>
                         </div>
                     </div>

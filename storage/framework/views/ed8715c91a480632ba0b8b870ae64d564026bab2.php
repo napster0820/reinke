@@ -7,7 +7,6 @@
 
 <?php $__env->startSection('content'); ?>
 	<div class = "history container">
-		<form action="#" method="post">
 			<?php echo csrf_field(); ?> <!--para proteger la página web, no permite que sean enviados formularios de otras-->
 			<br>
 			<div class="row">
@@ -18,13 +17,29 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+
+                                	<?php if(session('mensaje')): ?>
+			                        	<div class="alert alert-success alert-dismissable">
+			                        		<button type="button" class="close" data-dismiss="alert">&times;</button>
+			                        		<?php echo e(session('mensaje')); ?>
+
+			                        	</div>
+			                        <?php endif; ?>
+			                        <?php if(session('mensaje_err')): ?>
+			                        	<div class="alert alert-danger alert-dismissable">
+			                        		<button type="button" class="close" data-dismiss="alert">&times;</button>
+			                        		<?php echo e(session('mensaje_err')); ?>
+
+			                        	</div>
+			                        <?php endif; ?>
+
 									<table id="dashboardList" class="display" style="width:100%">
 						                <thead>
 						                    <tr>
 						                        <th>#</th>
 						                        <th>Cliente</th>
 						                        <th>Fecha creación</th>
-						                        <th>Fecha última generación</th>
+						                        <th>Fecha alteración</th>
 						                        <th>Acciones</th>
 						                    </tr>
 						                </thead>
@@ -36,7 +51,13 @@
 													<td><?php echo e($client->created_at); ?></td>
 													<td><?php echo e($client->updated_at); ?></td>
 													<td>
-														<a href="<?php echo e(url('dashboard')); ?>" ><i class="fas fa-eye"></i></a> | <a href="<?php echo e(route('datos.editar', $client->id)); ?>"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+														<a href="<?php echo e(url('dashboard')); ?>" data-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></a> | 
+														<a href="<?php echo e(route('datos.editar', $client->id)); ?>"><i class="fas fa-edit"></i></a> | 
+														<form action="<?php echo e(route('datos.delete', $client->id)); ?>" method="POST" class="d-inline">
+															<?php echo method_field('DELETE'); ?>
+															<?php echo csrf_field(); ?> 
+															<button type="submit" name="hist_delete" id="hist_delete"><i class="fas fa-user-times"></i></button>
+														</form>
 													</td>
 							                    </tr>
 						                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -46,8 +67,8 @@
 						                        <th>#</th>
 						                        <th>Cliente</th>
 						                        <th>Fecha creación</th>
-						                        <th>Fecha última generación</th>
-						                        <th></th>
+						                        <th>Fecha alteración</th>
+						                        <th>Acciones</th>
 						                    </tr>
 						                </tfoot>
 						            </table>
@@ -57,7 +78,6 @@
 					</div>
 				</div>
 			</div>
-		</form>
 	</div>
 <?php $__env->stopSection(); ?>
 
@@ -71,6 +91,10 @@
 	        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
 	        $('#dashboardList').DataTable();
 	    });
+
+	    $(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();
+		});
 	</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\reinke\resources\views/history.blade.php ENDPATH**/ ?>
