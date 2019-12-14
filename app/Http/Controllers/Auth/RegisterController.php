@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Rules\ContrasenaFuerte;
 
 
 class RegisterController extends Controller
@@ -44,10 +45,10 @@ class RegisterController extends Controller
 
     protected function validator(Request $request)
     {
-     return $validadtedData = $request->validate([
+        return $validadtedData = $request->validate([
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', new ContrasenaFuerte],
             'password_confirmation' => ['required','string', 'min:8', 'same:password'],
         ]);
     }
@@ -57,8 +58,8 @@ class RegisterController extends Controller
         $validadtedData = $request->validate([
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
-            'password_confirmation' => ['required','string', 'min:8', 'same:password'],
+            'password' => ['required', new ContrasenaFuerte],
+            'password_confirmation' => ['required','string', 'same:password'],
         ]);
 
         $user = new User;
@@ -72,9 +73,13 @@ class RegisterController extends Controller
         $saveControl = $user->save();
 
         if($saveControl === true){
-            return redirect('registro')->with('successRegister','Usuario registrado correctamente');
+            $type = 'successRegister';
+            $message = 'Usuario registrado correctamente. Realize el login, clicando en el logo Reinke.';
         }else{
-            return redirect('registro')->with('errorRegister', 'Problemas al registrar usuario');
+            $type = 'errorRegister';
+            $message = 'Problemas al registrar usuario';
         }
+
+        return redirect('registro')->with($type, $message);
     }
 }
