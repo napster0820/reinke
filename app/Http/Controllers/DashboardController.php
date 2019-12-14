@@ -47,9 +47,12 @@ class DashboardController extends Controller
     	$delete = $clientDelete->delete();
 
     	if ($delete) {
-    		return redirect()->to('/historial')->with('mensaje', 'El cliente fue eliminado con exito.');
+    		$mensaje = 'Registro eliminado con exito.';
+			$seccion = 'mensaje';
     	} else {
-    		return back()->with('mensaje_err', 'Problemas al eliminar registro.');
+    		$mensaje = 'Problemas al eliminar registro.';
+			$seccion = 'mensaje_err';
     	};
+    	return back()->with($seccion, $mensaje);
     }
 }
