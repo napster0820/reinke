@@ -81,12 +81,11 @@
                                 
                             </div>
                             <div id="menu1" class="container tab-pane fade"><br>
-<<<<<<< HEAD
                                 <canvas id="barTir"></canvas>
                             <input id="userActive" type="hidden" value="<?php echo e(Auth::id()); ?>" disabled>
-=======
+
                                 <img class="img-fluid" src="images/grafico_de_barras.png" alt="Barras">
->>>>>>> 694749817c239d29f695631cf474c1db3a805c12
+
                             </div>
                             <div id="menu2" class="container tab-pane fade"><br>
                                 <canvas id="barExpenses"></canvas>
@@ -98,7 +97,7 @@
         </div>
     </div>
 <?php $__env->stopSection(); ?>
-<<<<<<< HEAD
+
 
 <?php $__env->startSection('js'); ?>
     ##parent-placeholder-93f8bb0eb2c659b85694486c41717eaf0fe23cd4##
@@ -108,7 +107,6 @@
     <script src="js/main_dashboard.js"></script>
 <?php $__env->stopSection(); ?>
 
-=======
->>>>>>> 694749817c239d29f695631cf474c1db3a805c12
+
            
 <?php echo $__env->make('layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\reinke\resources\views/dashboard.blade.php ENDPATH**/ ?>

@@ -83,12 +83,11 @@
                                 {{-- <p class="text-center">Seleccione el tipo de gráfico para generar aquí la información que desea visualizar </p> --}}
                             </div>
                             <div id="menu1" class="container tab-pane fade"><br>
-<<<<<<< HEAD
                                 <canvas id="barTir"></canvas>
                             <input id="userActive" type="hidden" value="{{ Auth::id() }}" disabled>
-=======
+
                                 <img class="img-fluid" src="images/grafico_de_barras.png" alt="Barras">
->>>>>>> 694749817c239d29f695631cf474c1db3a805c12
+
                             </div>
                             <div id="menu2" class="container tab-pane fade"><br>
                                 <canvas id="barExpenses"></canvas>
@@ -100,7 +99,7 @@
         </div>
     </div>
 @endsection
-<<<<<<< HEAD
+
 
 @section('js')
     @parent
@@ -110,6 +109,5 @@
     <script src="js/main_dashboard.js"></script>
 @endsection
 
-=======
->>>>>>> 694749817c239d29f695631cf474c1db3a805c12
+
            
