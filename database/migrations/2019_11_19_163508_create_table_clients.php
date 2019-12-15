@@ -15,7 +15,7 @@ class CreateTableClients extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 100);
+            $table->string('client', 100);
             $table->string('address', 100);
             $table->string('country_state', 100);
             $table->string('email', 100); //no puede ser, pq no caso de tener dos vendedores distintos para el mismo cliente, genera un error

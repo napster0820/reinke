@@ -36,18 +36,18 @@ class DatosController extends Controller
     	//return $request->all();
 
     	$request->validate([
-            'Cliente' => ['required', 'string', 'max:100'],
-            'Direccción' => ['required', 'string', 'max:100'],
-            'Estado' => ['required', 'string', 'max:100'],
-            'Email' => ['required', 'string', 'email', 'max:100'],
-            'Producción estimada o (TonlHc):' => ['required', 'numeric', 'digits_between:1,11'],
-            'Cultivo' => ['required', 'string', 'max:45']
+            'client' => ['required', 'string', 'max:100'],
+            'address' => ['required', 'string', 'max:100'],
+            'country_state' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'string', 'email', 'max:100'],
+            'production' => ['required', 'numeric', 'digits_between:1,11'],
+            'culture' => ['required', 'string', 'max:45']
         ]);
 
         $client =new App\Client;
 
         $client ->user_id =Auth::id();
-    	$client ->name = $request->name;
+    	$client ->client = $request->client;
     	$client ->address = $request->address;
     	$client ->country_state = $request->country_state;
     	$client ->email = $request->email;
