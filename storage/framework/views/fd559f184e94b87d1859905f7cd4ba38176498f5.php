@@ -81,10 +81,14 @@
                                 
                             </div>
                             <div id="menu1" class="container tab-pane fade"><br>
+                                <canvas id="barTir"></canvas>
+                            <input id="userActive" type="hidden" value="<?php echo e(Auth::id()); ?>" disabled>
+
                                 <img class="img-fluid" src="images/grafico_de_barras.png" alt="Barras">
+
                             </div>
                             <div id="menu2" class="container tab-pane fade"><br>
-                                <img class="img-fluid" src="images/grafico_de_gastos.png" alt="Barras">
+                                <canvas id="barExpenses"></canvas>
                             </div>
                         </div>
                     </div>
@@ -93,5 +97,16 @@
         </div>
     </div>
 <?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('js'); ?>
+    ##parent-placeholder-93f8bb0eb2c659b85694486c41717eaf0fe23cd4##
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/main_dashboard.js"></script>
+<?php $__env->stopSection(); ?>
+
+
            
 <?php echo $__env->make('layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\reinke\resources\views/dashboard.blade.php ENDPATH**/ ?>

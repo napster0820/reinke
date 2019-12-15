@@ -101,11 +101,12 @@
                                 <div id="content-general" class="content"></div>
                             </div>
                             <div id="menu1" class="container tab-pane fade"><br>
-                                <!--img class="img-fluid" src="images/grafico_de_barras.png" alt="Barras"-->
-                                <canvas id="myChart"></canvas>
+                                <canvas id="barTir"></canvas>
+                            <input id="userActive" type="hidden" value="{{ Auth::id() }}" disabled>
+                                <img class="img-fluid" src="images/grafico_de_barras.png" alt="Barras">
                             </div>
                             <div id="menu2" class="container tab-pane fade"><br>
-                                <img class="img-fluid" src="images/grafico_de_gastos.png" alt="Barras">
+                                <canvas id="barExpenses"></canvas>
                             </div>
                         </div>
                     </div>

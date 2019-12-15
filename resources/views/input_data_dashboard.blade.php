@@ -23,19 +23,19 @@
                                     <div class="form-group row">
                                         <label for="inputCliente" class="col-sm-3 col-form-label">Cliente:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputCliente" placeholder="Cliente" name="name" value="">
+                                            <input type="text" class="form-control" id="inputCliente" placeholder="Cliente" name="name" value="{{old('name') }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección" name="address" value="">
+                                            <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección" name="address" value="{{old('address') }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputEstado" class="col-sm-3 col-form-label">Estado:</label>
                                         <div class="col-sm-9">
-                                            <select id="inputEstado" class="form-control" name="country_state" value="">
+                                            <select id="inputEstado" class="form-control" name="country_state" value="{{old('country_state') }}">
                                                 <option value="0">Seleccione...</option>
                                                 <option value="1">Aguascalientes</option>
                                                 <option value="2">Baja California</option>
@@ -77,19 +77,19 @@
                                     <div class="form-group row">
                                         <label for="inputTon" class="col-sm-6 col-form-label">Producción estimada o (TonlHc):</label>
                                         <div class="col-sm-6">
-                                            <input type="number" step="any" class="form-control" id="inputTon" placeholder="(TonlHc)" name="production" value="">
+                                            <input type="number" step="any" class="form-control" id="inputTon" placeholder="(TonlHc)" name="production" value="{{old('production') }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputCultivo" class="col-sm-3 col-form-label">Cultivo:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputCultivo" placeholder="Cultivo" name="culture" value="">
+                                            <input type="text" class="form-control" id="inputCultivo" placeholder="Cultivo" name="culture" value="{{old('culture') }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputEmail" class="col-sm-3 col-form-label">Email:</label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="">
+                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="{{old('email') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                                                 <tr>
                                                     <th>Periodo</th>
                                                     <th>Sistema de riego ($)</th>
-                                                    <th>Inversíon cultivo ($)</th>
+                                                    <th>Inversión cultivo ($)</th>
                                                     <th>Energía ($)</th>
                                                     <th>Mantenimiento ($)</th>
                                                     <th>Ingreso ($)</th>
@@ -124,14 +124,14 @@
                                             <tbody>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="1" readonly></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="" ></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="" ></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value="{{old('vl_investment') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="{{old('vl_energy') }}" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value="{{old('vl_maintenance') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="{{old('vl_entry') }}" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value="{{old('vl_liquidation') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}"></td>
                                                 </tr>
                                                 <!---<tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="2" readonly></td>
@@ -260,16 +260,16 @@
                                             <tbody>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="1" readonly></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value=""></td> 
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value="{{old('vl_balance') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value="{{old('vl_crop_interest') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value="{{old('vl_investment') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value="{{old('vl_energys') }}"></td> 
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value="{{old('vl_maintenance') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="{{old('vl_entry') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value="{{old('vl_liquidation') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}"></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}"></td>
                                                 </tr>
                                                 <!---<tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="2" readonly></td>
