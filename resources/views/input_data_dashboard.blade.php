@@ -23,7 +23,7 @@
                                     <div class="form-group row">
                                         <label for="inputCliente" class="col-sm-3 col-form-label">Cliente:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputCliente" placeholder="Cliente" name="name" value="{{old('name') }}">
+                                            <input type="text" class="form-control" id="inputCliente" placeholder="Cliente" name="client" value="{{old('name') }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -123,7 +123,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="1" readonly></td>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period1" value="1" readonly></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}"></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value="{{old('vl_investment') }}"></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="{{old('vl_energy') }}" ></td>
