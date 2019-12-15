@@ -19,7 +19,7 @@ class DatosController extends Controller
     	return view('input_data_dashboard');
     }
 
-    protected function validator(Request $request)
+    /*protected function validator(Request $request)
     {
      return $validadtedData = $request->validate([
             'name' => ['required', 'string', 'max:100'],
@@ -29,7 +29,7 @@ class DatosController extends Controller
             'production' => ['required', 'string', 'max:11'],
             'culture' => ['required', 'string', 'max:45']
         ]);
-    }
+    }*/
 
     public function guardar(Request $request) {
     	//return $request->all();

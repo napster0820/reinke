@@ -11,7 +11,7 @@
                        <div class="row">
                            <div class="col-6">
                                  <div class="form-radio">
-                                    <input type="radio" name="tipo_flujo" class="form-radio-input" id="exampleRadio1" value="contado">
+                                    <input type="radio" name="tipo_flujo" class="form-radio-input" id="exampleRadio1" value="contado"  checked>
                                     <label class="form-radio-label" for="exampleRadio2">Contado</label>
                                 </div>
                            </div>

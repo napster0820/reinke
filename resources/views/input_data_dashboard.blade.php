@@ -23,19 +23,19 @@
                                     <div class="form-group row">
                                         <label for="inputCliente" class="col-sm-3 col-form-label">Cliente:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputCliente" placeholder="Cliente" name="name" value="name">
+                                            <input type="text" class="form-control" id="inputCliente" placeholder="Cliente" name="name" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección" name="address" value="{{ old('address') }}">
+                                            <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección" name="address" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputEstado" class="col-sm-3 col-form-label">Estado:</label>
                                         <div class="col-sm-9">
-                                            <select id="inputEstado" class="form-control" name="country_state" value="{{old('country_state') }}">
+                                            <select id="inputEstado" class="form-control" name="country_state" value="">
                                                 <option value="0">Seleccione...</option>
                                                 <option value="1">Aguascalientes</option>
                                                 <option value="2">Baja California</option>
@@ -77,19 +77,19 @@
                                     <div class="form-group row">
                                         <label for="inputTon" class="col-sm-6 col-form-label">Producción estimada o (TonlHc):</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="inputTon" placeholder="(TonlHc)" name="production" value="{{ old('production') }} }}">
+                                            <input type="text" class="form-control" id="inputTon" placeholder="(TonlHc)" name="production" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputCultivo" class="col-sm-3 col-form-label">Cultivo:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputCultivo" placeholder="Cultivo" name="culture" value="{{ old('culture') }}">
+                                            <input type="text" class="form-control" id="inputCultivo" placeholder="Cultivo" name="culture" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputEmail" class="col-sm-3 col-form-label">Email:</label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="{{ old('email') }}">
+                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -102,13 +102,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <h5 class="card-header">Datos del excel para los flujos</h5>
+                        <h5 class="card-header">Datos de los flujos</h5>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-
                                     <h5 class="card-title">Flujo financiado</h5>
-                                    <table id="example" class="display" style="width:100%">
+                                    <table id="example" class="display" style="">
                                             <thead>
                                                 <tr>
                                                     <th>Periodo</th>
@@ -125,33 +124,21 @@
                                             <tbody>
                                                 <tr>
                                                     <td><input type="text" id="row-1-period" name="period" value="1"></td>
-                                                    <td><input type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_investment" name="vl_investment" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_energy" name="vl_energy" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_maintenance" name="vl_maintenance" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_entry" name="vl_entry" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_liquidation" name="vl_liquidation" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_period_flow" name="vl_period_flow" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_accumulated" name="vl_accumulated" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_balance" name="vl_balance" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_int_irrigation_sys" name="vl_int_irrigation_sys" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value="61"></td>
+                                                    <td><input type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
+                                                    <td><input type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                    <td><input type="text" id="row-1-vl_int_irrigation_sys" name="vl_int_irrigation_sys" value=""></td>
+                                                    <td><input type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
                                                 </tr>
-                                                <tr>
-                                                   <td><input type="text" id="row-1-period" name="period" value="1"></td>
-                                                    <td><input type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_investment" name="vl_investment" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_energy" name="vl_energy" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_maintenance" name="vl_maintenance" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_entry" name="vl_entry" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_liquidation" name="vl_liquidation" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_period_flow" name="vl_period_flow" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_accumulated" name="vl_accumulated" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_balance" name="vl_balance" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_int_irrigation_sys" name="vl_int_irrigation_sys" value="61"></td>
-                                                    <td><input type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value="61"></td>
+                
                                             </tbody>
-                                            <tfoot>
+                                            <!---<tfoot>
                                                 <tr>
                                                     <th>Periodo</th>
                                                     <th>Capital sistema de riego</th>
@@ -163,7 +150,7 @@
                                                     <th>Ingreso</th>
                                                     <th>Liquidación</th>
                                                 </tr>
-                                            </tfoot>
+                                            </tfoot>--->
                                         </table>
                                 </div>
                             </div>
