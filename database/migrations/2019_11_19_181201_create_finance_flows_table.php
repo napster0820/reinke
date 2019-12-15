@@ -15,18 +15,18 @@ class CreateFinanceFlowsTable extends Migration
     {
         Schema::create('finance_flows', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('period',false, true, 5);
-            $table->double('vl_irrigation_sys', 15, 2);
-            $table->double('vl_investment', 15, 2);
+            $table->integer('period',false, true, 5); //periodo
+            $table->double('vl_irrigation_sys', 15, 2);  // capital sistema riego
+            $table->double('vl_balance', 15, 2); // saldo insoluto
+            //$table->double('vl_int_irrigation_sys', 15, 2); -- creo estaba demasiado
+            $table->double('vl_crop_interest', 15, 2); // Interés Sist. Riego 
+            $table->double('vl_investment', 15, 2); // Inversión Cultivo
             $table->double('vl_energy', 15, 2);
             $table->double('vl_maintenance', 15, 2);
-            $table->double('vl_entry', 15, 2);
+            $table->double('vl_entry', 15, 2); // Ingreso
             $table->double('vl_liquidation', 15, 2);
             $table->double('vl_period_flow', 15, 2);
             $table->double('vl_accumulated', 15, 2);
-            $table->double('vl_balance', 15, 2);
-            $table->double('vl_int_irrigation_sys', 15, 2);
-            $table->double('vl_crop_interest', 15, 2);
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();
