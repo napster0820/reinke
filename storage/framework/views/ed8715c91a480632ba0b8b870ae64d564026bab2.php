@@ -51,7 +51,7 @@
 													<td><?php echo e($client->created_at); ?></td>
 													<td><?php echo e($client->updated_at); ?></td>
 													<td>
-														<a href="<?php echo e(url('dashboard')); ?>" data-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></a> | 
+														<a href="<?php echo e(route('dashboard', $client)); ?>" data-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></a> | 
 														<a href="<?php echo e(route('datos.editar', $client->id)); ?>"><i class="fas fa-edit"></i></a> | 
 														<form action="<?php echo e(route('datos.delete', $client->id)); ?>" method="POST" class="d-inline">
 															<?php echo method_field('DELETE'); ?>
@@ -81,20 +81,37 @@
 	</div>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('scipts'); ?>
-    ##parent-placeholder-daa97b9c5577f0c1889807cb7d908bbdc813da71##
+<?php $__env->startSection('js'); ?>
+    ##parent-placeholder-93f8bb0eb2c659b85694486c41717eaf0fe23cd4##
     <!--script src="js/register_validate.js"></script-->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
 	    $(document).ready(function() {
-	        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
-	        $('#dashboardList').DataTable();
+	        $('#dashboardList').DataTable(
+	        {
+	        	language: {
+			        "decimal": "",
+			        "emptyTable": "No hay registros en la tabla",
+			        "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+			        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+			        "infoFiltered": "(Filtrado de _MAX_ total registros)",
+			        "infoPostFix": "",
+			        "thousands": ",",
+			        "lengthMenu": "Mostrar _MENU_ Registros",
+			        "loadingRecords": "Cargando...",
+			        "processing": "Procesando...",
+			        "search": "Buscar:",
+			        "zeroRecords": "Sin resultados encontrados",
+			        "paginate": {
+			            "first": "Primero",
+			            "last": "Ultimo",
+			            "next": "Siguiente",
+			            "previous": "Anterior"
+			        }
+			    }
+		    });
 	    });
-
-	    $(document).ready(function(){
-			$('[data-toggle="tooltip"]').tooltip();
-		});
 	</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\reinke\resources\views/history.blade.php ENDPATH**/ ?>

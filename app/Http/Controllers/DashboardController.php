@@ -50,7 +50,17 @@ class DashboardController extends Controller
 			return response()->json($ResutDataQuery);
 		}
 		echo'Datos restringidos';
-	 }
+	}
+
+	protected function expensesChart($userId)
+	{
+		if(Auth::check() === true && Auth::user()->id == $userId){
+			//call database line for data chart expenses
+			$ResutDataQuery = [50, 80, 7, 22, 20, 30, 35];
+			return response()->json($ResutDataQuery);
+		}
+		echo'Datos restringidos';
+	}
 
     public function delete($id) {
     	$clientDelete = App\Client::findOrFail($id);

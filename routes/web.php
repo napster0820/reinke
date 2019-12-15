@@ -31,6 +31,7 @@ Route::group(['middleware' => ['web']], function(){
 
         Route::get('dashboard', 'DashboardController@index');
         Route::get('chart/{id}', 'DashboardController@chartData');
+        Route::get('expenses/{id}', 'DashboardController@expensesChart');
 
         Route::get('historial', 'DashboardController@buscar_historial')->name('historial');
 

@@ -11,7 +11,7 @@
     <br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-4">
+            <div class="col-3">
                 <h4>Tipo de flujo</h4>
                 <div class="card">
                     <div class="card-body">

@@ -45,13 +45,14 @@ $(document).ready(function(){
     });
 
     /*
-    # Graphics bar for dates flow finance and cash flow 
+    # Global vars 
     */
     var token = $('#token').val(),
-        user = $('#userActive').val();
+        user = $('#userActive').val(),
         route = "http://localhost/chart/"+user;
-         console.log(user);
-
+    /*
+    # Graphics bar for dates flow finance and cash flow 
+    */
       $.ajax({
           url: route,
           headers: {'X-CSRF-TOKEN': token},
@@ -84,28 +85,41 @@ $(document).ready(function(){
       });
   
 
-
    /*
-    # Graphics bar for expenses 
-    */
-   var ctx2 = document.getElementById('barExpenses').getContext('2d');
-   var chart2 = new Chart(ctx2, {
-       // The type of chart we want to create
-       type: 'bar',
-   
-       // The data for our dataset
-       data: {
-           labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5', 'Año 6', 'Año 7'],
-           datasets: [{
-               label: 'Grafica de gastos',
-               backgroundColor: 'rgb(0, 0, 0)',
-               borderColor: 'rgb(255, 99, 132)',
-               data: [30, 10, 5, 2, 20, 30, 45]
-           }]
-       },
-   
-       // Configuration options go here
-       options: {}
-   });
+  # Graphics bar for expenses 
+  */
+
+ var route_2 = "http://localhost/expenses/"+user;
+
+$.ajax({
+   url: route_2,
+   headers: {'X-CSRF-TOKEN': token},
+   type: 'GET'
+}) 
+.done(function(result) {
+  var ctx2 = document.getElementById('barExpenses').getContext('2d');
+  var chart2 = new Chart(ctx2, {
+      // The type of chart we want to create
+      type: 'bar',
+  
+      // The data for our dataset
+      data: {
+          labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5', 'Año 6', 'Año 7'],
+          datasets: [{
+              label: 'Grafica de gastos',
+              backgroundColor: 'rgb(0, 0, 0)',
+              borderColor: 'rgb(255, 99, 132)',
+              data:result
+          }]
+      },
+  
+      // Configuration options go here
+      options: {}
+  });
+})
+.fail(function() {
+ console.log("error");
+});
+
 
 });/**End ready document **/
