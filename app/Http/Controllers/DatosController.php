@@ -39,7 +39,7 @@ class DatosController extends Controller
             'address' => ['required', 'string', 'max:100'],
             'country_state' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
-            'production' => ['required', 'integer', 'max:20'],
+            'production' => ['required', 'numeric', 'max:20'],
             'culture' => ['required', 'string', 'max:45']
         ]);
 
