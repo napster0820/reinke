@@ -44,10 +44,51 @@ $(document).ready(function(){
     });
 
     /*
-    # Graphic's bar with chart.js
+    # Graphics bar for dates flow finance and cash flow 
     */
-   var ctx = document.getElementById('myChart').getContext('2d');
-   var chart = new Chart(ctx, {
+    var token = $('#token').val(),
+        user = $('#userActive').val();
+        route = "http://localhost/chart/"+user;
+         console.log(user);
+
+      $.ajax({
+          url: route,
+          headers: {'X-CSRF-TOKEN': token},
+          type: 'GET'
+      }) 
+      .done(function(result) {
+        console.log("success");
+        var ctx = document.getElementById('barTir').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'bar',
+        
+            // The data for our dataset
+            data: {
+                labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5', 'Año 6', 'Año 7'],
+                datasets: [{
+                    label: 'Flujo a 10 años',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: result
+                }]
+            },
+        
+            // Configuration options go here
+            options: {}
+        });
+      })
+      .fail(function() {
+        console.log("error");
+      });
+  
+
+
+   /*
+    # Graphics bar for expenses 
+    */
+   var ctx2 = document.getElementById('barExpenses').getContext('2d');
+   var chart2 = new Chart(ctx2, {
        // The type of chart we want to create
        type: 'bar',
    
@@ -55,10 +96,10 @@ $(document).ready(function(){
        data: {
            labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5', 'Año 6', 'Año 7'],
            datasets: [{
-               label: 'Flujo a 10 años',
-               backgroundColor: 'rgb(255, 99, 132)',
+               label: 'Grafica de gastos',
+               backgroundColor: 'rgb(0, 0, 0)',
                borderColor: 'rgb(255, 99, 132)',
-               data: [-15, 10, 5, 2, 20, 30, 45]
+               data: [30, 10, 5, 2, 20, 30, 45]
            }]
        },
    

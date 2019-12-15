@@ -102,10 +102,11 @@
                                 <div id="content-general" class="content"></div>
                             </div>
                             <div id="menu1" class="container tab-pane fade"><br>
-                                <canvas id="myChart"></canvas>
+                                <canvas id="barTir"></canvas>
+                            <input id="userActive" type="hidden" value="{{ Auth::id() }}" disabled>
                             </div>
                             <div id="menu2" class="container tab-pane fade"><br>
-                                <img class="img-fluid" src="images/grafico_de_gastos.png" alt="Barras">
+                                <canvas id="barExpenses"></canvas>
                             </div>
                         </div>
                     </div>
@@ -119,6 +120,7 @@
     @parent
     {{-- CDN chart.js --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/main_dashboard.js"></script>
 @endsection
 

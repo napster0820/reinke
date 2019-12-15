@@ -16,7 +16,7 @@
                        <div class="row">
                            <div class="col-6">
                                  <div class="form-radio">
-                                    <input type="radio" name="tipo_flujo" class="form-radio-input" id="exampleRadio1" value="contado">
+                                    <input type="radio" name="tipo_flujo" class="form-radio-input" id="exampleRadio1" value="contado"  checked>
                                     <label class="form-radio-label" for="exampleRadio2">Contado</label>
                                 </div>
                            </div>
@@ -100,10 +100,11 @@
                                 <div id="content-general" class="content"></div>
                             </div>
                             <div id="menu1" class="container tab-pane fade"><br>
-                                <canvas id="myChart"></canvas>
+                                <canvas id="barTir"></canvas>
+                            <input id="userActive" type="hidden" value="<?php echo e(Auth::id()); ?>" disabled>
                             </div>
                             <div id="menu2" class="container tab-pane fade"><br>
-                                <img class="img-fluid" src="images/grafico_de_gastos.png" alt="Barras">
+                                <canvas id="barExpenses"></canvas>
                             </div>
                         </div>
                     </div>
@@ -117,6 +118,7 @@
     ##parent-placeholder-93f8bb0eb2c659b85694486c41717eaf0fe23cd4##
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/main_dashboard.js"></script>
 <?php $__env->stopSection(); ?>
 

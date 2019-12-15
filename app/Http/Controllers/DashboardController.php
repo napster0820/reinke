@@ -40,7 +40,17 @@ class DashboardController extends Controller
     	if ($success) {
     		return view('dashboard');
     	}
-    }
+	}
+	
+	protected function chartData($userId)
+	{
+		if(Auth::check() === true && Auth::user()->id == $userId){
+			//call database line for data chart TIR
+			$ResutDataQuery = [-15, 10, 5, 2, 20, 30, 45];
+			return response()->json($ResutDataQuery);
+		}
+		echo'Datos restringidos';
+	}
 
     public function delete($id) {
     	$clientDelete = App\Client::findOrFail($id);
