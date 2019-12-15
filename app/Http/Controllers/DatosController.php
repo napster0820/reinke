@@ -100,6 +100,8 @@ class DatosController extends Controller
 
     	$financiado ->period = $request->period;
     	$financiado ->vl_irrigation_sys = $request->vl_irrigation_sys;
+        $financiado ->vl_balance = $request->vl_balance;
+        $financiado ->vl_crop_interest = $request->vl_crop_interest;
     	$financiado ->vl_investment = $request->vl_investment;
     	$financiado ->vl_energy = $request->vl_energy;
     	$financiado ->vl_maintenance = $request->vl_maintenance;
@@ -107,9 +109,6 @@ class DatosController extends Controller
     	$financiado ->vl_liquidation = $request->vl_liquidation;
     	$financiado ->vl_period_flow = $request->vl_period_flow;
     	$financiado ->vl_accumulated = $request->vl_accumulated;
-    	$financiado ->vl_balance = $request->vl_balance;
-    	$financiado ->vl_int_irrigation_sys = $request->vl_int_irrigation_sys;
-    	$financiado ->vl_crop_interest = $request->vl_crop_interest;
     	$financiado ->client_id=$id_cliente;
 
     	$success = $financiado->save();
