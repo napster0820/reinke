@@ -41,8 +41,8 @@
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('js'); ?>
-    ##parent-placeholder-93f8bb0eb2c659b85694486c41717eaf0fe23cd4##
+<?php $__env->startSection('scipts'); ?>
+    ##parent-placeholder-daa97b9c5577f0c1889807cb7d908bbdc813da71##
     <script src="js/register_validate.js"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\reinke\resources\views/register.blade.php ENDPATH**/ ?>

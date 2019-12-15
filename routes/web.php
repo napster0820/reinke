@@ -17,9 +17,12 @@ Route::group(['middleware' => ['web']], function(){
     //Here protetected route's
     Route::group(['middleware' => ['auth']], function () {
 
-        Route::get('datos', function(){
+        /*Route::get('datos', function(){
             return view('input_data_dashboard');
-        })->name('datos');
+        })->name('datos');*/
+        
+        Route::get('datos', 'DatosController@index')->name('datos');
+        Route::post('datos', 'DatosController@guardar')->name('datos.guardar');
 
         //metodos distintos pueden tener la misma ruta
         Route::get('datos/editar/{id}', 'DashboardController@editar')->name('datos.editar');

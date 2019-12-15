@@ -10,22 +10,11 @@
                         <?php echo $__env->make('alerts.message_login', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <h2 class="text-center">Iniciar sesión</h2>
                         <i class="fas fa-user-circle fa-7x"></i>
-                        <div class="input-group mb-3">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="email" class="form-control form-control" placeholder="Correo" name="email" value="<?php echo e(old('correo')); ?>" maxlength="100" required autofocus>
-                        </div>
-                        <div class="input-group mb-2">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" class="form-control form-control" placeholder="Contraseña" name="password" maxlength="100" required>
-                        </div>
+                        <input type="email" class="form-control form-control" placeholder="Correo" name="email" value="<?php echo e(old('correo')); ?>" maxlength="100" required autofocus>
+                        <input type="password" class="form-control form-control" placeholder="Contraseña" name="password" maxlength="100" required>
                         <br>
                         <button class="btn btn-primary btn-block" type="submit">Ingresar</button>
                     </form>
-
                 </div>
             </div>
         </div>

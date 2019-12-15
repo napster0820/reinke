@@ -2,16 +2,11 @@
 
 @section('title', 'Dashboard')
 
-@section('cdn-css')
-    @parent
-   
-@endsection
-
 @section('content')
     <br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-3">
+            <div class="col-4">
                 <h4>Tipo de flujo</h4>
                 <div class="card">
                     <div class="card-body">
@@ -66,44 +61,34 @@
                 </div>  
                 <br>        
             </div>
-            <div class="col-9">
+            <div class="col-8">
                 <h4>Tipo de gráfico</h4>
                 <div class="card">
                     <div class="card-body">
-                        <!-- Navigation timeline -->
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#home"><img src="" alt=""><img class="nav-timeline" src="images/line_images/timeline.png" alt=""></a>
+                            <a class="nav-link active" data-toggle="tab" href="#home">Linea del tiempo</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#menu1"><img class="nav-timeline" src="images/line_images/barras.png" alt=""></a>
+                            <a class="nav-link" data-toggle="tab" href="#menu1">Gráfico de rentabilidad</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#menu2"><img class="nav-timeline" src="images/line_images/estadistica.png" alt=""></a>
+                            <a class="nav-link" data-toggle="tab" href="#menu2">Gráfico inversión  </a>
                             </li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div id="home" class="container tab-pane active">
-                                <br>
-                                <ul id="list-timeline" class="list-inline">
-                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/0.jpg" alt=""></li>
-                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/1.jpg" alt=""></li>
-                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/2.jpg" alt=""></li>
-                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/3.jpg" alt=""></li>
-                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/4.jpg" alt=""></li>
-                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/5.jpg" alt=""></li>
-                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/6.jpg" alt=""></li>
-                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/7.jpg" alt=""></li>
-                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/8.jpg" alt=""></li>
-                                    <li class="list-inline-item btn-line"><img class="img-fluid" src="images/line_images/9.jpg" alt=""></li>
-                                </ul>
-                                <hr>
-                                <div id="content-general" class="content"></div>
+                            <div id="home" class="container tab-pane active"><br>
+                                <img class="img-fluid" src="images/linea_del_tiempo.png" alt="Liena del tiempo">
+                                {{-- <p class="text-center">Seleccione el tipo de gráfico para generar aquí la información que desea visualizar </p> --}}
                             </div>
                             <div id="menu1" class="container tab-pane fade"><br>
+<<<<<<< HEAD
                                 <canvas id="barTir"></canvas>
                             <input id="userActive" type="hidden" value="{{ Auth::id() }}" disabled>
+=======
+                                <img class="img-fluid" src="images/grafico_de_barras.png" alt="Barras">
+>>>>>>> 694749817c239d29f695631cf474c1db3a805c12
                             </div>
                             <div id="menu2" class="container tab-pane fade"><br>
                                 <canvas id="barExpenses"></canvas>
@@ -115,6 +100,7 @@
         </div>
     </div>
 @endsection
+<<<<<<< HEAD
 
 @section('js')
     @parent
@@ -124,4 +110,6 @@
     <script src="js/main_dashboard.js"></script>
 @endsection
 
+=======
+>>>>>>> 694749817c239d29f695631cf474c1db3a805c12
            

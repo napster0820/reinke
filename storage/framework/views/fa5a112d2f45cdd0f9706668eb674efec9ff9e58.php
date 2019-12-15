@@ -8,8 +8,9 @@
 <?php $__env->startSection('content'); ?>
     <br>
     <div class="dashboard container">
-       <form action="#" method="POST">
+       <form action="<?php echo e(url('datos')); ?>" method="POST">
             <?php echo csrf_field(); ?>
+            <?php echo $__env->make('alerts.message_register_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -18,21 +19,21 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group row">
-                                        <label for="inputCiente" class="col-sm-3 col-form-label">Cliente:</label>
+                                        <label for="inputCliente" class="col-sm-3 col-form-label">Cliente:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputCiente" placeholder="Cliente">
+                                            <input type="text" class="form-control" id="inputCliente" placeholder="Cliente" name="name" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección">
+                                            <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección" name="address" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputEstado" class="col-sm-3 col-form-label">Estado:</label>
                                         <div class="col-sm-9">
-                                            <select id="inputEstado" class="form-control">
+                                            <select id="inputEstado" class="form-control" name="country_state" value="">
                                                 <option value="0">Seleccione...</option>
                                                 <option value="1">Aguascalientes</option>
                                                 <option value="2">Baja California</option>
@@ -74,19 +75,19 @@
                                     <div class="form-group row">
                                         <label for="inputTon" class="col-sm-6 col-form-label">Producción estimada o (TonlHc):</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="inputTon" placeholder="(TonlHc)">
+                                            <input type="text" class="form-control" id="inputTon" placeholder="(TonlHc)" name="production" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputDireccion" class="col-sm-3 col-form-label">Cultivo:</label>
+                                        <label for="inputCultivo" class="col-sm-3 col-form-label">Cultivo:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputDireccion" placeholder="Cultivo">
+                                            <input type="text" class="form-control" id="inputCultivo" placeholder="Cultivo" name="culture" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputEmail" class="col-sm-3 col-form-label">Email:</label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -95,152 +96,303 @@
                     </div>
                 </div>
             </div>
-            <br>
+           <br>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <h5 class="card-header">Datos del excel para los flujos</h5>
+                        <h5 class="card-header">Datos de los flujos</h5>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-                                    <h5 class="card-title">Flujo financiado</h5>
-                                    <table id="example" class="display" style="width:100%">
+                                    <h5 class="card-title">Flujo contado</h5>
+                                    <table id="example" class="display" style="width:20%!important">
                                             <thead>
                                                 <tr>
                                                     <th>Periodo</th>
-                                                    <th>Capital sistema de riego</th>
-                                                    <th>Saldo insoluto</th>
-                                                    <th>Interés sistema de riego</th>
+                                                    <th>Sistema de riego</th>
                                                     <th>Inversíon cultivo</th>
                                                     <th>Energía</th>
                                                     <th>Mantenimiento</th>
                                                     <th>Ingreso</th>
                                                     <th>Liquidación</th>
+                                                    <th>Flujo por periodo</th>
+                                                    <th>Acumulado</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>51%</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="1" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value="" ></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value="" ></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>
+                                                <!---<tr>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="2" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>2</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>61%</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="3" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>3</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>61%</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="4" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>n</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>61%</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="5" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
-                                            </tbody>
-                                            <tfoot>
                                                 <tr>
-                                                    <th>Periodo</th>
-                                                    <th>Capital sistema de riego</th>
-                                                    <th>Saldo insoluto</th>
-                                                    <th>Interés sistema de riego</th>
-                                                    <th>Inversíon cultivo</th>
-                                                    <th>Energía</th>
-                                                    <th>Mantenimiento</th>
-                                                    <th>Ingreso</th>
-                                                    <th>Liquidación</th>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="6" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
-                                            </tfoot>
+                                                <tr>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="7" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="8" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="9" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="10" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>---->
                                         </table>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-12">
-                                    <h5 class="card-title">Flujo contado</h5>
-                                    <table id="example2" class="display" style="width:100%">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="card-title">Flujo financiado</h5>
+                                        <table id="example2" class="display" style="width:20%!important">
                                             <thead>
                                                 <tr>
                                                     <th>Periodo</th>
-                                                    <th>Sistema de riego</th>
+                                                    <th>Capital sistema de riego</th>
+                                                    <th>Saldo insoluto</th>
+                                                    <th>Interés sistema de riego</th>
                                                     <th>Inversíon cultivo</th>
                                                     <th>Energía</th>
                                                     <th>Mantenimiento</th>
                                                     <th>Ingreso</th>
                                                     <th>Liquidación</th>
+                                                    <th>Flujo por periodo</th>
+                                                    <th>Acumulado</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>1505</td>
-                                                    <td>$25,000</td>
-                                                    <td>$8000</td>
-                                                    <td>$12,000</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>                                                   
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="1" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>
+                                                <!---<tr>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="2" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>2</td>
-                                                    <td>1505</td>
-                                                    <td>$25,000</td>
-                                                    <td>$8000</td>
-                                                    <td>$12,000</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>  
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="3" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>n</td>
-                                                    <td>1505</td>
-                                                    <td>$25,000</td>
-                                                    <td>$8000</td>
-                                                    <td>$12,000</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>  
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="4" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
-                                            </tbody>
-                                            <tfoot>
                                                 <tr>
-                                                    <th>Periodo</th>
-                                                    <th>Sistema de riego</th>
-                                                    <th>Inversíon cultivo</th>
-                                                    <th>Energía</th>
-                                                    <th>Mantenimiento</th>
-                                                    <th>Ingreso</th>
-                                                    <th>Liquidación</th>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="5" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="6" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="7" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="8" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="9" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="10" readonly></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>--->
                                             </tfoot>
                                         </table>
                                     <br>
                                     <br>
-                                    <a href="<?php echo e(url("dashboard")); ?>" class="btn btn-primary float-right">Generar Dashboard</a>
-                                </div>
+                                    <button id="btn_generarDash" class="btn btn-primary float-right" type="submit">Generar Dashboard</button>
+                                   <!-- <a href="<?php echo e(url("dashboard")); ?>" class="btn btn-primary float-right">Generar Dashboard</a>
+                                </div>--->
                             </div>
                         </div>
                     </div>
@@ -250,10 +402,18 @@
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('js'); ?>
-    ##parent-placeholder-93f8bb0eb2c659b85694486c41717eaf0fe23cd4##
+<?php $__env->startSection('scipts'); ?>
+    ##parent-placeholder-daa97b9c5577f0c1889807cb7d908bbdc813da71##
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="js/input_main"></script>
+    <script>
+        $(document).ready(function(){
+            $(document).ready(function() {
+                $('#example').DataTable();
+
+                $('#example2').DataTable();
+            });
+        });
+    </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\reinke\resources\views/input_data_dashboard.blade.php ENDPATH**/ ?>

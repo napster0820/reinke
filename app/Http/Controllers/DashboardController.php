@@ -39,6 +39,7 @@ class DashboardController extends Controller
 
     	if ($success) {
     		return view('dashboard');
+<<<<<<< HEAD
     	}
 	}
 	
@@ -51,6 +52,10 @@ class DashboardController extends Controller
 		}
 		echo'Datos restringidos';
 	}
+=======
+    	};
+    }
+>>>>>>> 694749817c239d29f695631cf474c1db3a805c12
 
     public function delete($id) {
     	$clientDelete = App\Client::findOrFail($id);
@@ -62,7 +67,7 @@ class DashboardController extends Controller
     	} else {
     		$mensaje = 'Problemas al eliminar registro.';
 			$seccion = 'mensaje_err';
-    	}	
+    	};
     	return back()->with($seccion, $mensaje);
     }
 }
