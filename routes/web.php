@@ -30,6 +30,7 @@ Route::group(['middleware' => ['web']], function(){
         Route::delete('datos/delete/{id}', 'DashboardController@delete')->name('datos.delete');
 
         Route::get('dashboard', 'DashboardController@index');
+        //Route::post('dashboard/{id}', 'DashboardController@index');
 
         Route::get('historial', 'DashboardController@buscar_historial')->name('historial');
 

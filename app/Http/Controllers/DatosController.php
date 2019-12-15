@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Artisan;
 use App;
+use App\Http\Controllers\Redirect;
 //use Illuminate\Support\Facades\Validator;
 
 
@@ -60,9 +61,10 @@ class DatosController extends Controller
     	$retorno_financiado = $this->flujoFinanciado($request, $id_cliente);
 
     	if($success && $retorno_contado && $retorno_financiado){
-            return redirect('dashboard')->with('successRegister','Cliente registrado correctamente');
+            //return redirect('dashboard', $id_cliente)->with('successRegister','Cliente registrado correctamente');
+            return redirect('dashboard')->with('successRegister', 'Succeso al registrar cliente');
         }else{
-            return redirect('dashboard')->with('errorRegister', 'Problemas al registrar cliente');
+            return redirect('input_data_dashboard')->with('errorRegister', 'Problemas al registrar cliente');
         }
     }
 

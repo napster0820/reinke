@@ -10,12 +10,12 @@ use App;
 class DashboardController extends Controller
 {
     public function index() {
-    	return view('dashboard');
-    }
+    //public function index($id) {
+        //$client = App\Client::findOrFail($id);
+    	//return view('dashboard', compact('client'));
 
-    //public function guardar_cliente($cliente) {
-    //	null;
-    //}
+        return view('dashboard');
+    }
 
     public function buscar_historial() {
     	$user_id = Auth::id();
@@ -25,7 +25,7 @@ class DashboardController extends Controller
 
     public function editar($id) {
     	$client = App\Client::findOrFail($id);
-    	return view('edit_data_dashboard', compact('client'));
+    	return view('input_data_dashboard', compact('client'));
     }
     
     public function update(Request $request, $id) {
