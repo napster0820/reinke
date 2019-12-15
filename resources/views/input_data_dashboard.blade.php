@@ -77,7 +77,7 @@
                                     <div class="form-group row">
                                         <label for="inputTon" class="col-sm-6 col-form-label">Producción estimada o (TonlHc):</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="inputTon" placeholder="(TonlHc)" name="production" value="">
+                                            <input type="number" step="any" class="form-control" id="inputTon" placeholder="(TonlHc)" name="production" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -111,127 +111,127 @@
                                             <thead>
                                                 <tr>
                                                     <th>Periodo</th>
-                                                    <th>Sistema de riego</th>
-                                                    <th>Inversíon cultivo</th>
-                                                    <th>Energía</th>
-                                                    <th>Mantenimiento</th>
-                                                    <th>Ingreso</th>
-                                                    <th>Liquidación</th>
-                                                    <th>Flujo por periodo</th>
-                                                    <th>Acumulado</th>
+                                                    <th>Sistema de riego ($)</th>
+                                                    <th>Inversíon cultivo ($)</th>
+                                                    <th>Energía ($)</th>
+                                                    <th>Mantenimiento ($)</th>
+                                                    <th>Ingreso ($)</th>
+                                                    <th>Liquidación ($)</th>
+                                                    <th>Flujo por periodo ($)</th>
+                                                    <th>Acumulado ($)</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="1" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value="" ></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value="" ></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <!---<tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="2" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
-                                                <tr>
+                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="3" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
-                                                <tr>
+                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="4" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
-                                                <tr>
+                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="5" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
-                                                <tr>
+                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="6" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
-                                                <tr>
+                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="7" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
-                                                <tr>
+                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="8" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
-                                                <tr>
+                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="9" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
-                                                <tr>
+                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="10" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energy" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
-                                                </tr>---->
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="" ></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                </tr>--->
                                         </table>
                                 </div>
                             </div>
@@ -245,148 +245,148 @@
                                             <thead>
                                                 <tr>
                                                     <th>Periodo</th>
-                                                    <th>Capital sistema de riego</th>
-                                                    <th>Saldo insoluto</th>
-                                                    <th>Interés sistema de riego</th>
-                                                    <th>Inversíon cultivo</th>
-                                                    <th>Energía</th>
-                                                    <th>Mantenimiento</th>
-                                                    <th>Ingreso</th>
-                                                    <th>Liquidación</th>
-                                                    <th>Flujo por periodo</th>
-                                                    <th>Acumulado</th>
+                                                    <th>Capital sistema de riego ($)</th>
+                                                    <th>Saldo insoluto ($)</th>
+                                                    <th>Interés sistema de riego ($)</th>
+                                                    <th>Inversíon cultivo ($)</th>
+                                                    <th>Energía ($)</th>
+                                                    <th>Mantenimiento ($)</th>
+                                                    <th>Ingreso ($)</th>
+                                                    <th>Liquidación ($)</th>
+                                                    <th>Flujo por periodo ($)</th>
+                                                    <th>Acumulado ($)</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="1" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <!---<tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="2" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="3" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="4" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="5" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="6" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="7" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="8" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="9" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="10" readonly></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_balance" name="vl_balance" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
-                                                     <td><input style="width:100%!important" type="text" id="row-1-vl_investment" name="vl_investment" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_energy" name="vl_energys" value=""></td> 
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_entry" name="vl_entry" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
-                                                    <td><input style="width:100%!important" type="text" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value=""></td> 
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value=""></td>
+                                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value=""></td>
                                                 </tr>--->
                                             </tfoot>
                                         </table>

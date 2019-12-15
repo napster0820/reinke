@@ -43,7 +43,7 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             return redirect()->intended('datos');
         }else{
-            return redirect('/')->with('errorAccess', 'Usuario o contraseña incorrectos');
+            return redirect('/')->with('errorAccess', 'Usuario o contraseña incorrectos.');
         }
     }
 
