@@ -34,14 +34,14 @@ class DatosController extends Controller
     public function guardar(Request $request) {
     	//return $request->all();
 
-    	/*$request->validate([
+    	$request->validate([
             'Cliente' => ['required', 'string', 'max:100'],
             'Direccción' => ['required', 'string', 'max:100'],
             'Estado' => ['required', 'string', 'max:100'],
             'Email' => ['required', 'string', 'email', 'max:100'],
             'Producción estimada o (TonlHc):' => ['required', 'numeric', 'digits_between:1,11'],
             'Cultivo' => ['required', 'string', 'max:45']
-        ]);*/
+        ]);
 
         $client =new App\Client;
 
@@ -101,15 +101,16 @@ class DatosController extends Controller
 
     	$request->validate([
             'period' => ['required', 'numeric', 'digits_between:1,10'],
-            'vl_irrigation_sys' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_balance' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_crop_interest' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_energy' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_maintenance' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_entry' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_liquidation' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_period_flow' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_accumulated' => ['required', 'numeric', 'digits_between:2,15'],
+            'Capital sistema de riego ($)' => ['required', 'numeric', 'digits_between:2,15'],
+            'Saldo insoluto  ($)' => ['required', 'numeric', 'digits_between:2,15'],
+            'Interés sisstema de riego ($)' => ['required', 'numeric', 'digits_between:2,15'],
+            'Inversión cultivo ($)' => ['required', 'numeric', 'digits_between:2,15'],
+            'Energía ($)' => ['required', 'numeric', 'digits_between:2,15'],
+            'Mantenimiento ($)' => ['required', 'numeric', 'digits_between:2,15'],
+            'Ingreso  ($)' => ['required', 'numeric', 'digits_between:2,15'],
+            'Liquidación ($)' => ['required', 'numeric', 'digits_between:2,15'],
+            'Flujo por periodo ($)' => ['required', 'numeric', 'digits_between:2,15'],
+            'Acumulado' => ['required', 'numeric', 'digits_between:2,15'],
         ]);
 
         $financiado = new App\Finance_flow;
