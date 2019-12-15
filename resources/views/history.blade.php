@@ -88,12 +88,29 @@
 	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
 	    $(document).ready(function() {
-	        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
-	        $('#dashboardList').DataTable();
+	        $('#dashboardList').DataTable(
+	        {
+	        	language: {
+			        "decimal": "",
+			        "emptyTable": "No hay registros en la tabla",
+			        "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+			        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+			        "infoFiltered": "(Filtrado de _MAX_ total registros)",
+			        "infoPostFix": "",
+			        "thousands": ",",
+			        "lengthMenu": "Mostrar _MENU_ Registros",
+			        "loadingRecords": "Cargando...",
+			        "processing": "Procesando...",
+			        "search": "Buscar:",
+			        "zeroRecords": "Sin resultados encontrados",
+			        "paginate": {
+			            "first": "Primero",
+			            "last": "Ultimo",
+			            "next": "Siguiente",
+			            "previous": "Anterior"
+			        }
+			    }
+		    });
 	    });
-
-	    $(document).ready(function(){
-			$('[data-toggle="tooltip"]').tooltip();
-		});
 	</script>
 @endsection
