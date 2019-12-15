@@ -51,7 +51,7 @@
 													<td>{{$client->created_at}}</td>
 													<td>{{$client->updated_at}}</td>
 													<td>
-														<a href="{{ route('dashboard', $client) }}" data-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></a> | 
+														<a href="{{ url('dashboard') }}" data-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></a> | 
 														<a href="{{ route('datos.editar', $client->id) }}"><i class="fas fa-edit"></i></a> | 
 														<form action="{{ route('datos.delete', $client->id) }}" method="POST" class="d-inline">
 															@method('DELETE')
