@@ -18,6 +18,18 @@
                     <div class="card">
                     <h5 class="card-header">Datos Cliente</h5>
                         <div class="card-body">
+                            @if(isset($mensaje))
+                                <div class="alert alert-warning alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    {{ $mensaje ?? '' }}
+                                </div>
+                            @endif
+
+                            <!-- verificar el di del cliente -->
+                            <!--div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{ $client->id ?? '' }}
+                            </div-->
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group row">
