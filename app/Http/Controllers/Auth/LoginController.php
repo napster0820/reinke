@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -14,7 +15,6 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = 'datos';
-    public $maxAttempts = 3;
 
     /**
      * Create a new controller instance.
@@ -38,12 +38,24 @@ class LoginController extends Controller
             'password'=> ['required','max:100']
         ]);
 
-        $credentials = $request->only('email','password');
+        $credentials = array(
+            'email' => $request->email,
+            'password' => $request->password,
+            'password_lock' => 0
+        );
 
-        if(Auth::attempt($credentials)){
+        if (Auth::attempt($credentials)) {
+            $attempts = session()->get('accumulator', 1);
             return redirect()->intended('datos');
         }else{
-            return redirect('/')->with('errorAccess', 'Usuario o contraseña incorrectos.');
+            $attempts = session()->get('accumulator', 1); // Get attemps, default: 1
+            session()->put('accumulator', $attempts + 1); // Add attemps session.
+            if($attempts >= 3)
+            {
+                $controlSave = User::where('email', '=', $email)->update(['password_lock' => true]);
+                return redirect()->back()->with('status','Tu cuenta a sido bloqueada por motivos de seguridad');
+            }
+            return redirect()->back()->with('status','Intento :'.$attempts);          
         }
     }
 

@@ -47,16 +47,16 @@
 						                	<?php $__currentLoopData = $clients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 							                    <tr>
 							                        <th scope="row"> <?php echo e($client->id); ?> </th>
-													<td><?php echo e($client->name); ?></td>
+													<td><?php echo e($client->client); ?></td>
 													<td><?php echo e($client->created_at); ?></td>
 													<td><?php echo e($client->updated_at); ?></td>
 													<td>
-														<a href="<?php echo e(url('dashboard')); ?>" data-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></a> | 
-														<a href="<?php echo e(route('datos.editar', $client->id)); ?>"><i class="fas fa-edit"></i></a> | 
+														<a href="<?php echo e(url('dashboard')); ?>" data-toggle="tooltip" title="Visualizar" class="btn btn-primary btn-sm">Visualizar</a> 
+														<a href="<?php echo e(route('datos.editar', $client->id)); ?>" class="btn btn-warning btn-sm">Editar</a> 
 														<form action="<?php echo e(route('datos.delete', $client->id)); ?>" method="POST" class="d-inline">
 															<?php echo method_field('DELETE'); ?>
 															<?php echo csrf_field(); ?> 
-															<button type="submit" name="hist_delete" id="hist_delete"><i class="fas fa-user-times"></i></button>
+															<button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
 														</form>
 													</td>
 							                    </tr>
