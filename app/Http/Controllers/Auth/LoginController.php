@@ -43,7 +43,7 @@ class LoginController extends Controller
             'password' => $request->password,
             'password_lock' => 0
         );
-
+        $email = $request->email;
         if (Auth::attempt($credentials)) {
             $attempts = session()->get('accumulator', 1);
             return redirect()->intended('datos');
@@ -53,9 +53,9 @@ class LoginController extends Controller
             if($attempts >= 3)
             {
                 $controlSave = User::where('email', '=', $email)->update(['password_lock' => true]);
-                return redirect()->back()->with('status','Tu cuenta a sido bloqueada por motivos de seguridad');
+                return redirect()->back()->with('status','Tu cuenta a sido bloqueada por motivos de seguridad, contacte al administrador');
             }
-            return redirect()->back()->with('status','Intento :'.$attempts);          
+            return redirect()->back()->with('status','Contraseña invalida, número de intentos :'.$attempts);          
         }
     }
 

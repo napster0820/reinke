@@ -16,7 +16,7 @@
                         @include('alerts.message_register_errors')
                         <div class="form-group">
                             <label for="name">Nombre:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" value="{{ old('name') }}" required maxlength="100">
+                            <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" value="{{ old('name') }}" required maxlength="100" pattern="[A-Za-z0-9]+">
                         </div>
                         <div class="form-group">
                             <label for="email">Correo:</label>
