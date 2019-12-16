@@ -51,7 +51,7 @@
 													<td><?php echo e($client->created_at); ?></td>
 													<td><?php echo e($client->updated_at); ?></td>
 													<td>
-														<a href="<?php echo e(route('dashboard', $client)); ?>" data-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></a> | 
+														<a href="<?php echo e(url('dashboard')); ?>" data-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></a> | 
 														<a href="<?php echo e(route('datos.editar', $client->id)); ?>"><i class="fas fa-edit"></i></a> | 
 														<form action="<?php echo e(route('datos.delete', $client->id)); ?>" method="POST" class="d-inline">
 															<?php echo method_field('DELETE'); ?>

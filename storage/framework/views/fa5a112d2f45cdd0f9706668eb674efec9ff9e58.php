@@ -21,7 +21,7 @@
                                     <div class="form-group row">
                                         <label for="inputCliente" class="col-sm-3 col-form-label">Cliente:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputCliente" placeholder="Cliente" name="client" value="<?php echo e(old('name')); ?>">
+                                            <input type="text" class="form-control" id="inputCliente" placeholder="Cliente" name="client" value="<?php echo e(old('client')); ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -142,7 +142,7 @@
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value="<?php echo e(old('vl_period_flow')); ?>"></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value="<?php echo e(old('vl_accumulated')); ?>"></td>
                                                 </tr>
-                                                <tr>
+                                                <!---<tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="3" readonly></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="<?php echo e(old('vl_irrigation_sys')); ?>"></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value="<?php echo e(old('vl_investment')); ?>"></td>
@@ -229,7 +229,7 @@
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value="<?php echo e(old('vl_liquidation')); ?>"></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value="<?php echo e(old('vl_period_flow')); ?>"></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value="<?php echo e(old('vl_accumulated')); ?>"></td>
-                                                </tr>
+                                                </tr>--->
                                         </table>
                                 </div>
                             </div>
@@ -282,7 +282,7 @@
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value="<?php echo e(old('vl_period_flow')); ?>"></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value="<?php echo e(old('vl_accumulated')); ?>"></td>
                                                 </tr>
-                                                <tr>
+                                                <!--<tr>
                                                     <td><input style="width:50%!important" type="text" id="row-period" name="period" value="3" readonly></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="<?php echo e(old('vl_irrigation_sys')); ?>"></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value="<?php echo e(old('vl_balance')); ?>"></td>
@@ -385,7 +385,7 @@
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value="<?php echo e(old('vl_liquidation')); ?>"></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value="<?php echo e(old('vl_period_flow')); ?>"></td>
                                                     <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value="<?php echo e(old('vl_accumulated')); ?>"></td>
-                                                </tr>
+                                                </tr>--->
                                             </tfoot>
                                         </table>
                                     <br>

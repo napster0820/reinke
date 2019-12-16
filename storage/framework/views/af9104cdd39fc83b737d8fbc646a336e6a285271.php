@@ -33,16 +33,16 @@
 			  	<p>
 				  	<b>¿Dónde de visualiza el Dashboard?</b>
 				  	<br/>
-				  	Será posible visualizarlo después que se realiza el login o registro de usuario y se cargan los datos del clientes en el formulário accedido por el link 'Datos'. 
+				  	Será posible visualizarlo después que se realiza el login o registro de usuario y se cargan los datos del clientes en el formulário accedido por el link <a href="<?php echo e(url("datos")); ?>") }}>Datos</a>. 
 				  	<br/>
-				  	También puedes visualizar los que ya fueron generados por en link 'Historial'.
+				  	También puedes visualizar los que ya fueron generados por en link <a href="<?php echo e(url("historial")); ?>") }}>Historial</a>.
 				</p>
 			  </li>
 			  <li>
 			  	<p>
 				  	<b>¿Puedo generar nuevamente un Dashboard que ya cadastré?</b>
 				  	<br/>
-				  	Es posible generarlo por el link 'Historial'. 
+				  	Es posible generarlo por el link <a href="<?php echo e(url("historial")); ?>") }}>Historial</a>. 
 				</p>
 			  </li>		
 			  <li>
@@ -51,7 +51,14 @@
 				  	<br/>
 				  	Contamos con un framework que apoya a la seguridad, además de que fue realizado un análisis detallado de técnicas y tecnologías utilizadas en el sisetma para garantizar esta calidad en el servicio ofrecido. También puede consultar nuestra política de privacidad <a href="<?php echo e(url("politica")); ?>") }}>aqui</a>.
 				</p>
-			  </li>			  
+			  </li>	
+			  <li>
+			  	<p>
+				  	<b>¿Cómo realizo cambios en un Dashboard?</b>
+				  	<br/>
+				  	Busque el registro por en el <a href="<?php echo e(url("historial")); ?>") }}>Historial</a> y seleccione el botón de edición.
+				</p>
+			  </li>				  
 			</ol>
 		</div>
 	</div>

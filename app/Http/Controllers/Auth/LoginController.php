@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
     protected $redirectTo = 'datos';
+    public $maxAttempts = 3;
 
     /**
      * Create a new controller instance.
