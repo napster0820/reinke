@@ -18,7 +18,7 @@ Route::group(['middleware' => ['web']], function(){
     Route::group(['middleware' => ['auth']], function () {
         
         Route::get('datos', 'DatosController@index')->name('datos');
-        Route::post('datos', 'DatosController@guardar')->name('datos.guardar');
+        Route::post('datos', 'DatosController@guardar_cliente')->name('datos.guardar');
 
         //metodos distintos pueden tener la misma ruta
         Route::get('datos/editar/{id}', 'DashboardController@editar')->name('datos.editar');

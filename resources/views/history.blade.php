@@ -47,16 +47,16 @@
 						                	@foreach($clients as $client)
 							                    <tr>
 							                        <th scope="row"> {{$client->id}} </th>
-													<td>{{$client->name}}</td>
+													<td>{{$client->client}}</td>
 													<td>{{$client->created_at}}</td>
 													<td>{{$client->updated_at}}</td>
 													<td>
-														<a href="{{ url('dashboard') }}" data-toggle="tooltip" title="Visualizar"><i class="fas fa-eye"></i></a> | 
-														<a href="{{ route('datos.editar', $client->id) }}"><i class="fas fa-edit"></i></a> | 
+														<a href="{{ url('dashboard') }}" data-toggle="tooltip" title="Visualizar" class="btn btn-primary btn-sm">Visualizar</a> 
+														<a href="{{ route('datos.editar', $client->id) }}" class="btn btn-warning btn-sm">Editar</a> 
 														<form action="{{ route('datos.delete', $client->id) }}" method="POST" class="d-inline">
 															@method('DELETE')
 															@csrf 
-															<button type="submit" name="hist_delete" id="hist_delete"><i class="fas fa-user-times"></i></button>
+															<button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
 														</form>
 													</td>
 							                    </tr>

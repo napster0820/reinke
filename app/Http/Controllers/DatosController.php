@@ -32,7 +32,7 @@ class DatosController extends Controller
         ]);
     }*/
 
-    public function guardar(Request $request) {
+    public function guardar_cliente(Request $request) {
     	//return $request->all();
 
     	$request->validate([
@@ -44,7 +44,7 @@ class DatosController extends Controller
             'culture' => ['required', 'string', 'max:45']
         ]);
 
-        $client =new App\Client;
+        $client = new App\Client;
 
         $client ->user_id =Auth::id();
     	$client ->client = $request->client;
@@ -54,21 +54,29 @@ class DatosController extends Controller
     	$client ->production = $request->production;
     	$client ->culture = $request->culture;
 
-    	$success = $client->save();
+    	$retorno = $client->save();
+        $id_cliente = $client->id;
 
-    	$id_cliente = $client->id;
-    	$retorno_contado = $this->flujoContado($request,  $id_cliente);
-    	$retorno_financiado = $this->flujoFinanciado($request, $id_cliente);
+        if ($retorno) {
+            $mensaje = 'Cliente guardado con exito. Prosiga para el flujo contado.';
+        } else {
+            $mensaje = 'Problemas al guardar cliente. Repita la operación.';
+        };
+        return view('input_data_dashboard', compact('client', 'mensaje'));
 
-    	if($success && $retorno_contado && $retorno_financiado){
+    	//$id_cliente = $client->id;
+    	//$retorno_contado = $this->flujoContado($request,  $id_cliente);
+    	//$retorno_financiado = $this->flujoFinanciado($request, $id_cliente);
+
+    	//if($success && $retorno_contado && $retorno_financiado){
             //return redirect('dashboard', $id_cliente)->with('successRegister','Cliente registrado correctamente');
-            return redirect('dashboard')->with('successRegister', 'Succeso al registrar cliente');
-        }else{
-            return redirect('input_data_dashboard')->with('errorRegister', 'Problemas al registrar cliente');
-        }
+        //    return view('input_data_dashboard', compact('client'))->with('successRegister', 'Succeso al registrar cliente');
+        //}else{
+        //    return redirect('input_data_dashboard')->with('errorRegister', 'Problemas al registrar cliente');
+        //}
     }
 
-    public function flujoContado($request, $id_cliente ) {
+    public function flujoContado(Request $request, $id_cliente) {
 
         $request->validate([
             'period' => ['required', 'numeric', 'digits_between:1,10'],
@@ -94,9 +102,16 @@ class DatosController extends Controller
 		$contado->vl_accumulated = $request->vl_accumulated;
 		$contado->client_id = $id_cliente;
 
-		$success = $contado->save();
+		$retorno = $contado->save();
 
-		return $success;
+		if ($retorno) {
+            $seccion = 'mensaje';
+            $mensaje = 'Línea del flujo inserida.';
+        } else {
+            $seccion = 'mensaje_err';
+            $mensaje = 'No fue posible inserir la línea del flujo. Repira la operación.';
+        };
+        return back()->with($seccion, $mensaje); //hay que ser back para no perder los datos del cliente
     }
 
     public function flujoFinanciado($request, $id_cliente ) {
@@ -130,9 +145,16 @@ class DatosController extends Controller
     	$financiado ->vl_accumulated = $request->vl_accumulated;
     	$financiado ->client_id=$id_cliente;
 
-    	$success = $financiado->save();
+    	$retorno = $financiado->save();
 
-    	return $success;
+    	if ($retorno) {
+            $seccion = 'mensaje';
+            $mensaje = 'Línea del flujo inserida.';
+        } else {
+            $seccion = 'mensaje_err';
+            $mensaje = 'No fue posible inserir la línea del flujo. Repira la operación.';
+        };
+        return back()->with($seccion, $mensaje); //hay que ser back para no perder los datos del cliente
     
     }
 

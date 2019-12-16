@@ -16,6 +16,20 @@
                     <div class="card">
                     <h5 class="card-header">Datos Cliente</h5>
                         <div class="card-body">
+                            <?php if(isset($mensaje)): ?>
+                                <div class="alert alert-warning alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <?php echo e($mensaje ?? ''); ?>
+
+                                </div>
+                            <?php endif; ?>
+
+                            <!-- verificar el di del cliente -->
+                            <!--div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <?php echo e($client->id ?? ''); ?>
+
+                            </div-->
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group row">
@@ -92,9 +106,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <button id="btn_generarDash" class="btn btn-primary float-right" type="submit">Guardar cliente</button>
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
             </div>
            <br>
             <div class="row">
@@ -393,13 +409,158 @@
                                     <button id="btn_generarDash" class="btn btn-primary float-right" type="submit">Generar Dashboard</button>
                                    <!-- <a href="<?php echo e(url("dashboard")); ?>" class="btn btn-primary float-right">Generar Dashboard</a>
                                 </div>--->
+=======
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <div class="Flujo Contado container">
+       <form action="<?php echo e(url('datos')); ?>" method="POST">
+        <?php echo csrf_field(); ?>
+        <?php echo $__env->make('alerts.message_register_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Datos de los flujos</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="card-title">Flujo contado</h5>
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Añadir periodo</button>
+                                <div>
+                                <table class="table table-inverse">
+                                    <thead>
+                                    <tr>
+                                        <th>Periodo</th>
+                                        <th>Sistema de riego ($)</th>
+                                        <th>Inversión cultivo ($)</th>
+                                        <th>Energía ($)</th>
+                                        <th>Mantenimiento ($)</th>
+                                        <th>Ingreso ($)</th>
+                                        <th>Liquidación ($)</th>
+                                        <th>Flujo por periodo ($)</th>
+                                        <th>Acumulado ($)</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <div id="myModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Datos del Periodo</h4>
+                                        </div>
+                                        <div class="form-group row">
+                                        <label for="inputCliente" class="col-sm-3 col-form-label">Periodo:</label>
+                                        <div class="col-sm-9">
+                                            <input style="width:10%!important" type="text" id="row-period" name="period1" value="1" readonly>
+                                        </div>
+                                        <div class="form-group row">
+                                        <label for="inputCliente" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
+                                        <div class="col-sm-9">
+                                            <input style="width:30%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="<?php echo e(old('vl_irrigation_sys')); ?>">
+                                        </div>
+                                        <div class="form-group row">
+                                        <label for="inputCliente" class="col-sm-3 col-form-label">Inversion cultivo($):</label>
+                                        <div class="col-sm-9">
+                                            <input style="width:30%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value="<?php echo e(old('vl_investment')); ?>">
+                                        </div>
+
+                                        <div class="form-group row">
+                                        <label for="inputCliente" class="col-sm-3 col-form-label">Energia ($):</label>
+                                        <div class="col-sm-9">
+                                            <input style="width:30%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energy" value="<?php echo e(old('vl_energy')); ?>" >
+                                        </div>
+                                        <div class="form-group row">
+                                        <label for="inputCliente" class="col-sm-3 col-form-label">Mantenimiento ($):</label>
+                                        <div class="col-sm-9">
+                                            <input style="width:30%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value="0" readonly>
+                                        </div>
+                                        <div class="form-group row">
+                                        <label for="inputCliente" class="col-sm-3 col-form-label">Ingreso ($):</label>
+                                        <div class="col-sm-9">
+                                            <input style="width:30%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="<?php echo e(old('vl_entry')); ?>" >
+                                        </div>
+                                        <div class="form-group row">
+                                        <label for="inputCliente" class="col-sm-3 col-form-label">Liquidación ($):</label>
+                                        <div class="col-sm-9">
+                                            <input style="width:30%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value="<?php echo e(old('vl_liquidation')); ?>">
+                                        </div>
+                                        <div class="form-group row">
+                                        <label for="inputCliente" class="col-sm-3 col-form-label">Flujo por periodo ($):</label>
+                                        <div class="col-sm-9">
+                                            <input style="width:30%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value="<?php echo e(old('vl_period_flow')); ?>">
+                                        </div>
+                                        <div class="form-group row">
+                                        <label for="inputCliente" class="col-sm-3 col-form-label">Acumulado ($):</label>
+                                        <div class="col-sm-9">
+                                            <input style="width:30%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value="<?php echo e(old('vl_accumulated')); ?>">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-save" value="add">Añadir</button>
+                                        </div>
+
+                                      </div>
+                                </div>                        
+>>>>>>> 7b368a5d44ac55038e51c127b6873dfa52189a51
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-       </form>
+            </form>
+        </div>
     </div>
+    <!--
+    <div class="Flujo Contado container">
+       <form action="<?php echo e(url('datos')); ?>" method="POST">
+        <?php echo csrf_field(); ?>
+        <?php echo $__env->make('alerts.message_register_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <div class="row">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="card-title">Flujo financiado</h5>
+                        <table id="example2" class="display" style="width:100%!important">
+                            <thead>
+                                <tr>
+                                    <th>Periodo</th>
+                                    <th>Capital sistema de riego ($)</th>
+                                    <th>Saldo insoluto ($)</th>
+                                    <th>Interés sistema de riego ($)</th>
+                                    <th>Inversíon cultivo ($)</th>
+                                    <th>Energía ($)</th>
+                                    <th>Mantenimiento ($)</th>
+                                    <th>Ingreso ($)</th>
+                                    <th>Liquidación ($)</th>
+                                    <th>Flujo por periodo ($)</th>
+                                    <th>Acumulado ($)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input style="width:50%!important" type="text" id="row-period" name="period" value="1" readonly></td>
+                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_irrigation_sys" name="vl_irrigation_sys" value="<?php echo e(old('vl_irrigation_sys')); ?>"></td>
+                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_balance" name="vl_balance" value="<?php echo e(old('vl_balance')); ?>"></td>
+                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_crop_interest" name="vl_crop_interest" value="<?php echo e(old('vl_crop_interest')); ?>"></td>
+                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_investment" name="vl_investment" value="<?php echo e(old('vl_investment')); ?>"></td>
+                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_energy" name="vl_energys" value="<?php echo e(old('vl_energys')); ?>"></td> 
+                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_maintenance" name="vl_maintenance" value="0" readonly></td>
+                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_entry" name="vl_entry" value="<?php echo e(old('vl_entry')); ?>"></td>
+                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_liquidation" name="vl_liquidation" value="<?php echo e(old('vl_liquidation')); ?>"></td>
+                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_period_flow" name="vl_period_flow" value="<?php echo e(old('vl_period_flow')); ?>"></td>
+                                    <td><input style="width:100%!important" type="number" step="any" id="row-1-vl_accumulated" name="vl_accumulated" value="<?php echo e(old('vl_accumulated')); ?>"></td>
+                                </tr>
+                                </table>                            
+                            </div>
+                            <button id="btn_generarDash" class="btn btn-primary float-right" type="submit">Guardar cliente</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>-->
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('js'); ?>
