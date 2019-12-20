@@ -17,8 +17,8 @@ Route::group(['middleware' => ['web']], function(){
     //Here protetected route's
     Route::group(['middleware' => ['auth']], function () {
         
-        //Route::get('datos', 'DatosController@index')->name('datos');
-        //Route::post('datos', 'DatosController@guardar_cliente')->name('datos.guardar');
+        Route::get('datos', 'DatosController@index')->name('datos');
+        Route::post('datos', 'DatosController@guardar_cliente')->name('datos.guardar');
 
         Route::get('/search','PostController@search');
         Route::delete('/deleteall','PostController@deleteAll');
