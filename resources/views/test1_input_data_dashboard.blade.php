@@ -3,31 +3,31 @@
 @section('title', 'Datos')
 
 @section('cdn-css')
-@parent 
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-
-@endsection
+    @parent 
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+@endsection  
 
 @section('content')
 <br>
 <div class="dashboard container-fluid">
-    <form action="{{ route('datos.guardar') }}" method="POST">
+    <form action="{{ url('datos/') }}/guardarCliente" method="POST">
         @csrf
         @include('alerts.message_register_errors')
         {{-- 
             Section one form generade dashborad
             --}}
-            <div class="card">
-                <div class="card-header">
-                   Datos Cliente
-               </div>
-               <div class="card-body">
-                @if (isset($mensaje))
-                <div class="alert alert-warning alert-dismissable">
+        <div class="card">
+            <div class="card-header">
+                Datos Cliente
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        {{ $mensaje ?? ''}}
-                    </div>
-                @endif
+                        <p id="msg_client"></p>
+                </div>
                 <input type="hidden" value="{{ csrf_token() }}" id="token">
                 <div class="row">
                     <div class="col-md-6">
@@ -136,16 +136,13 @@
 </div>
 </div>
 
-    {{-- 
-        Section flow cash
-        --}}
-        <br/>
-        <div class="card">
-            <h5 class="card-header">Datos de los flujos</h5>
-            <div class="card-body">
-                <h5 class="card-title">Flujo de contado</h5>  
-                @csrf                      
-                <div class="row">
+{{-- Section flow cash --}}
+<br/>
+<div class="card">
+    <h5 class="card-header">Datos de los flujos</h5>
+        <div class="card-body">
+        <h5 class="card-title">Flujo de contado</h5>  
+        <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label for="inputPeriod" class="col-sm-3 col-form-label">Periodo:</label>
@@ -265,8 +262,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if(isset($items))
-                                @foreach($items as $item)
+                        @if(isset($items))
+                            @foreach($items as $item)
                                 <tr>
                                     <th scope="row"> {{$item->period}} </th>
                                     <td>{{$item->vl_irrigation_sys}}</td>
@@ -278,8 +275,8 @@
                                     <td>{{$item->vl_period_flow}}</td>
                                     <td>{{$item->vl_accumulated}}</td>
                                 </tr>
-                                @endforeach
-                            @endif
+                            @endforeach
+                        @endif
                         </tbody>
                         <tfoot>
                             <tr>
@@ -297,8 +294,7 @@
         </div>
     </div>        
 
-</div>
-</div>  
+
 
 </div> 
 </div>  
@@ -309,20 +305,55 @@
 </div>
 </div>
 
+
+
 @endsection
 
 @section('js')
 @parent
-<script type="text/javascript">
-    //alert("teste");
-</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#msg_client").hide();
+
+        $("#btn_saveClient").click(function() {
+            $("#msg_client").show();
+
+            //guardar las variables cuando clicar en el btn_saveClient
+            var inputClient = $("#inputClient").val();
+            var inputProduction = $("#inputProduction").val();
+            var inputAddress = $("#inputAddress").val();
+            var inputCulture = $("#inputCulture").val();
+            var inputState = $("#inputState").val();
+            var inputEmail = $("#inputEmail").val();
+            var inputDiscountTax = $("#inputDiscountTax").val();
+            var token = $("#token").val();
+
+            $.ajax({
+                type: "post",
+                data: "inputClient=" + inputClient + 
+                    "&inputProduction=" + inputProduction + 
+                    "&inputAddress=" + inputAddress + 
+                    "&inputCulture=" + inputCulture + 
+                    "&inputState=" + inputState + 
+                    "&inputEmail=" + inputEmail + 
+                    "&inputDiscountTax=" + inputDiscountTax + 
+                    "&_token=" + token,
+                url: "<?php echo url('/datos/guardarCliente') ?>",
+                success: function(data){
+                    $("#msg_client").html("Cliente inserido en la base.");
+                    $("#msg").fadeOut(5000);
+                }
+            });
+        });
+    });
+</script>  
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="js/main_create_data_flow.js"></script>
+<!--script src="js/main_create_data_flow.js"></script-->
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#dashboardList').DataTable(
-        {
+    $(document).ready(function(){
+        $('#dashboardList').DataTable({
             language: {
                 "decimal": "",
                 "emptyTable": "No hay registros en la tabla",
@@ -341,6 +372,7 @@
                     "last": "Ultimo",
                     "next": "Siguiente",
                     "previous": "Anterior"
+                }
             }
         });
     });

@@ -52,6 +52,7 @@ class DatosController extends Controller
         $client ->email = $request->email;
         $client ->production = $request->production;
         $client ->culture = $request->culture;
+        $client->discount_tax = $request->discount_tax;
 
         $retorno = $client->save();
         $id_cliente = $client->id;

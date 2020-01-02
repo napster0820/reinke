@@ -29,17 +29,17 @@ Route::group(['middleware' => ['web']], function(){
         Auth::routes();
         
         //metodos distintos pueden tener la misma ruta
-        //Route::get('datos/editar/{id}', 'DashboardController@editar')->name('datos.editar');
-        //Route::put('datos/editar/{id}', 'DashboardController@update')->name('datos.update');
-        //Route::delete('datos/delete/{id}', 'DashboardController@delete')->name('datos.delete');
+        Route::get('datos/editar/{id}', 'DashboardController@editar')->name('datos.editar');
+        Route::put('datos/editar/{id}', 'DashboardController@update')->name('datos.update');
+        Route::delete('datos/delete/{id}', 'DashboardController@delete')->name('datos.delete');
 
-        //Route::get('dashboard', 'DashboardController@index');
-        //Route::get('chart/{id}', 'DashboardController@chartData');
-        //Route::get('expenses/{id}', 'DashboardController@expensesChart');
+        Route::get('dashboard', 'DashboardController@index');
+        Route::get('chart/{id}', 'DashboardController@chartData');
+        Route::get('expenses/{id}', 'DashboardController@expensesChart');
 
-        //Route::get('historial', 'DashboardController@buscar_historial')->name('historial');
+        Route::get('historial', 'DashboardController@buscar_historial')->name('historial');
 
-        //Route::get('salir','Auth\LoginController@logout');
+        Route::get('salir','Auth\LoginController@logout');
 
     });
 });
