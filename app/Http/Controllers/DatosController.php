@@ -40,7 +40,8 @@ class DatosController extends Controller
             'country_state' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:100'],
             'production' => ['required', 'numeric', 'digits_between:1,11'],
-            'culture' => ['required', 'string', 'max:45']
+            'culture' => ['required', 'string', 'max:45'],
+            'discount_tax' => ['required', 'numeric']
         ]);
 
         $client = new App\Client;
@@ -58,7 +59,7 @@ class DatosController extends Controller
         $id_cliente = $client->id;
 
         if ($retorno) {
-            $mensaje = 'Cliente guardado con exito. Prosiga para el flujo contado.';
+            $mensaje = 'Cliente guardado con exito. Prosiga para el flujo de contado.';
         } else {
             $mensaje = 'Problemas al guardar cliente. Repita la operación.';
         };

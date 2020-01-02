@@ -19,6 +19,7 @@ Route::group(['middleware' => ['web']], function(){
         
         Route::get('datos', 'DatosController@index')->name('datos');
         Route::post('datos', 'DatosController@guardar_cliente')->name('datos.guardar');
+        Route::resource('cashflows', 'CashFlowsController');
 
         Route::get('/search','PostController@search');
         Route::delete('/deleteall','PostController@deleteAll');
