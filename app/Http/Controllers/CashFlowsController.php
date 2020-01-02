@@ -14,11 +14,12 @@ class CashFlowsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($client_id)
+    public function index($client = null) 
     {
+        // buscar datos del cliente por el id y enviar en el compact en el return
         if(request()->ajax())
         {
-            return datatables()->of(CashFlows::latest()->get())
+            return datatables()->of(Cash_flow::latest()->get())
                     ->addColumn('action', function($data){
                         $button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-primary btn-sm">Edit</button>';
                         $button .= '&nbsp;&nbsp;';
@@ -28,7 +29,7 @@ class CashFlowsController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('input_data_dashboard/'.$client_id);
+        return view('input_data_dashboard');
     }
 
     /**

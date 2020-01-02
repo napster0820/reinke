@@ -127,7 +127,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <button id="btn_saveClient" class="btn btn-primary">Guardar Cliente</button>
+                        <button id="btn_saveClient" class="btn btn-success btn-sm">Guardar Cliente</button>
                     </div>
                 </div> 
             </div>  
@@ -286,6 +286,7 @@
                                     <th>Liquidación ($)</th>
                                     <th>Flujo por periodo ($)</th>
                                     <th>Acumulado ($)</th>
+                                    <th>Acción</th> <!-- Corregir tamaño para los botones -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -312,7 +313,9 @@
 @parent
 <script type="text/javascript">
     //alert("teste");
+
     $('#create_cash_flow').click(function(){
+        //alert("entrou modal");
         $('#formModal').show('modal');
     });
 
@@ -358,7 +361,55 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#cashFlowTable').DataTable(
-        {
+        {   
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: "{{ route('cashflows.index', $client ?? '') }}"
+            },
+            columns: [
+                {
+                    data: 'period',
+                    name: 'period'
+                },
+                {
+                    data: 'vl_irrigation_sys',
+                    name: 'vl_irrigation_sys'
+                },
+                {
+                    data: 'vl_investment',
+                    name: 'vl_investment'
+                },
+                {
+                    data: 'vl_energy',
+                    name: 'vl_energy'
+                },
+                {
+                    data: 'vl_maintenance',
+                    name: 'vl_maintenance'
+                },
+                {
+                    data: 'vl_entry',
+                    name: 'vl_entry'
+                },
+                {
+                    data: 'vl_liquidation',
+                    name: 'vl_liquidation'
+                },
+                {
+                    data: 'vl_period_flow',
+                    name: 'vl_period_flow'
+                },
+                {
+                    data: 'vl_accumulated',
+                    name: 'vl_accumulated'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false
+                }
+            ],
             language: {
                 "decimal": "",
                 "emptyTable": "No hay registros en la tabla",
