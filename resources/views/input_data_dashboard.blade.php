@@ -148,6 +148,7 @@
                 <button type="button" name="create_cash_flow" id="create_cash_flow" class="btn btn-success btn-sm">Crear Nuevo Periodo</button>
             </div>    
         </div>    
+        {{-- Section modal --}}
         <div id="formModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -157,11 +158,11 @@
                     </div>  
                     <div class="modal-body">
                         <span id="form-result"></span>
-                        <form method="POST" id="form_cash_flow" enctype="multipart/form-data" class="form-horizontal">
+                        <form method="post" id="form_cash_flow" enctype="multipart/form-data" class="form-horizontal">
                         @csrf            
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group row">
+                                    <div class="form-group ">
                                         <label for="inputPeriod" class="col-sm-3 col-form-label">Periodo:</label>
                                         <div class="col-sm-9">
                                             <select id="period" class="form-control" name="period">
@@ -181,7 +182,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group row">
+                                    <div class="form-group ">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
                                         <div class="col-sm-9">
                                             <input type="number" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}">
@@ -246,7 +247,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <input type="hidden" name="hidden_id" id="hidden_id" />
                                 <input type="hidden" name="hidden_client_id" id="hidden_client_id" />
                                 <input type="submit" name="action_button" id="action_button" class="btn btn-warning" value="Add" />
@@ -313,13 +314,17 @@
 @parent
 <script type="text/javascript">
     //alert("teste");
-
     $('#create_cash_flow').click(function(){
-        //alert("entrou modal");
-        $('#formModal').show('modal');
+//        alert("entró modal");
+        $('.modal-title').text("Añadir nuevo periodo");
+            $('#action_button').val("Add");
+            $('#action').val("Add");
+            //$('#formModal').modal('show');
+            $('#formModal').show('modal');
+            alert("entró modal");
     });
 
-    $('#form_cash_flow').on('submit', function(){
+    $('#form_cash_flow').on('submit', function(event){
         event.preventDefault();
         if($('#action').val() == 'Add')
         {
@@ -331,7 +336,7 @@
                 cache: false,
                 processData: false,
                 dataType: "json",
-                success: function(data) 
+                success: function(data)
                 {
                     var html = '';
                     if(data.errors)
@@ -430,7 +435,7 @@
                     "previous": "Anterior"
                 }
             }
-        });
+        }); 
     });
 </script>
 @endsection
