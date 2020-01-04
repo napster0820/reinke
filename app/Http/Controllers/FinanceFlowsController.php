@@ -3,24 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cash_flow;
+use App\Finance_flow;
 use App\Client;
 use Validator;
 
-class CashFlowsController extends Controller
+class FinanceFlowsController extends Controller
 {
-    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($client = null) 
+    public function index()
     {
-        // buscar datos del cliente por el id y enviar en el compact en el return
+        // buscar datos del cliente por el id y enviar en el compact en el return finance
         if(request()->ajax())
         {
-            return datatables()->of(Cash_flow::latest()->get())
+            return datatables()->of(Finance_flow::latest()->get())
                     ->addColumn('action', function($data){
                         $button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-primary btn-sm">Edit</button>';
                         $button .= '&nbsp;&nbsp;';
@@ -41,7 +40,6 @@ class CashFlowsController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -53,15 +51,17 @@ class CashFlowsController extends Controller
     public function store(Request $request)
     {
         $rules = array(
-            'period' => ['required', 'numeric', 'digits_between:1,10'],
-            'vl_irrigation_sys' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_investment' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_energy' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_maintenance' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_entry' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_liquidation' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_period_flow' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_accumulated' => ['required', 'numeric', 'digits_between:2,15'],    
+            'periodF' => ['required', 'numeric', 'digits_between:1,10'],
+            'vl_irrigation_sysF' => ['required', 'numeric', 'digits_between:2,15'],
+            'vl_balanceF'    => ['required', 'numeric', 'digits_between:2,15'], 
+            'vl_crop_interestF'  => ['required', 'numeric', 'digits_between:2,15'],
+            'vl_investmentF' => ['required', 'numeric', 'digits_between:2,15'],
+            'vl_energyF' => ['required', 'numeric', 'digits_between:2,15'],
+            'vl_maintenanceF' => ['required', 'numeric', 'digits_between:2,15'],
+            'vl_entryF' => ['required', 'numeric', 'digits_between:2,15'],
+            'vl_liquidationF' => ['required', 'numeric', 'digits_between:2,15'],
+            'vl_period_flowF' => ['required', 'numeric', 'digits_between:2,15'],
+            'vl_accumulatedF' => ['required', 'numeric', 'digits_between:2,15'],    
         );
 
         $error = Validator::make($request->all(), $rules);
@@ -72,20 +72,21 @@ class CashFlowsController extends Controller
         }
 
         $form_data = array(
-            'period' => $request->period,
-            'vl_irrigation_sys' => $request->vl_irrigation_sys,
-            'vl_investment'   => $request->vl_investment,
-            'vl_energy'   => $request->vl_energy,
-            'vl_maintenance'  => $request->vl_maintenance,
-            'vl_entry'    => $request->vl_entry,
-            'vl_liquidation'  => $request->vl_liquidation,
-            'vl_period_flow'  => $request->vl_period_flow,
-            'vl_accumulated' => $request->vl_accumulated,
+            'period' => $request->periodF,
+            'vl_irrigation_sys' => $request->vl_irrigation_sysF,
+            'vl_balance'    => $request->vl_balanceF,
+            'vl_crop_interest'  => $request->vl_crop_interestF,
+            'vl_investment'   => $request->vl_investmentF,
+            'vl_energy'   => $request->vl_energyF,
+            'vl_maintenance'  => $request->vl_maintenanceF,
+            'vl_entry'    => $request->vl_entryF,
+            'vl_liquidation'  => $request->vl_liquidationF,
+            'vl_period_flow'  => $request->vl_period_flowF,
+            'vl_accumulated' => $request->vl_accumulatedF,
             'client_id'  =>$request->client_id
         );
 
-        
-        Cash_flow::create($form_data);
+        Finance_flow::create($form_data);
 
         return response()->json(['success' => 'Periodo registrado correctamente.']);
     }
@@ -121,7 +122,7 @@ class CashFlowsController extends Controller
      */
     public function update(Request $request, $id)
     {
-       //
+        //
     }
 
     /**
