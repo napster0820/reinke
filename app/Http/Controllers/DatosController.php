@@ -41,7 +41,7 @@ class DatosController extends Controller
             'email' => ['required', 'string', 'email', 'max:100'],
             'production' => ['required', 'numeric', 'digits_between:1,11'],
             'culture' => ['required', 'string', 'max:45'],
-            'discount_tax' => ['required', 'numeric']
+            //'discount_tax' => ['required', 'numeric']
         ]);
 
         $client = new App\Client;
@@ -53,7 +53,7 @@ class DatosController extends Controller
         $client ->email = $request->email;
         $client ->production = $request->production;
         $client ->culture = $request->culture;
-        $client->discount_tax = $request->discount_tax;
+        //$client->discount_tax = $request->discount_tax;
 
         $retorno = $client->save();
         $id_cliente = $client->id;
