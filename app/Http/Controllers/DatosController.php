@@ -65,7 +65,13 @@ class DatosController extends Controller
         };
         return view('input_data_dashboard', compact('client', 'mensaje'));
 
+
+        //$client = new App\Client;
+
+        //$client ->user_id =Auth::id();
         //$id_cliente = $client->id;
+
+
         //$retorno_contado = $this->flujo_contado($request,  $id_cliente);
         //$retorno_financiado = $this->flujoFinanciado($request, $id_cliente);
 

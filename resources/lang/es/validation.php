@@ -150,10 +150,18 @@ return [
         'vl_period_flow'        => 'Flujo por periodo ($)',
         'vl_accumulated'        => 'Acumulado ($)', 
 
-        'vl_irrigation_sys'     => 'Capital sistema de riego ($)',
-        'vl_balance'            => 'Saldo insoluto  ($)',
-        'vl_investment'         => 'Interés sisstema de riego ($)',
-        'vl_crop_interest'      => 'Inversión cultivo ($)',
+        'periodF'                => 'Periodo',
+        'vl_irrigation_sysF'     => 'Sistema de riego ($)',
+        'vl_balanceF'            => 'Saldo insoluto  ($)',
+        'vl_crop_interestF'      => 'Inversión cultivo ($)',
+        'vl_investmentF'         => 'Inversión cultivo ($)',
+        'vl_energyF'             => 'Energía ($)',
+        'vl_maintenanceF'        => 'Mantenimiento ($)',
+        'vl_entryF'              => 'Ingreso ($)',
+        'vl_liquidationF'        => 'Liquidación ($)',
+        'vl_period_flowF'        => 'Flujo por periodo ($)',
+        'vl_accumulatedF'        => 'Acumulado ($)',
+
 
     ],
 ];
