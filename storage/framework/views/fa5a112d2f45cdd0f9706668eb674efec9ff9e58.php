@@ -6,122 +6,6 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-
-<!--<div id="formModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Flujo de Contado</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>  
-            <div class="modal-body">
-                <span id="form-result"></span>
-                <form method="POST" id="form_cash_flow" enctype="multipart/form-data" class="form-horizontal">
-                <?php echo csrf_field(); ?>            
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="inputPeriod" class="col-sm-3 col-form-label">Periodo:</label>
-                                <div class="col-sm-9">
-                                    <select id="period" class="form-control" name="period">
-                                        <option value="0" selected>Seleccione...</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="inputCashFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="<?php echo e(old('vl_irrigation_sys')); ?>">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="inputCashFlow" class="col-sm-3 col-form-label">Inversion cultivo ($):</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="vl_investment" name="vl_investment" value="<?php echo e(old('vl_investment')); ?>">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="inputCashFlow" class="col-sm-3 col-form-label">Energia ($):</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="vl_energy" name="vl_energy" value="<?php echo e(old('vl_energy')); ?>">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="inputCashFlow" class="col-sm-3 col-form-label">Mantenimiento ($):</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="vl_maintenance" name="vl_maintenance" value="<?php echo e(old('vl_maintenance')); ?>">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="inputCashFlow" class="col-sm-3 col-form-label">Ingreso ($):</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="vl_entry" name="vl_entry" value="<?php echo e(old('vl_entry')); ?>">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="inputCashFlow" class="col-sm-3 col-form-label">Liquidación ($):</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="vl_liquidation" name="vl_liquidation" value="<?php echo e(old('vl_liquidation')); ?>">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="inputCashFlow" class="col-sm-3 col-form-label">Flujo por periodo ($):</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="<?php echo e(old('vl_period_flow')); ?>">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="inputCashFlow" class="col-sm-3 col-form-label">Acumulado ($):</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="<?php echo e(old('vl_accumulated')); ?>">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="hidden" name="hidden_id" id="hidden_id" />
-                        <input type="hidden" name="hidden_client_id" id="hidden_client_id" />
-                        <!--input type="submit" name="action_button" id="action_button" class="btn btn-warning" value="Add" /-->
-                    <!--</div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </form>
-    </div>
-</div>-->
-
 <br>
 <div class="dashboard container-fluid">
     <form action="<?php echo e(route('datos.guardar')); ?>" method="POST">
@@ -249,7 +133,6 @@
 </div>
 
 
-
 <br/>
 <div class="card">
     <h5 class="card-header">Datos de los flujos <?php if($client ?? ''): ?> del cliente: <b><?php echo e($client->client); ?></b> <?php endif; ?></h5>
@@ -260,13 +143,12 @@
                 <button type="button" name="create_cash_flow" id="create_cash_flow" class="btn btn-primary">Crear Nuevo Periodo</button>
             </div>    
         </div>    
-        
         <div id="formModal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Añadir nuevo periodo</h4>
+                        <h4 class="modal-title">Añadir nuevo periodo contado</h4>
                     </div>  
                     <div class="modal-body">
                         <span id="form-result"></span>
@@ -275,7 +157,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
-                                        <input type="text" class="hide" id="client_id" name="client_id" value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
+                                        <input type="text" class="hide" id="client_id" name="client_id" disabled value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
                                         <label for="inputPeriod" class="col-sm-3 col-form-label">Período:</label>
                                         <div class="col-sm-9">
                                             <select id="period" class="form-control" name="period">
@@ -445,7 +327,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Añadir nuevo periodo</h4>
+                        <h4 class="modal-title">Añadir nuevo periodo financiado</h4>
                     </div>  
                     <div class="modal-body">
                         <span id="form-result"></span>
@@ -454,7 +336,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
-                                    <input type="text" class="readonly" id="client_id" name="client_id" value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
+                                    <input type="text" class="readonly" id="client_id" name="client_id" disabled value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
                                         <label for="inputPeriod" class="col-sm-3 col-form-label">Período:</label>
                                         <div class="col-sm-9">
                                             <select id="periodF" class="form-control" name="periodF">
@@ -644,6 +526,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript">
+    //alert("teste");
+
 //Cash Flow
     $('#create_cash_flow').click(function(){
 
@@ -657,7 +541,7 @@
     $("#formModal").modal();*/
     });
 
-    $('#form_cash_flow').on('submit', function(event){
+    $('#form_cash_flow').on('submit', function(){
         event.preventDefault();
         //if($('#action').val() == 'Add')
         //{
@@ -669,7 +553,7 @@
                 cache: false,
                 processData: false,
                 dataType: "json",
-                success: function(data)
+                success: function(data) 
                 {
                     console.log(data);
                     var html = '';
@@ -822,6 +706,7 @@
                 }
             }
         });
+
 
         $('#financeFlowTable').DataTable(
         {   
