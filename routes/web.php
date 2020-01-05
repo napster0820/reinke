@@ -41,7 +41,7 @@ Route::group(['middleware' => ['web']], function(){
         Route::put('datos/editar/{id}', 'DashboardController@update')->name('datos.update');
         Route::delete('datos/delete/{id}', 'DashboardController@delete')->name('datos.delete');
 
-        Route::get('dashboard', 'DashboardController@index');
+        Route::get('dashboard/{id}', 'DashboardController@index');
         Route::get('chart/{id}', 'DashboardController@chartData');
         Route::get('expenses/{id}', 'DashboardController@expensesChart');
 

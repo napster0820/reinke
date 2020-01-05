@@ -37,11 +37,11 @@
                         Cliente
                     </div>
                     <div class="card-body">
-                        <p class="card-text"><b>Cliente:</b> {{ $client->name ?? 'Teste' }} </p>
-                        <p class="card-text"><b>Dirección:</b> {{ $client->address ?? 'Teste' }}</p>
-                        <p class="card-text"><b>Estado:</b> {{ $client->country_state ?? 'Teste' }}</p>
-                        <p class="card-text"><b>Producción estimada:</b> {{ $client->production ?? 'Teste' }}</p>
-                        <p class="card-text"><b>Cultivo:</b> {{ $client->culture ?? 'Teste' }} </p>
+                        <p class="card-text"><b>Cliente:</b> {{ $client->client }} </p>
+                        <p class="card-text"><b>Dirección:</b> {{ $client->address }}</p>
+                        <p class="card-text"><b>Estado:</b> {{ $client->country_state }}</p>
+                        <p class="card-text"><b>Producción estimada:</b> {{ $client->production }}</p>
+                        <p class="card-text"><b>Cultivo:</b> {{ $client->culture }} </p>
                     </div>
                 </div>
                 <br>
@@ -59,9 +59,9 @@
                         Resumen de inversión  
                     </div>
                     <div class="card-body">
-                        <p class="card-text">VPN inversión </p>
-                        <p class="card-text">TIR inversión </p>
-                        <p class="card-text">Tiempo recuperación </p>
+                        <p class="card-text"><b>VPN inversión:</b> $ {{ $summ_cash_flow['vpn'] }} </p>
+                        <p class="card-text"><b>TIR inversión:</b> {{ $summ_cash_flow['tir'] }} %</p>
+                        <p class="card-text"><b>Tiempo recuperación:</b> {{ $summ_cash_flow['anio_recuperacion'] }} </p>
                     </div>
                 </div>  
                 <br>        
