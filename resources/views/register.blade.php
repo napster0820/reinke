@@ -16,11 +16,11 @@
                         @include('alerts.message_register_errors')
                         <div class="form-group">
                             <label for="name">Nombre:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" value="{{ old('name') }}" required maxlength="100" pattern="[A-Za-z0-9]+">
+                            <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" value="{{ old('name') }}" required minlength="2" maxlength="100" pattern="[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,100}" title="Espacio en blanco no valido">
                         </div>
                         <div class="form-group">
                             <label for="email">Correo:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Correo" name="email" value="{{ old('email') }}" required maxlength="100">
+                            <input type="email" class="form-control" id="email" placeholder="Correo" name="email" value="{{ old('email') }}" required maxlength="100" pattern="[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z.-]+">
                         </div>
                         <div class="form-group">
                             <label for="password">Contraseña:</label>
