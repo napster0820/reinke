@@ -153,7 +153,7 @@ return [
         'periodF'                => 'Periodo',
         'vl_irrigation_sysF'     => 'Sistema de riego ($)',
         'vl_balanceF'            => 'Saldo insoluto  ($)',
-        'vl_crop_interestF'      => 'Inversión cultivo ($)',
+        'vl_crop_interestF'      => 'Interés Sistema riego ($)',
         'vl_investmentF'         => 'Inversión cultivo ($)',
         'vl_energyF'             => 'Energía ($)',
         'vl_maintenanceF'        => 'Mantenimiento ($)',

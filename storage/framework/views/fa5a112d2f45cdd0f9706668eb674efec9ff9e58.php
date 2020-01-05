@@ -144,7 +144,7 @@
             </div>    
         </div>    
         <div id="formModal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -153,11 +153,12 @@
                     <div class="modal-body">
                         <span id="form-result"></span>
                         <form method="post" id="form_cash_flow" enctype="multipart/form-data" class="form-horizontal">
-                        <?php echo csrf_field(); ?>            
+                        <?php echo csrf_field(); ?> 
+                        <?php echo $__env->make('alerts.message_cashflow_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>           
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
-                                        <input type="text" class="hide" id="client_id" name="client_id" disabled value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
+                                        <input type="text" class="hide" id="client_id" name="client_id"  value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
                                         <label for="inputPeriod" class="col-sm-3 col-form-label">Período:</label>
                                         <div class="col-sm-9">
                                             <select id="period" class="form-control" name="period">
@@ -323,7 +324,7 @@
         </div>    
         
         <div id="formModalF" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -332,11 +333,12 @@
                     <div class="modal-body">
                         <span id="form-result"></span>
                         <form method="post" id="form_finance_flow" enctype="multipart/form-data" class="form-horizontal">
-                        <?php echo csrf_field(); ?>            
+                        <?php echo csrf_field(); ?>  
+                        <?php echo $__env->make('alerts.message_financeflows_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>            
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
-                                    <input type="text" class="readonly" id="client_id" name="client_id" disabled value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
+                                    <input type="text" class="readonly" id="client_id" name="client_id"  value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
                                         <label for="inputPeriod" class="col-sm-3 col-form-label">Período:</label>
                                         <div class="col-sm-9">
                                             <select id="periodF" class="form-control" name="periodF">
@@ -447,8 +449,6 @@
                 </div>
             </div>
         </div>
-
-
         <!--<div id="confirmModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -510,13 +510,8 @@
                     </div>
                 </div>
             </div>
-
-</div>  
-<div>
-</div>
-
-</div>
-</div>
+        </div>  
+    <div>
 </div>
 </body>
 </html>
@@ -526,19 +521,13 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript">
-    //alert("teste");
-
 //Cash Flow
     $('#create_cash_flow').click(function(){
-
         $('.modal-title').text("Añadir nuevo periodo");
         $('#action_button').val("Add");
         $('#action').val("Add");
         $('#formModal').modal();
-        //$('#formModal').show('modal');
         alert("entró modal");
-    /*$("#create_cash_flow").click(function(){
-    $("#formModal").modal();*/
     });
 
     $('#form_cash_flow').on('submit', function(){
@@ -569,7 +558,7 @@
                     if (data.success) 
                     {
                         html = '<div class="alert alert-success">' + data.success + '</div>';
-                        $('#form_cash_flow')[0].reset(); //limpar todo valor do formulario
+                        $('#form_cash_flow')[0].reset(); //limpar todo valor del formulario
                         $('#cashFlowTable').DataTable().ajax.reload(); //refresh la tabla
                     }
                     $('#form_result').html(html); //display las mensajes
@@ -585,7 +574,6 @@
         $('#action_button').val("Add");
         $('#action').val("Add");
         $('#formModalF').modal();
-        //$('#formModalF').show('modal');
         alert("entró modal F");
     });
     $('#form_finance_flow').on('submit', function(event){
@@ -707,7 +695,7 @@
             }
         });
 
-
+        // Finance flow
         $('#financeFlowTable').DataTable(
         {   
             processing: true,
