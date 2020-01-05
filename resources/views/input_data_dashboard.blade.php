@@ -263,6 +263,7 @@
                 <button type="button" name="create_cash_flow" id="create_cash_flow" class="btn btn-success btn-sm">Crear Nuevo Periodo</button>
             </div>    
         </div>    
+        
                 </br>
 
 
@@ -322,12 +323,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript">
     //alert("teste");
+
     $('#create_cash_flow').click(function(){
         alert("entrou modal");
         $('#formModal').modal('show');
     });
 
-    $('#form_cash_flow').on('submit', function(event){
+    $('#form_cash_flow').on('submit', function(){
         event.preventDefault();
         if($('#action').val() == 'Add')
         {
@@ -339,7 +341,7 @@
                 cache: false,
                 processData: false,
                 dataType: "json",
-                success: function(data)
+                success: function(data) 
                 {
                     var html = '';
                     if(data.errors)
@@ -437,7 +439,7 @@
                     "previous": "Anterior"
                 }
             }
-        }); 
+        });
     });
 </script>
 @endsection
