@@ -19,7 +19,23 @@ Route::group(['middleware' => ['web']], function(){
         
         Route::get('datos', 'DatosController@index')->name('datos');
         Route::post('datos', 'DatosController@guardar_cliente')->name('datos.guardar');
+        Route::resource('cashflows', 'CashFlowsController');
+        Route::resource('financeflows', 'FinanceFlowsController');
+        
+        
+        //
+        //Route::get('cashflows/{id}', 'CashFlowsController@store');
+        //Route::get('cashflows/editar/{id}', 'CashFlowsController@editar')->name('cashflows.editar');
+        //Route::post('cashflows/update', 'CashFlowsController@update')->name('cashflows.update');
 
+        // Route::get('/search','PostController@search');
+        // Route::delete('/deleteall','PostController@deleteAll');
+        // Route::get('/crud','CrudController@create')->name('ajax');
+        // Route::get('/post','PostController@index')->name('post');
+        // Route::resource('posts','PostController');
+        // Route::resource('cruds','CrudController');
+        Auth::routes();
+        
         //metodos distintos pueden tener la misma ruta
         Route::get('datos/editar/{id}', 'DashboardController@editar')->name('datos.editar');
         Route::put('datos/editar/{id}', 'DashboardController@update')->name('datos.update');

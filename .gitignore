@@ -30,6 +30,9 @@ public/hot
 public_html/storage
 public_html/hot
 
+vendor/
+storage/
+.scannerword/
 storage/*.key
 .env
 Homestead.yaml

@@ -21,6 +21,7 @@ class CreateTableClients extends Migration
             $table->string('email', 100); //no puede ser, pq no caso de tener dos vendedores distintos para el mismo cliente, genera un error
             $table->integer('production');
             $table->string('culture', 45);
+            $table->integer('discount_tax');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
