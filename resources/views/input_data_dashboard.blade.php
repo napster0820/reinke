@@ -143,14 +143,15 @@
         <div class="row">
             <div class="col-md-6">
                 <button type="button" name="create_cash_flow" id="create_cash_flow" class="btn btn-primary">Crear Nuevo Periodo</button>
+                <br />
             </div>    
         </div>    
         <div id="formModal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Añadir nuevo periodo contado</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>  
                     <div class="modal-body">
                         <span id="form-result"></span>
@@ -160,94 +161,55 @@
                             <div id='e_div'>
                                 <p id='er_div'></p>
                             </div>     
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group ">
-                                        <input type="text" class="hide" id="client_id" name="client_id" readonly="readonly" value="@if($client ?? ''){{ $client->id }}@endif">
-                                        <label for="inputPeriod" class="col-sm-3 col-form-label" >Período:</label>
-                                        <div class="col-sm-9">
-                                            <select id="period" class="form-control" name="period" required>
-                                                <option value="" >Seleccione...</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                            <input type="text" class="hide" id="client_id" name="client_id" readonly="readonly" value="@if($client ?? ''){{ $client->id }}@endif">
+                                <div class="form-group">
+                                    <label for="inputPeriod" class="col-form-label" >Período:</label>
+                                    <select id="period" class="form-control" name="period" required>
+                                        <option value="" >Seleccione...</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputCashFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15" >
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="inputCashFlow" class="col-form-label">Sistema de riego ($):</label>
+                                    <input type="number" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15" >
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputCashFlow" class="col-sm-3 col-form-label">Inversion cultivo ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_investment" name="vl_investment" value="{{old('vl_investment') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="inputCashFlow" class="col-form-label">Inversion cultivo ($):</label>
+                                    <input type="number" class="form-control" id="vl_investment" name="vl_investment" value="{{old('vl_investment') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputCashFlow" class="col-sm-3 col-form-label">Energía ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_energy" name="vl_energy" value="{{old('vl_energy') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="inputCashFlow" class="col-form-label">Energía ($):</label>
+                                    <input type="number" class="form-control" id="vl_energy" name="vl_energy" value="{{old('vl_energy') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputCashFlow" class="col-sm-3 col-form-label">Mantenimiento ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_maintenance" name="vl_maintenance" value="{{old('vl_maintenance') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="inputCashFlow" class="col-form-label">Mantenimiento ($):</label>
+                                    <input type="number" class="form-control" id="vl_maintenance" name="vl_maintenance" value="{{old('vl_maintenance') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                 </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label for="inputCashFlow" class="col-sm-3 col-form-label">Ingreso ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_entry" name="vl_entry" value="{{old('vl_entry') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="inputCashFlow" class="col-form-label">Ingreso ($):</label>
+                                    <input type="number" class="form-control" id="vl_entry" name="vl_entry" value="{{old('vl_entry') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputCashFlow" class="col-sm-3 col-form-label">Liquidación ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_liquidation" name="vl_liquidation" value="{{old('vl_liquidation') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="inputCashFlow" class="col-form-label">Liquidación ($):</label>
+                                    <input type="number" class="form-control" id="vl_liquidation" name="vl_liquidation" value="{{old('vl_liquidation') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputCashFlow" class="col-sm-3 col-form-label">Flujo por período ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="inputCashFlow" class="col-form-label">Flujo por período ($):</label>
+                                    <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputCashFlow" class="col-sm-3 col-form-label">Acumulado ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="inputCashFlow" class="col-form-label">Acumulado ($):</label>
+                                    <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                 </div>
-                            </div>
                             <div class="form-group">
                                 <input type="hidden" name="hidden_id" id="hidden_id" />
                                 <input type="hidden" name="hidden_client_id" id="hidden_client_id" />
@@ -258,34 +220,34 @@
                 </div>
             </div>
         </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <table id="cashFlowTable" class="display" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Periodo</th>
-                                    <th>Sistema de riego ($)</th>
-                                    <th>Inversión cultivo ($)</th>
-                                    <th>Energía ($)</th>
-                                    <th>Mantenimiento ($)</th>
-                                    <th>Ingreso ($)</th>
-                                    <th>Liquidación ($)</th>
-                                    <th>Flujo por periodo ($)</th>
-                                    <th>Acumulado ($)</th>
-                                    <th>Acción</th> <!-- Corregir tamaño para los botones -->
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div> 
+        <div class="row">
+            <div class="col-md-12">
+                <table id="cashFlowTable" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Periodo</th>
+                            <th>Sistema de riego ($)</th>
+                            <th>Inversión cultivo ($)</th>
+                            <th>Energía ($)</th>
+                            <th>Mantenimiento ($)</th>
+                            <th>Ingreso ($)</th>
+                            <th>Liquidación ($)</th>
+                            <th>Flujo por periodo ($)</th>
+                            <th>Acumulado ($)</th>
+                            <th>Acción</th> <!-- Corregir tamaño para los botones -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> 
 {{-- Section flow finance --}}
 <br/>
-<div class="card">
-    <h5 class="card-header">Datos de los flujos @if($client ?? '') del cliente: <b>{{ $client->client }}</b> @endif</h5>
+<!--div class="card">
+    <h5 class="card-header">Datos de los flujos @if($client ?? '') del cliente: <b>{{ $client->client }}</b> @endif</h5-->
     <div class="card-body">
         <h5 class="card-title">Flujo financiado</h5>  
         <div class="row">
@@ -298,120 +260,75 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Añadir nuevo periodo financiado</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>  
                     <div class="modal-body">
                         <span id="form-result"></span>
                         <form method="post" id="form_finance_flow" enctype="multipart/form-data" class="form-horizontal">
-                        @csrf  
-                        @include('alerts.message_financeflows_errors')
-                        <div id='ef_div'>
-                            <p id='erf_div'></p>
-                        </div>             
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group ">
-                                    <input type="text" class="hide" id="client_id" name="client_id" readonly="readonly" value="@if($client ?? ''){{ $client->id }}@endif">
-                                        <label for="inputPeriod" class="col-sm-3 col-form-label" >Período:</label>
-                                        <div class="col-sm-9">
-                                            <select id="periodF" class="form-control" name="periodF" required>
-                                                <option value="" >Seleccione...</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                            @csrf  
+                            @include('alerts.message_financeflows_errors')
+                            <div id='ef_div'>
+                                <p id='erf_div'></p>
+                            </div>             
+                            <div class="form-group">
+                                <input type="text" class="hide" id="client_id" name="client_id" readonly="readonly" value="@if($client ?? ''){{ $client->id }}@endif">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPeriod" class="col-form-label" >Período:</label>
+                                <select id="periodF" class="form-control" name="periodF" required>
+                                    <option value="" >Seleccione...</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputFinanceFlow" class="col-form-label">Sistema de riego ($):</label>
+                                <input type="number" class="form-control" id="vl_irrigation_sysF" name="vl_irrigation_sysF" value="{{old('vl_irrigation_sysF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputFinanceFlow" class="col-form-label">Saldo insoluto ($):</label>
+                                <input type="number" class="form-control" id="vl_balanceF" name="vl_balanceF" value="{{old('vl_balanceF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputFinanceFlow" class="col-form-label">Interés sistema riego ($):</label>
+                                <input type="number" class="form-control" id="vl_crop_interestF" name="vl_crop_interestF" value="{{old('vl_crop_interestF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputFinanceFlow" class="col-form-label">Inversion cultivo ($):</label>
+                                <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="{{old('vl_investmentF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputFinanceFlow" class="col-form-label">Energía ($):</label>
+                                <input type="number" class="form-control" id="vl_energyF" name="vl_energyF" value="{{old('vl_energyF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputFinanceFlow" class="col-form-label">Mantenimiento ($):</label>
+                                <input type="number" class="form-control" id="vl_maintenanceF" name="vl_maintenanceF" value="{{old('vl_maintenanceF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputFinanceFlow" class="col-form-label">Ingreso ($):</label>
+                                <input type="number" class="form-control" id="vl_entryF" name="vl_entryF" value="{{old('vl_entryF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputFinanceFlow" class="col-form-label">Liquidación ($):</label>
+                                    <input type="number" class="form-control" id="vl_liquidationF" name="vl_liquidationF" value="{{old('vl_liquidationF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_irrigation_sysF" name="vl_irrigation_sysF" value="{{old('vl_irrigation_sysF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Saldo insoluto ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_balanceF" name="vl_balanceF" value="{{old('vl_balanceF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Interés sistema riego ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_crop_interestF" name="vl_crop_interestF" value="{{old('vl_crop_interestF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Inversion cultivo ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="{{old('vl_investmentF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Energía ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_energyF" name="vl_energyF" value="{{old('vl_energyF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Mantenimiento ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_maintenanceF" name="vl_maintenanceF" value="{{old('vl_maintenanceF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Ingreso ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_entryF" name="vl_entryF" value="{{old('vl_entryF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Liquidación ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_liquidationF" name="vl_liquidationF" value="{{old('vl_liquidationF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Flujo por período ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_period_flowF" name="vl_period_flowF" value="{{old('vl_period_flowF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Acumulado ($):</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_accumulatedF" name="vl_accumulatedF" value="{{old('vl_accumulatedF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <label for="inputFinanceFlow" class="col-form-label">Flujo por período ($):</label>
+                                <input type="number" class="form-control" id="vl_period_flowF" name="vl_period_flowF" value="{{old('vl_period_flowF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputFinanceFlow" class="col-form-label">Acumulado ($):</label>
+                                <input type="number" class="form-control" id="vl_accumulatedF" name="vl_accumulatedF" value="{{old('vl_accumulatedF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="hidden_id2" id="hidden_id2" />
@@ -423,36 +340,35 @@
                 </div>
             </div>
         </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <table id="financeFlowTable" class="display" style="width:100%">
-                            <thead>
-                                <tr>
-                                <!--'period', 'vl_irrigation_sys', 'vl_balance', 'vl_crop_interest', 'vl_investment', 'vl_energy', 
-                                'vl_maintenance', 'vl_entry', 'vl_liquidation', 'vl_period_flow', 'vl_accumulated', 'client_id'];-->
-                                    <th>Periodo</th>
-                                    <th>Sistema de riego ($)</th>
-                                    <th>Saldo insoluto ($)</th>
-                                    <th>Interés sistema riego ($)</th>
-                                    <th>Inversión cultivo ($)</th>
-                                    <th>Energía ($)</th>
-                                    <th>Mantenimiento ($)</th>
-                                    <th>Ingreso ($)</th>
-                                    <th>Liquidación ($)</th>
-                                    <th>Flujo por periodo ($)</th>
-                                    <th>Acumulado ($)</th>
-                                    <th>Acción</th> <!-- Corregir tamaño para los botones -->
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="financeFlowTable" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                        <!--'period', 'vl_irrigation_sys', 'vl_balance', 'vl_crop_interest', 'vl_investment', 'vl_energy', 
+                        'vl_maintenance', 'vl_entry', 'vl_liquidation', 'vl_period_flow', 'vl_accumulated', 'client_id'];-->
+                            <th>Periodo</th>
+                            <th>Sistema de riego ($)</th>
+                            <th>Saldo insoluto ($)</th>
+                            <th>Interés sistema riego ($)</th>
+                            <th>Inversión cultivo ($)</th>
+                            <th>Energía ($)</th>
+                            <th>Mantenimiento ($)</th>
+                            <th>Ingreso ($)</th>
+                            <th>Liquidación ($)</th>
+                            <th>Flujo por periodo ($)</th>
+                            <th>Acumulado ($)</th>
+                            <th>Acción</th> <!-- Corregir tamaño para los botones -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
             </div>
-        </div>  
-    <div>
+        </div>
+    </div>
+</div>  
 </div>
 </body>
 </html>
