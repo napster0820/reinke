@@ -51,8 +51,8 @@
 													<td>{{$client->created_at}}</td>
 													<td>{{$client->updated_at}}</td>
 													<td>
-														<a href="{{ url('dashboard') }}" data-toggle="tooltip" title="Visualizar" class="btn btn-primary btn-sm">Visualizar</a> 
-														<a href="{{ route('datos.editar', $client->id) }}" class="btn btn-warning btn-sm">Editar</a> 
+														<a href="{{ url('dashboard', $client->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-primary btn-sm">Visualizar</a> 
+														<!--a href="{{ route('datos.editar', $client->id) }}" class="btn btn-warning btn-sm">Editar</a--> 
 														<form action="{{ route('datos.delete', $client->id) }}" method="POST" class="d-inline">
 															@method('DELETE')
 															@csrf 

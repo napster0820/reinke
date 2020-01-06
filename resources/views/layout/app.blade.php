@@ -18,14 +18,14 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Roboto:300,400,500,700&display=swap" rel="stylesheet">
     <!-- Icons -->
     <script src="https://kit.fontawesome.com/0a1793b862.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="{{URL::asset('css/app.css')}}">
     @show
    
     <title>Reinke - @yield('title')</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{ url("datos") }}"><img src="images/reinke_logo.png" alt="reinke_logo"></a>
+        <a class="navbar-brand" href="{{ url("datos") }}"><img src="{{URL::asset('images/reinke_logo.png')}}" alt="reinke_logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,13 +37,13 @@
             <span class="welcome-user"><strong>Bienvenido:</strong> {{ Auth::user()->name }}</span>
           </span>
           <span class="navbar-text">
-            <a href="{{ url('datos') }}"><strong>Datos</strong></a>
+            <a href="{{ url('datos') }}"><strong>Nuevo Dashboard</strong></a>
           </span>
-          <span class="navbar-text">
+          <!--span class="navbar-text">
               <a href="{{ url('dashboard') }}"><strong>Dashboard</strong></a>
-          </span>
+          </span-->
           <span class="navbar-text">
-            <a href="{{ url('historial') }}"><strong>Historial</strong></a>
+            <a href="{{ url('historial') }}"><strong>Consultar Dashboards</strong></a>
           </span>
           <span class="navbar-text">
             <a href="{{ url('ayuda') }}"><strong>Ayuda</strong></a>
@@ -71,7 +71,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
+    <script src="{{URL::asset('js/main.js')}}"></script>
     @show
 </body>
 </html>

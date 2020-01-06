@@ -31,7 +31,8 @@
                         <div class="form-group row">
                             <label for="inputCliente" class="col-sm-3 col-form-label">Cliente:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputClient" placeholder="Cliente" name="client" value="{{old('client') }}">
+                                <input type="text" class="form-control" id="inputClient" placeholder="Cliente" name="client" value="{{old('client') }}" required pattern="^[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,100}"
+                                title="Letras. Tamaño mínimo: 3. Tamaño máximo: 100">
                             </div>
                         </div>
                     </div>
@@ -39,7 +40,7 @@
                         <div class="form-group row">
                             <label for="inputTon" class="col-sm-6 col-form-label">Producción estimada o (TonlHc):</label>
                             <div class="col-sm-6">
-                                <input type="number" step="any" class="form-control" id="inputProduction" placeholder="(TonlHc)" name="production" value="{{old('production') }}">
+                                <input type="number" step="any" class="form-control" id="inputProduction" placeholder="(TonlHc)" name="production" value="{{old('production') }}" min="1" minlength="1" maxlength="11" required pattern="^[0-9]+" title="Números. Tamaño mínimo: 1. Tamaño máximo: 11">
                             </div>
                         </div>
                     </div>
@@ -49,7 +50,7 @@
                         <div class="form-group row">
                             <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputAddress" placeholder="Dirección" name="address" value="{{old('address') }}">
+                                <input type="text" class="form-control" id="inputAddress" placeholder="Dirección" name="address" value="{{old('address') }}" minlength="1" maxlength="100" required  title="Letras. Tamaño mínimo: 1. Tamaño máximo: 100">
                             </div>
                         </div>
                     </div>
@@ -57,7 +58,7 @@
                         <div class="form-group row">
                             <label for="inputCultivo" class="col-sm-3 col-form-label">Cultivo:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputCulture" placeholder="Cultivo" name="culture" value="{{old('culture') }}">
+                                <input type="text" class="form-control" id="inputCulture" placeholder="Cultivo" name="culture" value="{{old('culture') }}" minlength="1" maxlength="45" required  title="Letras. Tamaño mínimo: 1. Tamaño máximo: 45">
                             </div>
                         </div>
                     </div>
@@ -67,8 +68,8 @@
                         <div class="form-group row">
                             <label for="inputEstado" class="col-sm-3 col-form-label">Estado:</label>
                             <div class="col-sm-9">
-                                <select id="inputState" class="form-control" name="country_state" value="{{old('country_state') }}">
-                                    <option value="0">Seleccione...</option>
+                                <select id="inputState" class="form-control" name="country_state" value="{{old('country_state') }}"required>
+                                    <option value="">Seleccione...</option>
                                     <option value="1">Aguascalientes</option>
                                     <option value="2">Baja California</option>
                                     <option value="3">Baja California Sur</option>
@@ -109,7 +110,7 @@
                         <div class="form-group row">
                             <label for="inputEmail" class="col-sm-3 col-form-label">Correo eletrónico:</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="inputEmail" placeholder="Correo eletrónico" name="email" value="{{old('email') }}">
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Correo eletrónico" name="email" value="{{old('email') }}" required maxlength="100" pattern="[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z.-]+">
                             </div>
                         </div>
                     </div>
@@ -119,7 +120,7 @@
                         <div class="form-group row">
                             <label for="inputDiscountTax" class="col-sm-3 col-form-label">Tasa Descuento (%):</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputDiscountTax" placeholder="Tasa Descuento" name="discount_tax" value="{{old('discount_tax') }}">
+                                <input type="number"  class="form-control" id="inputDiscountTax" placeholder="Tasa Descuento" name="discount_tax" value="{{old('discount_tax') }}" required min="1" minlength="1" maxlength="11" title="Números. Tamaño mínimo: 1. Tamaño máximo: 11">
                             </div>
                         </div>
                     </div>
@@ -145,7 +146,7 @@
             </div>    
         </div>    
         <div id="formModal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -154,15 +155,33 @@
                     <div class="modal-body">
                         <span id="form-result"></span>
                         <form method="post" id="form_cash_flow" enctype="multipart/form-data" class="form-horizontal">
-                        @csrf            
+                        @csrf 
+                        @include('alerts.message_cashflow_errors') 
+                        <!--@if (session('mensaje'))
+                            <div class="alert alert-success alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    {{ session('mensaje') }}
+                                    
+                            </div>
+                        @endif
+                        @if (session('mensaje_err'))
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ session('mensaje_err') }}
+                            </div>
+                        @endif 
+                        -->    
+                            <div id='e_div'>
+                                <p id='er_div'></p>
+                            </div>     
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
-                                        <input type="text" class="hide" id="client_id" name="client_id" disabled value="@if($client ?? ''){{ $client->id }}@endif">
-                                        <label for="inputPeriod" class="col-sm-3 col-form-label">Período:</label>
+                                        <input type="text" class="hide" id="client_id" name="client_id" readonly="readonly" value="@if($client ?? ''){{ $client->id }}@endif">
+                                        <label for="inputPeriod" class="col-sm-3 col-form-label" >Período:</label>
                                         <div class="col-sm-9">
-                                            <select id="period" class="form-control" name="period">
-                                                <option value="0" selected>Seleccione...</option>
+                                            <select id="period" class="form-control" name="period" required>
+                                                <option value="" >Seleccione...</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -181,7 +200,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}">
+                                            <input type="number" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15" >
                                         </div>
                                     </div>
                                 </div>
@@ -189,7 +208,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Inversion cultivo ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_investment" name="vl_investment" value="{{old('vl_investment') }}">
+                                            <input type="number" class="form-control" id="vl_investment" name="vl_investment" value="{{old('vl_investment') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -197,7 +216,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Energía ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_energy" name="vl_energy" value="{{old('vl_energy') }}">
+                                            <input type="number" class="form-control" id="vl_energy" name="vl_energy" value="{{old('vl_energy') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -205,7 +224,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Mantenimiento ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_maintenance" name="vl_maintenance" value="{{old('vl_maintenance') }}">
+                                            <input type="number" class="form-control" id="vl_maintenance" name="vl_maintenance" value="{{old('vl_maintenance') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -214,7 +233,7 @@
                                     <div class="form-group row">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Ingreso ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_entry" name="vl_entry" value="{{old('vl_entry') }}">
+                                            <input type="number" class="form-control" id="vl_entry" name="vl_entry" value="{{old('vl_entry') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +241,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Liquidación ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_liquidation" name="vl_liquidation" value="{{old('vl_liquidation') }}">
+                                            <input type="number" class="form-control" id="vl_liquidation" name="vl_liquidation" value="{{old('vl_liquidation') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -230,7 +249,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Flujo por período ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}">
+                                            <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -238,7 +257,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Acumulado ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}">
+                                            <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -272,7 +291,7 @@
             </div>
         </div>-->
                 </br>
-                 @if (session('mensaje'))
+                <!-- @if (session('mensaje'))
                  <div class="alert alert-success alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     {{ session('mensaje') }}
@@ -283,7 +302,7 @@
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     {{ session('mensaje_err') }}
                 </div>
-                @endif
+                @endif-->
 
                 <div class="row">
                     <div class="col-md-12">
@@ -322,7 +341,7 @@
         </div>    
         {{-- Section modal --}}
         <div id="formModalF" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -331,15 +350,16 @@
                     <div class="modal-body">
                         <span id="form-result"></span>
                         <form method="post" id="form_finance_flow" enctype="multipart/form-data" class="form-horizontal">
-                        @csrf            
+                        @csrf  
+                        @include('alerts.message_financeflows_errors')            
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
-                                    <input type="text" class="readonly" id="client_id" name="client_id" disabled value="@if($client ?? ''){{ $client->id }}@endif">
-                                        <label for="inputPeriod" class="col-sm-3 col-form-label">Período:</label>
+                                    <input type="text" class="hide" id="client_id" name="client_id" readonly="readonly" value="@if($client ?? ''){{ $client->id }}@endif">
+                                        <label for="inputPeriod" class="col-sm-3 col-form-label" >Período:</label>
                                         <div class="col-sm-9">
-                                            <select id="periodF" class="form-control" name="periodF">
-                                                <option value="0" selected>Seleccione...</option>
+                                            <select id="periodF" class="form-control" name="periodF" required>
+                                                <option value="" >Seleccione...</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -358,7 +378,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_irrigation_sysF" name="vl_irrigation_sysF" value="{{old('vl_irrigation_sysF') }}">
+                                            <input type="number" class="form-control" id="vl_irrigation_sysF" name="vl_irrigation_sysF" value="{{old('vl_irrigation_sysF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -366,7 +386,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Saldo insoluto ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_balanceF" name="vl_balanceF" value="{{old('vl_balanceF') }}">
+                                            <input type="number" class="form-control" id="vl_balanceF" name="vl_balanceF" value="{{old('vl_balanceF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -374,7 +394,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Interés sistema riego ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_crop_interestF" name="vl_crop_interestF" value="{{old('vl_crop_interestF') }}">
+                                            <input type="number" class="form-control" id="vl_crop_interestF" name="vl_crop_interestF" value="{{old('vl_crop_interestF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -382,7 +402,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Inversion cultivo ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="{{old('vl_investmentF') }}">
+                                            <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="{{old('vl_investmentF') }}"> required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15"
                                         </div>
                                     </div>
                                 </div>
@@ -390,7 +410,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Energía ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_energyF" name="vl_energyF" value="{{old('vl_energyF') }}">
+                                            <input type="number" class="form-control" id="vl_energyF" name="vl_energyF" value="{{old('vl_energyF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -398,7 +418,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Mantenimiento ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_maintenanceF" name="vl_maintenanceF" value="{{old('vl_maintenanceF') }}">
+                                            <input type="number" class="form-control" id="vl_maintenanceF" name="vl_maintenanceF" value="{{old('vl_maintenanceF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -407,7 +427,7 @@
                                     <div class="form-group row">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Ingreso ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_entryF" name="vl_entryF" value="{{old('vl_entryF') }}">
+                                            <input type="number" class="form-control" id="vl_entryF" name="vl_entryF" value="{{old('vl_entryF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -415,7 +435,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Liquidación ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_liquidationF" name="vl_liquidationF" value="{{old('vl_liquidationF') }}">
+                                            <input type="number" class="form-control" id="vl_liquidationF" name="vl_liquidationF" value="{{old('vl_liquidationF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -423,7 +443,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Flujo por período ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_period_flowF" name="vl_period_flowF" value="{{old('vl_period_flowF') }}">
+                                            <input type="number" class="form-control" id="vl_period_flowF" name="vl_period_flowF" value="{{old('vl_period_flowF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -431,7 +451,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Acumulado ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_accumulatedF" name="vl_accumulatedF" value="{{old('vl_accumulatedF') }}">
+                                            <input type="number" class="form-control" id="vl_accumulatedF" name="vl_accumulatedF" value="{{old('vl_accumulatedF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -464,7 +484,7 @@
             </div>
         </div>-->
                 </br>
-                 @if (session('mensaje'))
+                 <!--@if (session('mensaje'))
                  <div class="alert alert-success alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     {{ session('mensaje') }}
@@ -475,7 +495,7 @@
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     {{ session('mensaje_err') }}
                 </div>
-                @endif
+                @endif-->
 
                 <div class="row">
                     <div class="col-md-12">
@@ -516,19 +536,13 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript">
-    //alert("teste");
-
 //Cash Flow
     $('#create_cash_flow').click(function(){
-
         $('.modal-title').text("Añadir nuevo periodo");
         $('#action_button').val("Add");
         $('#action').val("Add");
         $('#formModal').modal();
-        //$('#formModal').show('modal');
         alert("entró modal");
-    /*$("#create_cash_flow").click(function(){
-    $("#formModal").modal();*/
     });
 
     $('#form_cash_flow').on('submit', function(){
@@ -555,11 +569,13 @@
                             html += '<p>' + data.errors[count] + '</p>';
                         }
                         html += '</div>';
+                        $('#e_div').append(html);
+                        console.log(html);
                     }
                     if (data.success) 
                     {
                         html = '<div class="alert alert-success">' + data.success + '</div>';
-                        $('#form_cash_flow')[0].reset(); //limpar todo valor do formulario
+                        $('#form_cash_flow')[0].reset(); //limpar todo valor del formulario
                         $('#cashFlowTable').DataTable().ajax.reload(); //refresh la tabla
                     }
                     $('#form_result').html(html); //display las mensajes
@@ -575,7 +591,6 @@
         $('#action_button').val("Add");
         $('#action').val("Add");
         $('#formModalF').modal();
-        //$('#formModalF').show('modal');
         alert("entró modal F");
     });
     $('#form_finance_flow').on('submit', function(event){
@@ -697,7 +712,7 @@
             }
         });
 
-
+        // Finance flow
         $('#financeFlowTable').DataTable(
         {   
             processing: true,

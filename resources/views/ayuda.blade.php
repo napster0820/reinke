@@ -35,16 +35,16 @@
 			  	<p>
 				  	<b>¿Dónde de visualiza el Dashboard?</b>
 				  	<br/>
-				  	Será posible visualizarlo después que se realiza el login o registro de usuario y se cargan los datos del clientes en el formulário accedido por el link <a href="{{ url("datos") }}") }}>Datos</a>. 
+				  	Será posible visualizarlo después que se realiza el login o registro de usuario y se cargan los datos del clientes en el formulário accedido por el link <a href="{{ url("datos") }}") }}>Nuevo Dashboard</a>. 
 				  	<br/>
-				  	También puedes visualizar los que ya fueron generados por en link <a href="{{ url("historial") }}") }}>Historial</a>.
+				  	También puedes visualizar los que ya fueron generados por en link <a href="{{ url("historial") }}") }}>Consultar Dashboards</a>.
 				</p>
 			  </li>
 			  <li>
 			  	<p>
 				  	<b>¿Puedo generar nuevamente un Dashboard que ya cadastré?</b>
 				  	<br/>
-				  	Es posible generarlo por el link <a href="{{ url("historial") }}") }}>Historial</a>. 
+				  	Es posible generarlo por el link <a href="{{ url("historial") }}") }}>Consultar Dashboards</a>. 
 				</p>
 			  </li>		
 			  <li>
@@ -58,7 +58,7 @@
 			  	<p>
 				  	<b>¿Cómo realizo cambios en un Dashboard?</b>
 				  	<br/>
-				  	Busque el registro por en el <a href="{{ url("historial") }}") }}>Historial</a> y seleccione el botón de edición.
+				  	Busque el registro por en el <a href="{{ url("historial") }}") }}>Consultar Dashboards</a> y seleccione el botón de edición.
 				</p>
 			  </li>				  
 			</ol>
