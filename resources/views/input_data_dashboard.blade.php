@@ -330,13 +330,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
-                                        <div class="col-sm-9">
+                                        <label for="inputFinanceFlow" class="col-form-label">Sistema de riego ($):</label>
                                             <input type="number" class="form-control" id="vl_irrigation_sysF" name="vl_irrigation_sysF" value="{{old('vl_irrigation_sysF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
