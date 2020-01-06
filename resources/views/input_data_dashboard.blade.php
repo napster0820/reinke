@@ -186,7 +186,7 @@
                                 <input type="number" class="form-control" id="vl_investment" name="vl_investment" value="{{old('vl_investment') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
-                                <label for="inputCashFlow" class="col-sm-3 col-form-label">Energía ($):</label>
+                                <label for="inputCashFlow" class="col-form-label">Energía ($):</label>
                                 <input type="number" class="form-control" id="vl_energy" name="vl_energy" value="{{old('vl_energy') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
@@ -203,11 +203,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputCashFlow" class="col-form-label">Flujo por período ($):</label>
-                                <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}" required  min="10" pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}" required  pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
                                 <label for="inputCashFlow" class="col-form-label">Acumulado ($):</label>
-                                <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}" required  min="10" pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}" required  pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="hidden_id" id="hidden_id" />

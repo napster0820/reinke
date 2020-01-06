@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Cash_flow;
 use App\Client;
 use Validator;
+use Illuminate\Support\Facades\DB;
 
 class CashFlowsController extends Controller
 {
@@ -20,7 +21,7 @@ class CashFlowsController extends Controller
         // buscar datos del cliente por el id y enviar en el compact en el return
         if(request()->ajax())
         {
-            return datatables()->of(Cash_flow::latest()->get())
+            return datatables()->of(DB::table('cash_flows')->get())
                 //->addColumn('action', function($data){
                     //$button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-warning btn-sm">Editar</button>';
                     //$button .= '&nbsp;&nbsp;';
@@ -62,8 +63,7 @@ class CashFlowsController extends Controller
             'vl_entry' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_liquidation' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_period_flow' => ['required', 'numeric'],
-            'vl_accumulated' => ['required', 'numeric'],
-            'id_client' => ['required']
+            'vl_accumulated' => ['required', 'numeric']
         );
 
         $error = Validator::make($request->all(), $rules);
