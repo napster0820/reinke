@@ -70,21 +70,21 @@
                 <div class="card">
                     <div class="card-body">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#home"><img src="" alt=""><img class="nav-timeline" src="{{URL::asset('images/line_images/timeline.png')}}" alt=""></a>
-                            </li>
+                            </li>-->
                             <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#menu1"><img class="nav-timeline" src="{{URL::asset('images/line_images/barras.png')}}" alt=""></a>
                             </li>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#menu2"><img class="nav-timeline" src="{{URL::asset('images/line_images/estadistica.png')}}" alt=""></a>
-                            </li>
+                            </li>-->
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
                               <div id="home" class="container tab-pane active">
                                 <br>
-                                 <ul id="list-timeline" class="list-inline">
+                                 <!--<ul id="list-timeline" class="list-inline">
                                     <li class="list-inline-item btn-line"><img class="img-fluid" src="{{URL::asset('images/line_images/0.jpg')}}" alt=""></li>
                                     <li class="list-inline-item btn-line"><img class="img-fluid" src="{{URL::asset('images/line_images/1.jpg')}}" alt=""></li>
                                     <li class="list-inline-item btn-line"><img class="img-fluid" src="{{URL::asset('images/line_images/2.jpg')}}" alt=""></li>
@@ -95,7 +95,7 @@
                                     <li class="list-inline-item btn-line"><img class="img-fluid" src="{{URL::asset('images/line_images/7.jpg')}}" alt=""></li>
                                     <li class="list-inline-item btn-line"><img class="img-fluid" src="{{URL::asset('images/line_images/8.jpg')}}" alt=""></li>
                                     <li class="list-inline-item btn-line"><img class="img-fluid" src="{{URL::asset('images/line_images/9.jpg')}}" alt=""></li>
-                                </ul>
+                                </ul>-->
                                 <hr>
                                 <div id="content-general" class="content"></div>
                             </div>

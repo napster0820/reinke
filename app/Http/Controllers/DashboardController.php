@@ -62,11 +62,8 @@ class DashboardController extends Controller
 				$ResutDataQuery = DB::table('users')
 									->join('clients', 'users.id', '=', 'clients.user_id')
 									->join('cash_flows', 'clients.id', '=', 'cash_flows.client_id')
-									->select('cash_flows.vl_accumulated', 'cash_flows.period')
-									->orderBy('period')
+									->select('cash_flows.vl_accumulated')
 									->get();
-
-				var_dump($ResutDataQuery);
 
 			} else if($selectedFlow == 1) {
 
@@ -80,9 +77,9 @@ class DashboardController extends Controller
 				echo 'Entre al Finaciado';
 
 			}
-			// return response()->json($ResutDataQuery);
+			return response()->json($ResutDataQuery);
 		}
-		echo 'Datos restringidos';
+		// echo 'Datos restringidos';
 	}
 
 	protected function expensesChart($user_id, $client_id, $tp_flow)
