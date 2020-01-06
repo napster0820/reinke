@@ -63,7 +63,7 @@ class CashFlowsController extends Controller
             'vl_liquidation' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_period_flow' => ['required', 'numeric'],
             'vl_accumulated' => ['required', 'numeric'],
-            'id_client' => ['required']
+            'client_id' => ['required'] 
         );
 
         $error = Validator::make($request->all(), $rules);
@@ -73,21 +73,31 @@ class CashFlowsController extends Controller
             return response()->json(['errors' => $error->errors()->all()]);
         }
 
-        $form_data = array(
-            'period' => $request->period,
-            'vl_irrigation_sys' => $request->vl_irrigation_sys,
-            'vl_investment'   => $request->vl_investment,
-            'vl_energy'   => $request->vl_energy,
-            'vl_maintenance'  => $request->vl_maintenance,
-            'vl_entry'    => $request->vl_entry,
-            'vl_liquidation'  => $request->vl_liquidation,
-            'vl_period_flow'  => $request->vl_period_flow,
-            'vl_accumulated' => $request->vl_accumulated,
-            'client_id'  =>$request->client_id
-        );
-        Cash_flow::create($form_data);
+        $arreglo_period = array("1","2","3","4","5","6","7","8","9","10");
+        if($request->period == '' || $request->period == null || !in_array($request->period, $arreglo_period)){
+            
+            return response()->json(['errors' => 'No puede agregarse el valor']);
+        
+        }else{
+                $form_data = array(
+                    'period' => $request->period,
+                    'vl_irrigation_sys' => $request->vl_irrigation_sys,
+                    'vl_investment'   => $request->vl_investment,
+                    'vl_energy'   => $request->vl_energy,
+                    'vl_maintenance'  => $request->vl_maintenance,
+                    'vl_entry'    => $request->vl_entry,
+                    'vl_liquidation'  => $request->vl_liquidation,
+                    'vl_period_flow'  => $request->vl_period_flow,
+                    'vl_accumulated' => $request->vl_accumulated,
+                    'client_id'  =>$request->client_id
+                );
 
-        return response()->json(['success' => 'Periodo registrado correctamente.']);
+                Cash_flow::create($form_data);
+
+                return response()->json(['success' => 'Periodo registrado correctamente.']);
+        }
+        
+        
     }
 
     /**

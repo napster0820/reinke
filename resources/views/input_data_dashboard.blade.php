@@ -405,6 +405,7 @@ $('#form_cash_flow').on('submit', function(){
                         html += '</div>';
                         $('#e_div').text("");
                         $('#e_div').append(html);
+                        console.log(data);
                     }
                     if (data.success) 
                     {

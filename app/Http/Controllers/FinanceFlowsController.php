@@ -61,7 +61,7 @@ class FinanceFlowsController extends Controller
             'vl_liquidationF' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_period_flowF' => ['required', 'numeric'],
             'vl_accumulatedF' => ['required', 'numeric'],
-            'id_client' => ['required']
+            'id_clientF' => ['required']
         );
 
         $error = Validator::make($request->all(), $rules);
