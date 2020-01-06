@@ -83,8 +83,6 @@ class CashFlowsController extends Controller
             'vl_accumulated' => $request->vl_accumulated,
             'client_id'  =>$request->client_id
         );
-
-        
         Cash_flow::create($form_data);
 
         return response()->json(['success' => 'Periodo registrado correctamente.']);
