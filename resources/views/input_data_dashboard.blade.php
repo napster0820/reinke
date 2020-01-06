@@ -272,7 +272,7 @@
                 </div>
             </div>
         </div>
-                </br>
+                <br/>
         <!--<div id="confirmModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -290,7 +290,7 @@
                 </div>
             </div>
         </div>-->
-                </br>
+                <br/>
                 <!-- @if (session('mensaje'))
                  <div class="alert alert-success alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -483,7 +483,7 @@
                 </div>
             </div>
         </div>-->
-                </br>
+                <br/>
                  <!--@if (session('mensaje'))
                  <div class="alert alert-success alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>

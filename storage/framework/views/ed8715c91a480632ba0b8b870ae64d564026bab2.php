@@ -51,8 +51,8 @@
 													<td><?php echo e($client->created_at); ?></td>
 													<td><?php echo e($client->updated_at); ?></td>
 													<td>
-														<a href="<?php echo e(url('dashboard')); ?>" data-toggle="tooltip" title="Visualizar" class="btn btn-primary btn-sm">Visualizar</a> 
-														<a href="<?php echo e(route('datos.editar', $client->id)); ?>" class="btn btn-warning btn-sm">Editar</a> 
+														<a href="<?php echo e(url('dashboard', $client->id)); ?>" data-toggle="tooltip" title="Visualizar" class="btn btn-primary btn-sm">Visualizar</a> 
+														<!--a href="<?php echo e(route('datos.editar', $client->id)); ?>" class="btn btn-warning btn-sm">Editar</a--> 
 														<form action="<?php echo e(route('datos.delete', $client->id)); ?>" method="POST" class="d-inline">
 															<?php echo method_field('DELETE'); ?>
 															<?php echo csrf_field(); ?> 

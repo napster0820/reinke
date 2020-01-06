@@ -109,7 +109,7 @@ $.ajax({
               label: 'Grafica de gastos',
               backgroundColor: 'rgb(0, 0, 0)',
               borderColor: 'rgb(255, 99, 132)',
-              data:result
+              data: result
           }]
       },
   
