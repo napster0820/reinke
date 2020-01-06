@@ -16,7 +16,6 @@ class FinanceFlowsController extends Controller
      */
     public function index()
     {
-        // buscar datos del cliente por el id y enviar en el compact en el return finance
         if(request()->ajax())
         {
             return datatables()->of(Finance_flow::latest()->get())
@@ -61,8 +60,12 @@ class FinanceFlowsController extends Controller
             'vl_entryF' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_liquidationF' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_period_flowF' => ['required', 'numeric'],
+<<<<<<< HEAD
             'vl_accumulatedF' => ['required', 'numeric'],   
-            'client_id2' => ['required'] 
+            //'client_id2' => ['required'] 
+=======
+            'vl_accumulatedF' => ['required', 'numeric']
+>>>>>>> 196f21a70e5f05a77e54d9df86d7133aa346c6f9
         );
 
         $error = Validator::make($request->all(), $rules);

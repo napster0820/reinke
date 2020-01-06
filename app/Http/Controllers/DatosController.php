@@ -81,6 +81,7 @@ class DatosController extends Controller
         //}else{
         //    return redirect('input_data_dashboard')->with('errorRegister', 'Problemas al insertar datos');
         //}
+        //
     }
 
     public function flujo_contado($request, $id_cliente) {

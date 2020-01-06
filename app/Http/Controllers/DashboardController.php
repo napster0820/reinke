@@ -53,11 +53,11 @@ class DashboardController extends Controller
     	return back()->with($seccion, $mensaje);
 	}
 	
-	protected function chartData($user_id, $client_id, $tp_flow)
+	protected function chartData($user_id, $selectedFlow)
 	{
 		if(Auth::check() === true && Auth::user()->id == $user_id){
 
-			if($tp_flow == 'contado') {
+			if($selectedFlow == 0) {
 
 				$ResutDataQuery = DB::table('users')
 									->join('clients', 'users.id', '=', 'clients.user_id')
@@ -66,16 +66,21 @@ class DashboardController extends Controller
 									->orderBy('period')
 									->get();
 
-			} elseif ($tp_flow == 'financiado') {
+				var_dump($ResutDataQuery);
 
-				$ResutDataQuery = DB::table('users')
-									->join('clients', 'users.id', '=', 'clients.user_id')
-									->join('finance_flows', 'clients.id', '=', 'finance_flows.client_id')
-									->select('finance_flows.vl_accumulated', 'finance_flows.period')
-									->orderBy('period')
-									->get();
+			} else if($selectedFlow == 1) {
+
+				// $ResutDataQuery = DB::table('users')
+				// 					->join('clients', 'users.id', '=', 'clients.user_id')
+				// 					->join('finance_flows', 'clients.id', '=', 'finance_flows.client_id')
+				// 					->select('finance_flows.vl_accumulated', 'finance_flows.period')
+				// 					->orderBy('period')
+				// 					->get();
+
+				echo 'Entre al Finaciado';
+
 			}
-			return response()->json($ResutDataQuery);
+			// return response()->json($ResutDataQuery);
 		}
 		echo 'Datos restringidos';
 	}

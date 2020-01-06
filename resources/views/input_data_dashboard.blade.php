@@ -14,6 +14,28 @@
         @csrf
         @include('alerts.message_register_errors')
         {{--   Section one form generade dashborad   --}}
+<<<<<<< HEAD
+            <div class="card">
+                <h5 class="card-header">
+                   Datos Cliente
+                </h5>
+               <div class="card-body">
+                @if (isset($mensaje))
+                <div class="alert alert-warning alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ $mensaje ?? ''}}
+                    </div>
+                @endif
+                <input type="hidden" value="{{ csrf_token() }}" id="token">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="inputCliente" class="col-sm-3 col-form-label">Cliente:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputClient" placeholder="Cliente" name="client" value="{{old('client') }}" required pattern="^[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,100}"
+                                title="Letras. Tamaño mínimo: 3. Tamaño máximo: 100">
+                            </div>
+=======
         <div class="card">
             <h5 class="card-header">
              Datos Cliente
@@ -33,6 +55,7 @@
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="inputClient" placeholder="Cliente" name="client" value="{{old('client') }}" required pattern="[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,100}"
                             minlength="3" maxlength="100" title="Letras. Tamaño mínimo: 3. Tamaño máximo: 100">
+>>>>>>> 540dbb9e0e04f8979041e7b6c6be254633d8937f
                         </div>
                     </div>
                 </div>
@@ -186,7 +209,7 @@
                                 <input type="number" class="form-control" id="vl_investment" name="vl_investment" value="{{old('vl_investment') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
-                                <label for="inputCashFlow" class="col-sm-3 col-form-label">Energía ($):</label>
+                                <label for="inputCashFlow" class="col-form-label">Energía ($):</label>
                                 <input type="number" class="form-control" id="vl_energy" name="vl_energy" value="{{old('vl_energy') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
@@ -203,11 +226,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputCashFlow" class="col-form-label">Flujo por período ($):</label>
-                                <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}" required  min="10" pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}" required  pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
                                 <label for="inputCashFlow" class="col-form-label">Acumulado ($):</label>
-                                <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}" required  min="10" pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}" required  pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="hidden_id" id="hidden_id" />
@@ -362,7 +385,6 @@
                             <th>Liquidación ($)</th>
                             <th>Flujo por periodo ($)</th>
                             <th>Acumulado ($)</th>
-                            <!--th>Acción</th--> <!-- Corregir tamaño para los botones -->
                         </tr>
                     </thead>
                     <tbody>

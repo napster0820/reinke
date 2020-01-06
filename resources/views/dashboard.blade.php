@@ -17,13 +17,13 @@
                        <div class="row">
                            <div class="col-3">
                                  <div class="form-radio">
-                                    <input type="radio" name="tipo_flujo" class="form-radio-input" id="exampleRadio1" value="contado"  checked>
+                                    <input type="radio" name="type_flow" class="form-radio-input" id="contado" value="0" >
                                     <label class="form-radio-label" for="exampleRadio2">Contado</label>
                                 </div>
                            </div>
                            <div class="col-3">
                                <div class="form-radio">
-                                    <input type="radio" name="tipo_flujo" class="form-radio-input" id="exampleRadio2" value="financiado">
+                                    <input type="radio" name="type_flow" class="form-radio-input" id="financiado" value="1">
                                     <label class="form-radio-label" for="exampleRadio2">Financiado</label>
                                 </div>
                            </div>
@@ -102,7 +102,7 @@
                             <div id="menu1" class="container tab-pane fade"><br>
                                 <canvas id="barTir"></canvas>
                             <input id="userActive" type="hidden" value="{{ Auth::id() }}" disabled>
-                                <img class="img-fluid" src="{{URL::asset('images/grafico_de_barras.png')}}" alt="Barras">
+                                
                             </div>
                             <div id="menu2" class="container tab-pane fade"><br>
                                 <canvas id="barExpenses"></canvas>
@@ -119,8 +119,8 @@
     @parent
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script src="{{URL::asset('js/main_dashboard.js')}}"></script>
     {{-- CDN chart.js --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.min.js"></script>
+    <script src="{{URL::asset('js/main_dashboard.js')}}"></script>
 @endsection
            

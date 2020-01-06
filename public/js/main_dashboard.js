@@ -44,46 +44,60 @@ $(document).ready(function(){
       $('#content-general').append('<div><p>Hola soy el boton 10</p></div>');
     });
 
+ 
     /*
-    # Global vars 
+    # Get value select radio button for type_flows
     */
-    var token = $('#token').val(),
-        user = $('#userActive').val(),
-        route = "http://localhost/chart/"+user;
-    /*
-    # Graphics bar for dates flow finance and cash flow 
-    */
-      $.ajax({
-          url: route,
-          headers: {'X-CSRF-TOKEN': token},
-          type: 'GET'
-      }) 
-      .done(function(result) {
-        console.log("success");
-        var ctx = document.getElementById('barTir').getContext('2d');
-        var chart = new Chart(ctx, {
-            // The type of chart we want to create
-            type: 'bar',
+    var flowSelected;
+    $(':radio[name="type_flow"]').change(function(){
+       flowSelected = this.value;
+
+       if(flowSelected == 0){
+          /*
+          # Global vars 
+          */
+          var token = $('#token').val(),
+          user = $('#userActive').val(),
+          route = "http://localhost/chart/"+user+'/'+flowSelected;
+
+          /*
+          # Graphics bar for dates flow finance and cash flow 
+          */
+            $.ajax({
+              url: route,
+              headers: {'X-CSRF-TOKEN': token},
+              type: 'GET'
+          }) 
+          .done(function(result) {
+            console.log("success");
+            var ctx = document.getElementById('barTir').getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'bar',
+            
+                // The data for our dataset
+                data: {
+                    labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5', 'Año 6', 'Año 7','Año 8','Año 9','Año 10'],
+                    datasets: [{
+                        label: 'Flujo a 10 años',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: result
+                    }]
+                },
+            
+                // Configuration options go here
+                options: {}
+            });
+          })
+          .fail(function() {
+            console.log("error");
+          });
         
-            // The data for our dataset
-            data: {
-                labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5', 'Año 6', 'Año 7'],
-                datasets: [{
-                    label: 'Flujo a 10 años',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: result
-                }]
-            },
-        
-            // Configuration options go here
-            options: {}
-        });
-      })
-      .fail(function() {
-        console.log("error");
-      });
-  
+       }else if(flowSelected == 1){
+          console.log('Entro al Financiado');
+       }
+    });
 
    /*
   # Graphics bar for expenses 
@@ -104,7 +118,7 @@ $.ajax({
   
       // The data for our dataset
       data: {
-          labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5', 'Año 6', 'Año 7'],
+          labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5', 'Año 6', 'Año 7','Año 8','Año 9','Año 10'],
           datasets: [{
               label: 'Grafica de gastos',
               backgroundColor: 'rgb(0, 0, 0)',
