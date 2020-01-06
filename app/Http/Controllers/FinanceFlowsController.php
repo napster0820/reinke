@@ -20,13 +20,13 @@ class FinanceFlowsController extends Controller
         if(request()->ajax())
         {
             return datatables()->of(Finance_flow::latest()->get())
-                    ->addColumn('action', function($data){
-                        $button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-primary btn-sm">Editar</button>';
-                        $button .= '&nbsp;&nbsp;';
-                        $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Eliminar</button>';
-                        return $button;
-                    })
-                    ->rawColumns(['action'])
+                    //->addColumn('action', function($data){
+                        //$button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-primary btn-sm">Editar</button>';
+                        //$button .= '&nbsp;&nbsp;';
+                        //$button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Eliminar</button>';
+                        //return $button;
+                    //})
+                    //->rawColumns(['action'])
                     ->make(true);
         }
         return view('input_data_dashboard');
@@ -60,8 +60,8 @@ class FinanceFlowsController extends Controller
             'vl_maintenanceF' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_entryF' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_liquidationF' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_period_flowF' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_accumulatedF' => ['required', 'numeric', 'digits_between:2,15'],    
+            'vl_period_flowF' => ['required', 'numeric'],
+            'vl_accumulatedF' => ['required', 'numeric']
         );
 
         $error = Validator::make($request->all(), $rules);
@@ -83,7 +83,7 @@ class FinanceFlowsController extends Controller
             'vl_liquidation'  => $request->vl_liquidationF,
             'vl_period_flow'  => $request->vl_period_flowF,
             'vl_accumulated' => $request->vl_accumulatedF,
-            'client_id'  =>$request->client_id
+            'client_id'  =>$request->client_id2
         );
 
         Finance_flow::create($form_data);

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Cash_flow;
 use App\Client;
 use Validator;
+use Illuminate\Support\Facades\DB;
 
 class CashFlowsController extends Controller
 {
@@ -15,20 +16,21 @@ class CashFlowsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($client = null) 
+    public function index() 
     {
         // buscar datos del cliente por el id y enviar en el compact en el return
         if(request()->ajax())
         {
-            return datatables()->of(Cash_flow::latest()->get())
-                    ->addColumn('action', function($data){
-                        $button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-warning btn-sm">Editar</button>';
-                        $button .= '&nbsp;&nbsp;';
-                        $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Eliminar</button>';
-                        return $button;
-                    })
-                    ->rawColumns(['action'])
-                    ->make(true);
+            return datatables()->of(DB::table('cash_flows')->get())
+                //->addColumn('action', function($data){
+                    //$button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-warning btn-sm">Editar</button>';
+                    //$button .= '&nbsp;&nbsp;';
+                    //$button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Eliminar</button>';
+                    //return $button;
+                //})
+                //->rawColumns(['action'])
+                ->make(true);
+            
         }
         return view('input_data_dashboard');
     }
@@ -60,8 +62,8 @@ class CashFlowsController extends Controller
             'vl_maintenance' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_entry' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_liquidation' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_period_flow' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_accumulated' => ['required', 'numeric', 'digits_between:2,15'],    
+            'vl_period_flow' => ['required', 'numeric'],
+            'vl_accumulated' => ['required', 'numeric']
         );
 
         $error = Validator::make($request->all(), $rules);
