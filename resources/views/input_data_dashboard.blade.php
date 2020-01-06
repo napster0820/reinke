@@ -31,7 +31,7 @@
                         <div class="form-group row">
                             <label for="inputCliente" class="col-sm-3 col-form-label">Cliente:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputClient" placeholder="Cliente" name="client" value="{{old('client') }}" required pattern="^[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,100}"
+                                <input type="text" class="form-control" id="inputClient" placeholder="Cliente" name="client" value="{{old('client') }}" required pattern="^[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]"
                                 title="Letras. Tamaño mínimo: 3. Tamaño máximo: 100">
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                         <div class="form-group row">
                             <label for="inputCultivo" class="col-sm-3 col-form-label">Cultivo:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputCulture" placeholder="Cultivo" name="culture" value="{{old('culture') }}" minlength="1" maxlength="45" required  title="Letras. Tamaño mínimo: 1. Tamaño máximo: 45">
+                                <input type="text" class="form-control" id="inputCulture" placeholder="Cultivo" name="culture" value="{{old('culture') }}" minlength="1" maxlength="45" required pattern="^(([а-яА-я]+\s[а-яА-я]+\s[а-яА-я]+)|([\w]+\s[\w]+\s[\w]+)|([\w]+\s[\w]+))" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 45">
                             </div>
                         </div>
                     </div>
@@ -156,21 +156,7 @@
                         <span id="form-result"></span>
                         <form method="post" id="form_cash_flow" enctype="multipart/form-data" class="form-horizontal">
                         @csrf 
-                        @include('alerts.message_cashflow_errors') 
-                        <!--@if (session('mensaje'))
-                            <div class="alert alert-success alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    {{ session('mensaje') }}
-                                    
-                            </div>
-                        @endif
-                        @if (session('mensaje_err'))
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                {{ session('mensaje_err') }}
-                            </div>
-                        @endif 
-                        -->    
+                        @include('alerts.message_cashflow_errors')    
                             <div id='e_div'>
                                 <p id='er_div'></p>
                             </div>     
@@ -271,38 +257,6 @@
                 </div>
             </div>
         </div>
-                <br/>
-        <!--<div id="confirmModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2 class="modal-title">Confirmation</h2>
-                    </div>
-                    <div class="modal-body">
-                        <h4 align="center" style="margin:0;">Are you sure you want to remove this data?</h4>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" name="ok_button" id="ok_button" class="btn btn-danger">OK</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-                <br/>
-                <!-- @if (session('mensaje'))
-                 <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ session('mensaje') }}
-                </div>
-                @endif
-                @if (session('mensaje_err'))
-                <div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ session('mensaje_err') }}
-                </div>
-                @endif-->
-
                 <div class="row">
                     <div class="col-md-12">
                         <table id="cashFlowTable" class="display" style="width:100%">
@@ -350,7 +304,10 @@
                         <span id="form-result"></span>
                         <form method="post" id="form_finance_flow" enctype="multipart/form-data" class="form-horizontal">
                         @csrf  
-                        @include('alerts.message_financeflows_errors')            
+                        @include('alerts.message_financeflows_errors')
+                        <div id='ef_div'>
+                            <p id='erf_div'></p>
+                        </div>             
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
@@ -401,11 +358,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Inversion cultivo ($):</label>
                                         <div class="col-sm-9">
-<<<<<<< HEAD
-                                            <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="{{old('vl_investmentF') }}"> required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15"
-=======
                                             <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="{{old('vl_investmentF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
->>>>>>> bdd92fa5f3659b956fbacccc918a63ca9af16c66
                                         </div>
                                     </div>
                                 </div>
@@ -469,37 +422,6 @@
                 </div>
             </div>
         </div>
-        <!--<div id="confirmModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2 class="modal-title">Confirmation</h2>
-                    </div>
-                    <div class="modal-body">
-                        <h4 align="center" style="margin:0;">Are you sure you want to remove this data?</h4>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" name="ok_button" id="ok_button" class="btn btn-danger">OK</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-                <br/>
-                 <!--@if (session('mensaje'))
-                 <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ session('mensaje') }}
-                </div>
-                @endif
-                @if (session('mensaje_err'))
-                <div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ session('mensaje_err') }}
-                </div>
-                @endif-->
-
                 <div class="row">
                     <div class="col-md-12">
                         <table id="financeFlowTable" class="display" style="width:100%">
@@ -562,22 +484,27 @@
                 dataType: "json",
                 success: function(data) 
                 {
-                    console.log(data);
+                    //console.log(data);
+                    
                     var html = '';
                     if(data.errors)
-                    {
+                    {   //console.log(data.errors)
                         html = '<div class="alert alert-danger">';
-                        for(var count = 0; count < data.errors.lenght; count++)
-                        {
+                        /*for(var count = 0; count < data.errors.lenght; count++)
+                        {   
                             html += '<p>' + data.errors[count] + '</p>';
-                        }
+                        }*/
+                        html += '<p>' + data.errors + '</p>';
                         html += '</div>';
+                        $('#e_div').text("");
                         $('#e_div').append(html);
-                        console.log(html);
+                        //console.log(html);
                     }
                     if (data.success) 
                     {
                         html = '<div class="alert alert-success">' + data.success + '</div>';
+                        $('#e_div').text("");
+                        $('#e_div').append(html);
                         $('#form_cash_flow')[0].reset(); //limpar todo valor del formulario
                         $('#cashFlowTable').DataTable().ajax.reload(); //refresh la tabla
                     }
@@ -615,15 +542,21 @@
                     if(data.errors)
                     {
                         html = '<div class="alert alert-danger">';
-                        for(var count = 0; count < data.errors.lenght; count++)
-                        {
+                        /*for(var count = 0; count < data.errors.lenght; count++)
+                        {   
                             html += '<p>' + data.errors[count] + '</p>';
-                        }
+                        }*/
+                        html += '<p>' + data.errors + '</p>';
                         html += '</div>';
+                        $('#ef_div').text("");
+                        $('#ef_div').append(html);
+                        //console.log(html);
                     }
                     if (data.success) 
                     {
                         html = '<div class="alert alert-success">' + data.success + '</div>';
+                        $('#ef_div').text("");
+                        $('#ef_div').append(html);
                         $('#form_finance_flow')[0].reset(); //limpar todo valor do formulario
                         $('#financeFlowTable').DataTable().ajax.reload(); //refresh la tabla
                     }
