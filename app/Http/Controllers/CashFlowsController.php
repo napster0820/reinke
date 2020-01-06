@@ -62,12 +62,7 @@ class CashFlowsController extends Controller
             'vl_entry' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_liquidation' => ['required', 'numeric', 'digits_between:2,15'],
             'vl_period_flow' => ['required', 'numeric'],
-<<<<<<< HEAD
-            'vl_accumulated' => ['required', 'numeric'],
-            //'id_client' => ['required']
-=======
             'vl_accumulated' => ['required', 'numeric']
->>>>>>> 196f21a70e5f05a77e54d9df86d7133aa346c6f9
         );
 
         $error = Validator::make($request->all(), $rules);

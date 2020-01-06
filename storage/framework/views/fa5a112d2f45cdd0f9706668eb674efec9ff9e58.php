@@ -57,7 +57,7 @@
                         <div class="form-group row">
                             <label for="inputCultivo" class="col-sm-3 col-form-label">Cultivo:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputCulture" placeholder="Cultivo" name="culture" value="<?php echo e(old('culture')); ?>" minlength="1" maxlength="45" required  title="Letras. Tamaño mínimo: 1. Tamaño máximo: 45">
+                                <input type="text" class="form-control" id="inputCulture" placeholder="Cultivo" name="culture" value="<?php echo e(old('culture')); ?>" minlength="1" maxlength="45" required pattern="^(([а-яА-я]+\s[а-яА-я]+\s[а-яА-я]+)|([\w]+\s[\w]+\s[\w]+)|([\w]+\s[\w]+))" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 45">
                             </div>
                         </div>
                     </div>
@@ -155,23 +155,7 @@
                         <span id="form-result"></span>
                         <form method="post" id="form_cash_flow" enctype="multipart/form-data" class="form-horizontal">
                         <?php echo csrf_field(); ?> 
-                        <?php echo $__env->make('alerts.message_cashflow_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
-                        <!--<?php if(session('mensaje')): ?>
-                            <div class="alert alert-success alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <?php echo e(session('mensaje')); ?>
-
-                                    
-                            </div>
-                        <?php endif; ?>
-                        <?php if(session('mensaje_err')): ?>
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <?php echo e(session('mensaje_err')); ?>
-
-                            </div>
-                        <?php endif; ?> 
-                        -->    
+                        <?php echo $__env->make('alerts.message_cashflow_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>    
                             <div id='e_div'>
                                 <p id='er_div'></p>
                             </div>     
@@ -201,7 +185,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="<?php echo e(old('vl_irrigation_sys')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15" >
+                                            <input type="text" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="<?php echo e(old('vl_irrigation_sys')); ?>" required  min="10" minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15" >
                                         </div>
                                     </div>
                                 </div>
@@ -229,7 +213,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Ingreso ($):</label>
@@ -273,40 +256,6 @@
                 </div>
             </div>
         </div>
-                <br/>
-        <!--<div id="confirmModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2 class="modal-title">Confirmation</h2>
-                    </div>
-                    <div class="modal-body">
-                        <h4 align="center" style="margin:0;">Are you sure you want to remove this data?</h4>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" name="ok_button" id="ok_button" class="btn btn-danger">OK</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-                <br/>
-                <!-- <?php if(session('mensaje')): ?>
-                 <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <?php echo e(session('mensaje')); ?>
-
-                </div>
-                <?php endif; ?>
-                <?php if(session('mensaje_err')): ?>
-                <div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <?php echo e(session('mensaje_err')); ?>
-
-                </div>
-                <?php endif; ?>-->
-
                 <div class="row">
                     <div class="col-md-12">
                         <table id="cashFlowTable" class="display" style="width:100%">
@@ -354,11 +303,14 @@
                         <span id="form-result"></span>
                         <form method="post" id="form_finance_flow" enctype="multipart/form-data" class="form-horizontal">
                         <?php echo csrf_field(); ?>  
-                        <?php echo $__env->make('alerts.message_financeflows_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>            
+                        <?php echo $__env->make('alerts.message_financeflows_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        <div id='ef_div'>
+                            <p id='erf_div'></p>
+                        </div>             
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
-                                    <input type="text" class="hide" id="client_id" name="client_id" readonly="readonly" value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
+                                    <input type="text" class="hide" id="client_id2" name="client_id2" readonly="readonly" value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
                                         <label for="inputPeriod" class="col-sm-3 col-form-label" >Período:</label>
                                         <div class="col-sm-9">
                                             <select id="periodF" class="form-control" name="periodF" required>
@@ -405,11 +357,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Inversion cultivo ($):</label>
                                         <div class="col-sm-9">
-<<<<<<< HEAD
-                                            <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="<?php echo e(old('vl_investmentF')); ?>"> required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15"
-=======
                                             <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="<?php echo e(old('vl_investmentF')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
->>>>>>> bdd92fa5f3659b956fbacccc918a63ca9af16c66
                                         </div>
                                     </div>
                                 </div>
@@ -473,39 +421,6 @@
                 </div>
             </div>
         </div>
-        <!--<div id="confirmModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2 class="modal-title">Confirmation</h2>
-                    </div>
-                    <div class="modal-body">
-                        <h4 align="center" style="margin:0;">Are you sure you want to remove this data?</h4>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" name="ok_button" id="ok_button" class="btn btn-danger">OK</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-                <br/>
-                 <!--<?php if(session('mensaje')): ?>
-                 <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <?php echo e(session('mensaje')); ?>
-
-                </div>
-                <?php endif; ?>
-                <?php if(session('mensaje_err')): ?>
-                <div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <?php echo e(session('mensaje_err')); ?>
-
-                </div>
-                <?php endif; ?>-->
-
                 <div class="row">
                     <div class="col-md-12">
                         <table id="financeFlowTable" class="display" style="width:100%">
@@ -568,22 +483,27 @@
                 dataType: "json",
                 success: function(data) 
                 {
-                    console.log(data);
+                    //console.log(data);
+                    
                     var html = '';
                     if(data.errors)
-                    {
+                    {   //console.log(data.errors)
                         html = '<div class="alert alert-danger">';
-                        for(var count = 0; count < data.errors.lenght; count++)
-                        {
+                        /*for(var count = 0; count < data.errors.lenght; count++)
+                        {   
                             html += '<p>' + data.errors[count] + '</p>';
-                        }
+                        }*/
+                        html += '<p>' + data.errors + '</p>';
                         html += '</div>';
+                        $('#e_div').text("");
                         $('#e_div').append(html);
-                        console.log(html);
+                        //console.log(html);
                     }
                     if (data.success) 
                     {
                         html = '<div class="alert alert-success">' + data.success + '</div>';
+                        $('#e_div').text("");
+                        $('#e_div').append(html);
                         $('#form_cash_flow')[0].reset(); //limpar todo valor del formulario
                         $('#cashFlowTable').DataTable().ajax.reload(); //refresh la tabla
                     }
@@ -621,15 +541,21 @@
                     if(data.errors)
                     {
                         html = '<div class="alert alert-danger">';
-                        for(var count = 0; count < data.errors.lenght; count++)
-                        {
+                        /*for(var count = 0; count < data.errors.lenght; count++)
+                        {   
                             html += '<p>' + data.errors[count] + '</p>';
-                        }
+                        }*/
+                        html += '<p>' + data.errors + '</p>';
                         html += '</div>';
+                        $('#ef_div').text("");
+                        $('#ef_div').append(html);
+                        //console.log(html);
                     }
                     if (data.success) 
                     {
                         html = '<div class="alert alert-success">' + data.success + '</div>';
+                        $('#ef_div').text("");
+                        $('#ef_div').append(html);
                         $('#form_finance_flow')[0].reset(); //limpar todo valor do formulario
                         $('#financeFlowTable').DataTable().ajax.reload(); //refresh la tabla
                     }
@@ -804,4 +730,5 @@
     });
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\reinke\resources\views/input_data_dashboard.blade.php ENDPATH**/ ?>
