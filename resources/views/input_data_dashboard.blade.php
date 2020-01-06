@@ -200,7 +200,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15" >
+                                            <input type="text" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}" required  min="10" minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15" >
                                         </div>
                                     </div>
                                 </div>
@@ -208,7 +208,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Inversion cultivo ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_investment" name="vl_investment" value="{{old('vl_investment') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_investment" name="vl_investment" value="{{old('vl_investment') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Energía ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_energy" name="vl_energy" value="{{old('vl_energy') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_energy" name="vl_energy" value="{{old('vl_energy') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -224,16 +224,15 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Mantenimiento ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_maintenance" name="vl_maintenance" value="{{old('vl_maintenance') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_maintenance" name="vl_maintenance" value="{{old('vl_maintenance') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Ingreso ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_entry" name="vl_entry" value="{{old('vl_entry') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_entry" name="vl_entry" value="{{old('vl_entry') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -241,7 +240,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Liquidación ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_liquidation" name="vl_liquidation" value="{{old('vl_liquidation') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_liquidation" name="vl_liquidation" value="{{old('vl_liquidation') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +248,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Flujo por período ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -257,7 +256,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Acumulado ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -355,7 +354,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
-                                    <input type="text" class="hide" id="client_id" name="client_id" readonly="readonly" value="@if($client ?? ''){{ $client->id }}@endif">
+                                    <input type="text" class="hide" id="client_id2" name="client_id2" readonly="readonly" value="@if($client ?? ''){{ $client->id }}@endif">
                                         <label for="inputPeriod" class="col-sm-3 col-form-label" >Período:</label>
                                         <div class="col-sm-9">
                                             <select id="periodF" class="form-control" name="periodF" required>
@@ -378,7 +377,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_irrigation_sysF" name="vl_irrigation_sysF" value="{{old('vl_irrigation_sysF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_irrigation_sysF" name="vl_irrigation_sysF" value="{{old('vl_irrigation_sysF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -386,7 +385,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Saldo insoluto ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_balanceF" name="vl_balanceF" value="{{old('vl_balanceF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_balanceF" name="vl_balanceF" value="{{old('vl_balanceF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -394,7 +393,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Interés sistema riego ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_crop_interestF" name="vl_crop_interestF" value="{{old('vl_crop_interestF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_crop_interestF" name="vl_crop_interestF" value="{{old('vl_crop_interestF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -402,7 +401,11 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Inversion cultivo ($):</label>
                                         <div class="col-sm-9">
+<<<<<<< HEAD
                                             <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="{{old('vl_investmentF') }}"> required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15"
+=======
+                                            <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="{{old('vl_investmentF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+>>>>>>> bdd92fa5f3659b956fbacccc918a63ca9af16c66
                                         </div>
                                     </div>
                                 </div>
@@ -410,7 +413,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Energía ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_energyF" name="vl_energyF" value="{{old('vl_energyF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_energyF" name="vl_energyF" value="{{old('vl_energyF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -418,7 +421,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Mantenimiento ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_maintenanceF" name="vl_maintenanceF" value="{{old('vl_maintenanceF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_maintenanceF" name="vl_maintenanceF" value="{{old('vl_maintenanceF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -427,7 +430,7 @@
                                     <div class="form-group row">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Ingreso ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_entryF" name="vl_entryF" value="{{old('vl_entryF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_entryF" name="vl_entryF" value="{{old('vl_entryF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -435,7 +438,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Liquidación ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_liquidationF" name="vl_liquidationF" value="{{old('vl_liquidationF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_liquidationF" name="vl_liquidationF" value="{{old('vl_liquidationF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -443,7 +446,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Flujo por período ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_period_flowF" name="vl_period_flowF" value="{{old('vl_period_flowF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_period_flowF" name="vl_period_flowF" value="{{old('vl_period_flowF') }}" required  min="10"required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -451,7 +454,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Acumulado ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_accumulatedF" name="vl_accumulatedF" value="{{old('vl_accumulatedF') }}" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_accumulatedF" name="vl_accumulatedF" value="{{old('vl_accumulatedF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
