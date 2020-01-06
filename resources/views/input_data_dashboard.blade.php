@@ -14,7 +14,6 @@
         @csrf
         @include('alerts.message_register_errors')
         {{--   Section one form generade dashborad   --}}
-<<<<<<< HEAD
             <div class="card">
                 <h5 class="card-header">
                    Datos Cliente
@@ -35,30 +34,8 @@
                                 <input type="text" class="form-control" id="inputClient" placeholder="Cliente" name="client" value="{{old('client') }}" required pattern="^[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,100}"
                                 title="Letras. Tamaño mínimo: 3. Tamaño máximo: 100">
                             </div>
-=======
-        <div class="card">
-            <h5 class="card-header">
-             Datos Cliente
-         </h5>
-         <div class="card-body">
-            @if (isset($mensaje))
-            <div class="alert alert-warning alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                {{ $mensaje ?? ''}}
-            </div>
-            @endif
-            <input type="hidden" value="{{ csrf_token() }}" id="token">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group row">
-                        <label for="inputCliente" class="col-sm-3 col-form-label">Cliente:</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputClient" placeholder="Cliente" name="client" value="{{old('client') }}" required pattern="[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,100}"
-                            minlength="3" maxlength="100" title="Letras. Tamaño mínimo: 3. Tamaño máximo: 100">
->>>>>>> 540dbb9e0e04f8979041e7b6c6be254633d8937f
                         </div>
                     </div>
-                </div>
                 <div class="col-md-6">
                     <div class="form-group row">
                         <label for="inputTon" class="col-sm-6 col-form-label">Producción estimada o (TonlHc):</label>
@@ -256,7 +233,6 @@
                             <th>Liquidación ($)</th>
                             <th>Flujo por periodo ($)</th>
                             <th>Acumulado ($)</th>
-                            <!--th>Acción</th--> <!-- Corregir tamaño para los botones -->
                         </tr>
                     </thead>
                     <tbody>
@@ -372,8 +348,6 @@
                 <table id="financeFlowTable" class="display" style="width:100%">
                     <thead>
                         <tr>
-                        <!--'period', 'vl_irrigation_sys', 'vl_balance', 'vl_crop_interest', 'vl_investment', 'vl_energy', 
-                            'vl_maintenance', 'vl_entry', 'vl_liquidation', 'vl_period_flow', 'vl_accumulated', 'client_id'];-->
                             <th>Periodo</th>
                             <th>Sistema de riego ($)</th>
                             <th>Saldo insoluto ($)</th>
@@ -413,8 +387,6 @@ $('#create_cash_flow').click(function(){
 
 $('#form_cash_flow').on('submit', function(){
     event.preventDefault();
-        //if($('#action').val() == 'Add')
-        //{
             $.ajax({
                 url: "{{ route('cashflows.store') }}",
                 method: "POST",
@@ -424,22 +396,15 @@ $('#form_cash_flow').on('submit', function(){
                 processData: false,
                 dataType: "json",
                 success: function(data) 
-                {
-                    //console.log(data);
-                    
+                {                    
                     var html = '';
                     if(data.errors)
-                    {   //console.log(data.errors)
+                    {   
                         html = '<div class="alert alert-danger">';
-                        /*for(var count = 0; count < data.errors.lenght; count++)
-                        {   
-                            html += '<p>' + data.errors[count] + '</p>';
-                        }*/
                         html += '<p>' + data.errors + '</p>';
                         html += '</div>';
                         $('#e_div').text("");
                         $('#e_div').append(html);
-                        //console.log(html);
                     }
                     if (data.success) 
                     {
@@ -452,7 +417,6 @@ $('#form_cash_flow').on('submit', function(){
                     $('#form_result').html(html); //display las mensajes
                 }
             });
-        //}
     });
 
     //Finance Flow
@@ -464,8 +428,6 @@ $('#form_cash_flow').on('submit', function(){
     });
     $('#form_finance_flow').on('submit', function(event){
         event.preventDefault();
-        //if($('#action').val() == 'Add')
-        //{
             $.ajax({
                 url: "{{ route('financeflows.store') }}",
                 method: "POST",
@@ -481,15 +443,10 @@ $('#form_cash_flow').on('submit', function(){
                     if(data.errors)
                     {
                         html = '<div class="alert alert-danger">';
-                        /*for(var count = 0; count < data.errors.lenght; count++)
-                        {   
-                            html += '<p>' + data.errors[count] + '</p>';
-                        }*/
                         html += '<p>' + data.errors + '</p>';
                         html += '</div>';
                         $('#ef_div').text("");
                         $('#ef_div').append(html);
-                        //console.log(html);
                     }
                     if (data.success) 
                     {
@@ -502,7 +459,6 @@ $('#form_cash_flow').on('submit', function(){
                     $('#form_result').html(html); //display las mensajes
                 }
             });
-        //}
     });
 </script>
 
@@ -558,12 +514,7 @@ $('#form_cash_flow').on('submit', function(){
                 {
                     data: 'vl_accumulated',
                     name: 'vl_accumulated'
-                }/* ,
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false
-                } */
+                }
                 ],
                 language: {
                     "decimal": "",
@@ -639,12 +590,7 @@ $('#form_cash_flow').on('submit', function(){
             {
                 data: 'vl_accumulated',
                 name: 'vl_accumulated'
-            }/* ,
-            {
-                data: 'action',
-                name: 'action',
-                orderable: false
-            } */
+            }
             ],
             language: {
                 "decimal": "",
