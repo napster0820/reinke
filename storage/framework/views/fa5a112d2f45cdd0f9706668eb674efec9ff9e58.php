@@ -185,7 +185,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="<?php echo e(old('vl_irrigation_sys')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15" >
+                                            <input type="text" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="<?php echo e(old('vl_irrigation_sys')); ?>" required  min="10" minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15" >
                                         </div>
                                     </div>
                                 </div>
@@ -213,7 +213,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Ingreso ($):</label>
@@ -311,7 +310,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
-                                    <input type="text" class="hide" id="client_id" name="client_id" readonly="readonly" value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
+                                    <input type="text" class="hide" id="client_id2" name="client_id2" readonly="readonly" value="<?php if($client ?? ''): ?><?php echo e($client->id); ?><?php endif; ?>">
                                         <label for="inputPeriod" class="col-sm-3 col-form-label" >Período:</label>
                                         <div class="col-sm-9">
                                             <select id="periodF" class="form-control" name="periodF" required>
