@@ -83,7 +83,7 @@ class FinanceFlowsController extends Controller
             'vl_liquidation'  => $request->vl_liquidationF,
             'vl_period_flow'  => $request->vl_period_flowF,
             'vl_accumulated' => $request->vl_accumulatedF,
-            'client_id'  =>$request->client_id
+            'client_id'  =>$request->client_id2
         );
 
         Finance_flow::create($form_data);

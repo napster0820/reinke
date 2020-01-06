@@ -31,8 +31,8 @@
                         <div class="form-group row">
                             <label for="inputCliente" class="col-sm-3 col-form-label">Cliente:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputClient" placeholder="Cliente" name="client" value="{{old('client') }}" required pattern="^[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]"
-                                title="Letras. Tamaño mínimo: 3. Tamaño máximo: 100">
+                                <input type="text" class="form-control" id="inputClient" placeholder="Cliente" name="client" value="{{old('client') }}" required pattern="[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,100}"
+                                minlength="3" maxlength="100" title="Letras. Tamaño mínimo: 3. Tamaño máximo: 100">
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                         <div class="form-group row">
                             <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputAddress" placeholder="Dirección" name="address" value="{{old('address') }}" minlength="1" maxlength="100" required  title="Letras. Tamaño mínimo: 1. Tamaño máximo: 100">
+                                <input type="text" class="form-control" id="inputAddress" placeholder="Dirección" name="address" value="{{old('address') }}" minlength="1" maxlength="100" required pattern="[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,100}" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 100">
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                         <div class="form-group row">
                             <label for="inputCultivo" class="col-sm-3 col-form-label">Cultivo:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputCulture" placeholder="Cultivo" name="culture" value="{{old('culture') }}" minlength="1" maxlength="45" required pattern="^(([а-яА-я]+\s[а-яА-я]+\s[а-яА-я]+)|([\w]+\s[\w]+\s[\w]+)|([\w]+\s[\w]+))" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 45">
+                                <input type="text" class="form-control" id="inputCulture" placeholder="Cultivo" name="culture" value="{{old('culture') }}" minlength="1" maxlength="45" required pattern="[/^\s/a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,100}"" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 45">
                             </div>
                         </div>
                     </div>
