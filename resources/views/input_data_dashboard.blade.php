@@ -203,11 +203,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputCashFlow" class="col-form-label">Flujo por período ($):</label>
-                                <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="{{old('vl_period_flow') }}" required  min="10" pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
                                 <label for="inputCashFlow" class="col-form-label">Acumulado ($):</label>
-                                <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="{{old('vl_accumulated') }}" required  min="10" pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="hidden_id" id="hidden_id" />
@@ -233,7 +233,7 @@
                             <th>Liquidación ($)</th>
                             <th>Flujo por periodo ($)</th>
                             <th>Acumulado ($)</th>
-                            <th>Acción</th> <!-- Corregir tamaño para los botones -->
+                            <!--th>Acción</th--> <!-- Corregir tamaño para los botones -->
                         </tr>
                     </thead>
                     <tbody>
@@ -267,7 +267,6 @@
                             @include('alerts.message_financeflows_errors')
                             <div id='ef_div'>
                                 <p id='erf_div'></p>
-                                <<<<<<< HEAD
                             </div>
                             <input type="hidden" class="hidden" id="client_id2" name="client_id2" readonly="readonly" value="@if($client ?? ''){{ $client->id }}@endif">             
                             <div class="form-group">
@@ -328,12 +327,12 @@
                             
                             <div class="form-group">
                                 <label for="inputFinanceFlow" class="col-form-label">Flujo por período ($):</label>
-                                <input type="number" class="form-control" id="vl_period_flowF" name="vl_period_flowF" value="{{old('vl_period_flowF') }}" required  min="10"required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                <input type="number" class="form-control" id="vl_period_flowF" name="vl_period_flowF" value="{{old('vl_period_flowF') }}" required pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             
                             <div class="form-group">
                                 <label for="inputFinanceFlow" class="col-form-label">Acumulado ($):</label>
-                                <input type="number" class="form-control" id="vl_accumulatedF" name="vl_accumulatedF" value="{{old('vl_accumulatedF') }}" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                <input type="number" class="form-control" id="vl_accumulatedF" name="vl_accumulatedF" value="{{old('vl_accumulatedF') }}" required pattern="^-?\d{1,9}(\.\d{1,2})?$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="hidden_id2" id="hidden_id2" />
@@ -363,7 +362,7 @@
                             <th>Liquidación ($)</th>
                             <th>Flujo por periodo ($)</th>
                             <th>Acumulado ($)</th>
-                            <th>Acción</th> <!-- Corregir tamaño para los botones -->
+                            <!--th>Acción</th--> <!-- Corregir tamaño para los botones -->
                         </tr>
                     </thead>
                     <tbody>
@@ -388,7 +387,6 @@ $('#create_cash_flow').click(function(){
     $('#action_button').val("Add");
     $('#action').val("Add");
     $('#formModal').modal();
-    alert("entró modal");
 });
 
 $('#form_cash_flow').on('submit', function(){
@@ -437,13 +435,11 @@ $('#form_cash_flow').on('submit', function(){
 
     //Finance Flow
     $('#create_finance_flow').click(function(){
-//      alert("entró modal");
-$('.modal-title').text("Añadir nuevo periodo");
-$('#action_button').val("Add");
-$('#action').val("Add");
-$('#formModalF').modal();
-alert("entró modal F");
-});
+        $('.modal-title').text("Añadir nuevo periodo");
+        $('#action_button').val("Add");
+        $('#action').val("Add");
+        $('#formModalF').modal();
+    });
     $('#form_finance_flow').on('submit', function(event){
         event.preventDefault();
         //if($('#action').val() == 'Add')
@@ -540,12 +536,12 @@ alert("entró modal F");
                 {
                     data: 'vl_accumulated',
                     name: 'vl_accumulated'
-                },
+                }/* ,
                 {
                     data: 'action',
                     name: 'action',
                     orderable: false
-                }
+                } */
                 ],
                 language: {
                     "decimal": "",
@@ -621,12 +617,12 @@ alert("entró modal F");
             {
                 data: 'vl_accumulated',
                 name: 'vl_accumulated'
-            },
+            }/* ,
             {
                 data: 'action',
                 name: 'action',
                 orderable: false
-            }
+            } */
             ],
             language: {
                 "decimal": "",
