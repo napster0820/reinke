@@ -45,7 +45,7 @@ class DatosController extends Controller
         $id_cliente = $client->id;
 
         if ($retorno) {
-            $mensaje = 'Cliente guardado con exito. Continue agregando los flujos contado y financiado.';
+            $mensaje = 'Cliente guardado con éxito. Continúe agregando los flujos contado y financiado.';
         } else {
             $mensaje = 'Problemas al guardar cliente. Repita la operación.';
         };
