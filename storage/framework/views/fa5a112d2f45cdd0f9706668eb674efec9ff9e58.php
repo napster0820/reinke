@@ -57,7 +57,7 @@
                         <div class="form-group row">
                             <label for="inputCultivo" class="col-sm-3 col-form-label">Cultivo:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputCulture" placeholder="Cultivo" name="culture" value="<?php echo e(old('culture')); ?>" minlength="1" maxlength="45" required pattern="^([а-яА-я]+\s[а-яА-я]+\s[а-яА-я]+)|([\w]+\s[\w]+\s[\w]+)|([\w]+\s[\w]+)" title="Letras. Tamaño mínimo: 1. Tamaño máximo: 45">
+                                <input type="text" class="form-control" id="inputCulture" placeholder="Cultivo" name="culture" value="<?php echo e(old('culture')); ?>" minlength="1" maxlength="45" required  title="Letras. Tamaño mínimo: 1. Tamaño máximo: 45">
                             </div>
                         </div>
                     </div>
@@ -155,7 +155,23 @@
                         <span id="form-result"></span>
                         <form method="post" id="form_cash_flow" enctype="multipart/form-data" class="form-horizontal">
                         <?php echo csrf_field(); ?> 
-                        <?php echo $__env->make('alerts.message_cashflow_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>    
+                        <?php echo $__env->make('alerts.message_cashflow_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+                        <!--<?php if(session('mensaje')): ?>
+                            <div class="alert alert-success alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <?php echo e(session('mensaje')); ?>
+
+                                    
+                            </div>
+                        <?php endif; ?>
+                        <?php if(session('mensaje_err')): ?>
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <?php echo e(session('mensaje_err')); ?>
+
+                            </div>
+                        <?php endif; ?> 
+                        -->    
                             <div id='e_div'>
                                 <p id='er_div'></p>
                             </div>     
@@ -193,7 +209,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Inversion cultivo ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_investment" name="vl_investment" value="<?php echo e(old('vl_investment')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_investment" name="vl_investment" value="<?php echo e(old('vl_investment')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -201,7 +217,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Energía ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_energy" name="vl_energy" value="<?php echo e(old('vl_energy')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_energy" name="vl_energy" value="<?php echo e(old('vl_energy')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -209,7 +225,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Mantenimiento ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_maintenance" name="vl_maintenance" value="<?php echo e(old('vl_maintenance')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_maintenance" name="vl_maintenance" value="<?php echo e(old('vl_maintenance')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -218,7 +234,7 @@
                                     <div class="form-group row">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Ingreso ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_entry" name="vl_entry" value="<?php echo e(old('vl_entry')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_entry" name="vl_entry" value="<?php echo e(old('vl_entry')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -226,7 +242,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Liquidación ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_liquidation" name="vl_liquidation" value="<?php echo e(old('vl_liquidation')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_liquidation" name="vl_liquidation" value="<?php echo e(old('vl_liquidation')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -234,7 +250,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Flujo por período ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="<?php echo e(old('vl_period_flow')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_period_flow" name="vl_period_flow" value="<?php echo e(old('vl_period_flow')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -242,7 +258,7 @@
                                     <div class="form-group">
                                         <label for="inputCashFlow" class="col-sm-3 col-form-label">Acumulado ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="<?php echo e(old('vl_accumulated')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_accumulated" name="vl_accumulated" value="<?php echo e(old('vl_accumulated')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -257,6 +273,40 @@
                 </div>
             </div>
         </div>
+                <br/>
+        <!--<div id="confirmModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h2 class="modal-title">Confirmation</h2>
+                    </div>
+                    <div class="modal-body">
+                        <h4 align="center" style="margin:0;">Are you sure you want to remove this data?</h4>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" name="ok_button" id="ok_button" class="btn btn-danger">OK</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+                <br/>
+                <!-- <?php if(session('mensaje')): ?>
+                 <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo e(session('mensaje')); ?>
+
+                </div>
+                <?php endif; ?>
+                <?php if(session('mensaje_err')): ?>
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo e(session('mensaje_err')); ?>
+
+                </div>
+                <?php endif; ?>-->
+
                 <div class="row">
                     <div class="col-md-12">
                         <table id="cashFlowTable" class="display" style="width:100%">
@@ -304,10 +354,7 @@
                         <span id="form-result"></span>
                         <form method="post" id="form_finance_flow" enctype="multipart/form-data" class="form-horizontal">
                         <?php echo csrf_field(); ?>  
-                        <?php echo $__env->make('alerts.message_financeflows_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                        <div id='ef_div'>
-                            <p id='erf_div'></p>
-                        </div>             
+                        <?php echo $__env->make('alerts.message_financeflows_errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>            
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
@@ -334,7 +381,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Sistema de riego ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_irrigation_sysF" name="vl_irrigation_sysF" value="<?php echo e(old('vl_irrigation_sysF')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_irrigation_sysF" name="vl_irrigation_sysF" value="<?php echo e(old('vl_irrigation_sysF')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -342,7 +389,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Saldo insoluto ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_balanceF" name="vl_balanceF" value="<?php echo e(old('vl_balanceF')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_balanceF" name="vl_balanceF" value="<?php echo e(old('vl_balanceF')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -350,7 +397,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Interés sistema riego ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_crop_interestF" name="vl_crop_interestF" value="<?php echo e(old('vl_crop_interestF')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_crop_interestF" name="vl_crop_interestF" value="<?php echo e(old('vl_crop_interestF')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -358,7 +405,11 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Inversion cultivo ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="<?php echo e(old('vl_investmentF')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+<<<<<<< HEAD
+                                            <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="<?php echo e(old('vl_investmentF')); ?>"> required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15"
+=======
+                                            <input type="number" class="form-control" id="vl_investmentF" name="vl_investmentF" value="<?php echo e(old('vl_investmentF')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+>>>>>>> bdd92fa5f3659b956fbacccc918a63ca9af16c66
                                         </div>
                                     </div>
                                 </div>
@@ -366,7 +417,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Energía ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_energyF" name="vl_energyF" value="<?php echo e(old('vl_energyF')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_energyF" name="vl_energyF" value="<?php echo e(old('vl_energyF')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -374,7 +425,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Mantenimiento ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_maintenanceF" name="vl_maintenanceF" value="<?php echo e(old('vl_maintenanceF')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_maintenanceF" name="vl_maintenanceF" value="<?php echo e(old('vl_maintenanceF')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -383,7 +434,7 @@
                                     <div class="form-group row">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Ingreso ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_entryF" name="vl_entryF" value="<?php echo e(old('vl_entryF')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_entryF" name="vl_entryF" value="<?php echo e(old('vl_entryF')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -391,7 +442,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Liquidación ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_liquidationF" name="vl_liquidationF" value="<?php echo e(old('vl_liquidationF')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_liquidationF" name="vl_liquidationF" value="<?php echo e(old('vl_liquidationF')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -399,7 +450,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Flujo por período ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_period_flowF" name="vl_period_flowF" value="<?php echo e(old('vl_period_flowF')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_period_flowF" name="vl_period_flowF" value="<?php echo e(old('vl_period_flowF')); ?>" required  min="10"required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -407,7 +458,7 @@
                                     <div class="form-group">
                                         <label for="inputFinanceFlow" class="col-sm-3 col-form-label">Acumulado ($):</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="vl_accumulatedF" name="vl_accumulatedF" value="<?php echo e(old('vl_accumulatedF')); ?>" required pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
+                                            <input type="number" class="form-control" id="vl_accumulatedF" name="vl_accumulatedF" value="<?php echo e(old('vl_accumulatedF')); ?>" required  min="10" pattern="^(\d|-)?(\d|,)*\.?\d*$"  minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15">
                                         </div>
                                     </div>
                                 </div>
@@ -422,6 +473,39 @@
                 </div>
             </div>
         </div>
+        <!--<div id="confirmModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h2 class="modal-title">Confirmation</h2>
+                    </div>
+                    <div class="modal-body">
+                        <h4 align="center" style="margin:0;">Are you sure you want to remove this data?</h4>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" name="ok_button" id="ok_button" class="btn btn-danger">OK</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+                <br/>
+                 <!--<?php if(session('mensaje')): ?>
+                 <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo e(session('mensaje')); ?>
+
+                </div>
+                <?php endif; ?>
+                <?php if(session('mensaje_err')): ?>
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo e(session('mensaje_err')); ?>
+
+                </div>
+                <?php endif; ?>-->
+
                 <div class="row">
                     <div class="col-md-12">
                         <table id="financeFlowTable" class="display" style="width:100%">
@@ -484,27 +568,22 @@
                 dataType: "json",
                 success: function(data) 
                 {
-                    //console.log(data);
-                    
+                    console.log(data);
                     var html = '';
                     if(data.errors)
-                    {   //console.log(data.errors)
+                    {
                         html = '<div class="alert alert-danger">';
-                        /*for(var count = 0; count < data.errors.lenght; count++)
-                        {   
+                        for(var count = 0; count < data.errors.lenght; count++)
+                        {
                             html += '<p>' + data.errors[count] + '</p>';
-                        }*/
-                        html += '<p>' + data.errors + '</p>';
+                        }
                         html += '</div>';
-                        $('#e_div').text("");
                         $('#e_div').append(html);
-                        //console.log(html);
+                        console.log(html);
                     }
                     if (data.success) 
                     {
                         html = '<div class="alert alert-success">' + data.success + '</div>';
-                        $('#e_div').text("");
-                        $('#e_div').append(html);
                         $('#form_cash_flow')[0].reset(); //limpar todo valor del formulario
                         $('#cashFlowTable').DataTable().ajax.reload(); //refresh la tabla
                     }
@@ -542,21 +621,15 @@
                     if(data.errors)
                     {
                         html = '<div class="alert alert-danger">';
-                        /*for(var count = 0; count < data.errors.lenght; count++)
-                        {   
+                        for(var count = 0; count < data.errors.lenght; count++)
+                        {
                             html += '<p>' + data.errors[count] + '</p>';
-                        }*/
-                        html += '<p>' + data.errors + '</p>';
+                        }
                         html += '</div>';
-                        $('#ef_div').text("");
-                        $('#ef_div').append(html);
-                        //console.log(html);
                     }
                     if (data.success) 
                     {
                         html = '<div class="alert alert-success">' + data.success + '</div>';
-                        $('#ef_div').text("");
-                        $('#ef_div').append(html);
                         $('#form_finance_flow')[0].reset(); //limpar todo valor do formulario
                         $('#financeFlowTable').DataTable().ajax.reload(); //refresh la tabla
                     }
