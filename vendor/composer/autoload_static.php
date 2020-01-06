@@ -425,6 +425,7 @@ class ComposerStaticInit263a9e67fd90f2af793e4e3c636df607
         'App\\Http\\Controllers\\CrudController' => __DIR__ . '/../..' . '/app/Http/Controllers/CrudController.php',
         'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
         'App\\Http\\Controllers\\DatosController' => __DIR__ . '/../..' . '/app/Http/Controllers/DatosController.php',
+        'App\\Http\\Controllers\\FinanceFlowsController' => __DIR__ . '/../..' . '/app/Http/Controllers/FinanceFlowsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
