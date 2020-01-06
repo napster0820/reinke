@@ -447,8 +447,6 @@
                 </div>
             </div>
         </div>
-
-
         <!--<div id="confirmModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -510,13 +508,8 @@
                     </div>
                 </div>
             </div>
-
-</div>  
-<div>
-</div>
-
-</div>
-</div>
+        </div>  
+    <div>
 </div>
 </body>
 </html>

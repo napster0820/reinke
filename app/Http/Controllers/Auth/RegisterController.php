@@ -43,23 +43,13 @@ class RegisterController extends Controller
         return view('register');
     }
 
-    protected function validator(Request $request)
-    {
-        return $validadtedData = $request->validate([
-            'name' => ['required', 'string', 'max:100'],
-            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
-            'password' => ['required', new ContrasenaFuerte],
-            'password_confirmation' => ['required','string', 'min:8', 'same:password'],
-        ]);
-    }
-
     protected function create(Request $request)
     {
         $validadtedData = $request->validate([
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
-            'password' => ['required', new ContrasenaFuerte],
-            'password_confirmation' => ['required','string', 'same:password'],
+            'password' => ['required', new ContrasenaFuerte,'max:255'],
+            'password_confirmation' => ['required', 'same:password','max:255'],
         ]);
 
         $user = new User;
