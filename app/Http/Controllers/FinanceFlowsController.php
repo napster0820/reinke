@@ -50,18 +50,18 @@ class FinanceFlowsController extends Controller
     public function store(Request $request)
     {
         $rules = array(
-            'periodF' => ['required', 'numeric', 'digits_between:1,10'],
-            'vl_irrigation_sysF' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_balanceF'    => ['required', 'numeric', 'digits_between:2,15'], 
-            'vl_crop_interestF'  => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_investmentF' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_energyF' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_maintenanceF' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_entryF' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_liquidationF' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_period_flowF' => ['required', 'numeric'],
-            'vl_accumulatedF' => ['required', 'numeric'],
-            'id_clientF' => ['required']
+            'periodF' => ['required', 'numeric', 'digits_between:1,10', 'regex:/[0-9]/', 'in:1,2,3,4,5,6,7,8,9,10'],
+            'vl_irrigation_sysF' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_balanceF'    => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'], 
+            'vl_crop_interestF'  => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_investmentF' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_energyF' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_maintenanceF' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_entryF' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_liquidationF' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_period_flowF' => ['required', 'numeric','max:15','regex:/-?\d[0-9]/'],
+            'vl_accumulatedF' => ['required', 'numeric','max:15','regex:/-?\d[0-9]/'],
+            'client_id2' => ['required']
         );
 
         $error = Validator::make($request->all(), $rules);

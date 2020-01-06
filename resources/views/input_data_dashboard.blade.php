@@ -179,7 +179,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputCashFlow" class="col-form-label">Sistema de riego ($):</label>
-                                <input type="text" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}" required  min="10" minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15" >
+                                <input type="number" class="form-control" id="vl_irrigation_sys" name="vl_irrigation_sys" value="{{old('vl_irrigation_sys') }}" required  min="10" minlength="2" maxlength="15" title="Números. Tamaño mínimo: 2. Tamaño máximo: 15" >
                             </div>
                             <div class="form-group">
                                 <label for="inputCashFlow" class="col-form-label">Inversion cultivo ($):</label>

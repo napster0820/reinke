@@ -54,15 +54,15 @@ class CashFlowsController extends Controller
     public function store(Request $request)
     {
         $rules = array(
-            'period' => ['required', 'numeric', 'digits_between:1,10'],
-            'vl_irrigation_sys' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_investment' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_energy' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_maintenance' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_entry' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_liquidation' => ['required', 'numeric', 'digits_between:2,15'],
-            'vl_period_flow' => ['required', 'numeric'],
-            'vl_accumulated' => ['required', 'numeric'],
+            'period' => ['required', 'numeric', 'digits_between:1,10', 'regex:/[0-9]/', 'in:1,2,3,4,5,6,7,8,9,10'],
+            'vl_irrigation_sys' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_investment' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_energy' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_maintenance' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_entry' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_liquidation' => ['required', 'numeric', 'digits_between:2,15','regex:/[0-9]/'],
+            'vl_period_flow' => ['required', 'numeric','max:15','regex:/-?\d[0-9]/'],
+            'vl_accumulated' => ['required', 'numeric','max:15','regex:/-?\d[0-9]/'],
             'client_id' => ['required'] 
         );
 
@@ -73,32 +73,30 @@ class CashFlowsController extends Controller
             return response()->json(['errors' => $error->errors()->all()]);
         }
 
-        $arreglo_period = array("1","2","3","4","5","6","7","8","9","10");
+        /*$arreglo_period = array("1","2","3","4","5","6","7","8","9","10");
         if($request->period == '' || $request->period == null || !in_array($request->period, $arreglo_period)){
             
             return response()->json(['errors' => 'No puede agregarse el valor']);
         
-        }else{
-                $form_data = array(
-                    'period' => $request->period,
-                    'vl_irrigation_sys' => $request->vl_irrigation_sys,
-                    'vl_investment'   => $request->vl_investment,
-                    'vl_energy'   => $request->vl_energy,
-                    'vl_maintenance'  => $request->vl_maintenance,
-                    'vl_entry'    => $request->vl_entry,
-                    'vl_liquidation'  => $request->vl_liquidation,
-                    'vl_period_flow'  => $request->vl_period_flow,
-                    'vl_accumulated' => $request->vl_accumulated,
-                    'client_id'  =>$request->client_id
-                );
+        }else{*/
+        $form_data = array(
+            'period' => $request->period,
+            'vl_irrigation_sys' => $request->vl_irrigation_sys,
+            'vl_investment'   => $request->vl_investment,
+            'vl_energy'   => $request->vl_energy,
+            'vl_maintenance'  => $request->vl_maintenance,
+            'vl_entry'    => $request->vl_entry,
+            'vl_liquidation'  => $request->vl_liquidation,
+            'vl_period_flow'  => $request->vl_period_flow,
+            'vl_accumulated' => $request->vl_accumulated,
+            'client_id'  =>$request->client_id
+            );
 
-                Cash_flow::create($form_data);
+            Cash_flow::create($form_data);
 
-                return response()->json(['success' => 'Periodo registrado correctamente.']);
+            return response()->json(['success' => 'Periodo registrado correctamente.']);
         }
-        
-        
-    }
+    
 
     /**
      * Display the specified resource.
