@@ -42,7 +42,7 @@ Route::group(['middleware' => ['web']], function(){
         Route::delete('datos/delete/{id}', 'DashboardController@delete')->name('datos.delete')->where('id', '[0-9]+');
 
         Route::get('dashboard/{id}', 'DashboardController@index')->where('id', '[0-9]+');
-        Route::get('chart/{id}', 'DashboardController@chartData')->where('id', '[0-9]+');
+        Route::get('chart/{id}/{selectedFlow}', 'DashboardController@chartData')->where('id', '[0-9]+');
         Route::get('expenses/{id}', 'DashboardController@expensesChart')->where('id', '[0-9]+');
 
         Route::get('historial', 'DashboardController@buscar_historial')->name('historial');
