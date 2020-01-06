@@ -37,13 +37,13 @@ Route::group(['middleware' => ['web']], function(){
         Auth::routes();
         
         //metodos distintos pueden tener la misma ruta
-        Route::get('datos/editar/{id}', 'DashboardController@editar')->name('datos.editar')->where('id', '[0-9]+');
-        Route::put('datos/editar/{id}', 'DashboardController@update')->name('datos.update')->where('id', '[0-9]+');
-        Route::delete('datos/delete/{id}', 'DashboardController@delete')->name('datos.delete')->where('id', '[0-9]+');
+        Route::get('datos/editar/{id}', 'DashboardController@editar')->name('datos.editar');
+        Route::put('datos/editar/{id}', 'DashboardController@update')->name('datos.update');
+        Route::delete('datos/delete/{id}', 'DashboardController@delete')->name('datos.delete');
 
-        Route::get('dashboard/{id}', 'DashboardController@index')->where('id', '[0-9]+');
-        Route::get('chart/{id}', 'DashboardController@chartData')->where('id', '[0-9]+');;
-        Route::get('expenses/{id}', 'DashboardController@expensesChart')->where('id', '[0-9]+');
+        Route::get('dashboard/{id}', 'DashboardController@index');
+        Route::get('chart/{id}', 'DashboardController@chartData');
+        Route::get('expenses/{id}', 'DashboardController@expensesChart');
 
         Route::get('historial', 'DashboardController@buscar_historial')->name('historial');
 
